@@ -195,3 +195,29 @@ techs.forEach(tech => {
     }, 180);
   });
 });
+
+//MENU SUPERIOR PILL BAR -> FUNÇÕES PARA TROCA DE ATIVO
+
+
+// aqui uso o DOM para pegar os links da navbar e as seções do main
+const navLinks = document.querySelectorAll('.nav-pill a');
+const sections = document.querySelectorAll('main section');
+//função para resetar a classe ativo de todos os links usando o DOM também
+function resetNav() {
+  navLinks.forEach(link => link.classList.remove('ativo'));
+}
+
+const observer = new IntersectionObserver(entries => {//usei intersectionObserver pois ele consegue detectar a seção que está na tela
+  entries.forEach(entry => {//o observer retorna entries, que são as seções observadas então para cada seção eu verifico se ela está visível
+    const id = entry.target.id;//pego o id da seção visível
+    const navLink = document.querySelector(`.nav-pill a[href="#${id}"]`);//e com o id eu seleciono o link correspondente na navbar
+
+    if (entry.isIntersecting) {//se a seção está visível eu removo a classe ativo de todos os links e adiciono ao link correspondente
+      resetNav();
+      navLink.classList.add('ativo');
+    }
+  });
+}, { threshold: 0.5 });// o threshold define o quão visível a seção precisa estar para ser considerada "intersecting" então se estiver metade já considera
+
+sections.forEach(section => observer.observe(section));//observo todas as seções para o observer monitorar quando elas entram na tela
+
