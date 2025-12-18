@@ -378,3 +378,58 @@ section > * {
   color: var(--muted);
   line-height: 1.6;
 }
+
+/* PROJETOS */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.project-card {
+  padding: 25px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  text-align: center;
+}
+
+.project-card img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border);
+}
+
+.project-botoes {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.project-botoes a {
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.project-botoes a.btn-primary {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.project-botoes a.btn-outline {
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: transparent;
+}
+
+.project-botoes a:hover {
+  filter: brightness(1.05);
+}
