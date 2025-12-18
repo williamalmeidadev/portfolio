@@ -1,5 +1,8 @@
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
+
+const COR_METEORO = "180, 80, 255"; //cor em rgb dos meteoros que defini como roxo pra seguir o padrão de design
+
 const LARGURA_BASE = 1200;//largura base para calcular o fator de escala das partículas e meteoros -> dependendo do tamanho da tela, eu quero que tenha mais ou menos partículas e meteoros
 
 const particulas = [];//array para armazenar as partículas
@@ -119,3 +122,50 @@ function loop() {
 
 criarParticulas();//chamei ela fora pois é uma "constante", ela não precisa se recriar toda hora
 loop();
+
+// MINI GALERIA DE IMAGENS -> FUNÇÕES DA TROCA 
+
+
+//elementos DOM que vou usar
+const imagemPrincipal = document.getElementById("imagemPrincipal");
+const descricaoImagem = document.getElementById("descricaoImagem");
+const thumbs = document.querySelectorAll(".galeria-stack img");
+const btnPremiacao = document.getElementById("btnPremiacao");
+
+//como cada thumbnail pode ou não ter um link de premiação, criei uma função para atualizar o botão de premiação
+function atualizarBotaoPremiacao(thumb) {
+    if (thumb.dataset.link) {//verifico se o dataset link existe
+        btnPremiacao.style.display = "inline-block";//se existir, deixo o botão visível
+        btnPremiacao.href = thumb.dataset.link;//e atualizo o href do botão com o link do dataset
+    } else {
+        btnPremiacao.style.display = "none";//se não existir, escondo o botão
+    }
+}
+
+//eu estava com um problema onde, ao carregar a página, o texto da descrição não aparecia se a primeira imagem já estivesse ativa, então adicionei esse trecho para corrigir isso
+const thumbAtivaInicial = document.querySelector(".galeria-stack img.ativo");//pego a thumbnail que já está ativa no carregamento da página
+if (thumbAtivaInicial) {//verifico se existe uma thumbnail ativa
+    descricaoImagem.firstChild.textContent = thumbAtivaInicial.dataset.descricao;//atualizo o texto da descrição com o dataset da thumbnail ativa
+    atualizarBotaoPremiacao(thumbAtivaInicial);//e atualizo o botão de premiação com o dataset da thumbnail ativa
+}
+
+thumbs.forEach(thumb => {//para cada thumbnail eu adiciono um evento de clique(mesma lógica de sempre, pego todos então tem um array de elementos)
+    thumb.addEventListener("click", () => {
+        if (thumb.classList.contains("ativo")) return;//se a thumbnail já estiver ativa, não faço nada
+
+        thumbs.forEach(t => t.classList.remove("ativo"));//removo a classe ativo de todas as thumbnails, usei arrow function para ficar pouco código
+        thumb.classList.add("ativo");//adiciono a classe ativo na thumbnail clicada
+
+        imagemPrincipal.style.opacity = 0;//animação de fade out
+        descricaoImagem.style.opacity = 0;//animação de fade out
+
+        setTimeout(() => {//depois de 180ms eu troco a imagem e a descrição para as da thumbnail clicada
+            imagemPrincipal.src = thumb.src;//atualizo o src da imagem principal com o src da thumbnail clicada
+            descricaoImagem.firstChild.textContent = thumb.dataset.descricao;//atualizo o texto da descrição com o dataset da thumbnail clicada
+            atualizarBotaoPremiacao(thumb);//atualizo o botão de premiação com o dataset da thumbnail clicada
+            imagemPrincipal.style.opacity = 1;//animação de fade in
+            descricaoImagem.style.opacity = 1;//animação de fade in
+        }, 180);
+    });
+});
+
