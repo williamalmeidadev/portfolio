@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>William Almeida | Portfólio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <canvas id="bg"></canvas>
+
+  <header>
+    <nav class="nav-pill">
+      <a href="#inicio">Início</a>
+    </nav>
+  </header>
+
+  <main>
     <section id="inicio" class="hero">
-        <h1>Bem-vindo ao meu Portfólio</h1>
+      <div class="hero-content">
+        <div class="hero-foto">
+          <img src="assets/foto.jpeg" alt="Foto de William Almeida">
+        </div>
+        <div class="hero-texto">
+          <span class="eyebrow">Desenvolvedor Full Stack</span>
+          <h1>William Almeida</h1>
+          <p>Construo interfaces modernas, sistemas eficientes e soluções reais usando tecnologia de forma prática e objetiva.</p>
+          <div class="hero-botoes">
+            <a href="#projetos" class="btn-primary">Ver projetos</a>
+            <a href="#sobre" class="btn-outline">Minha trajetória</a>
+          </div>
+        </div>
+      </div>
     </section>
-    <script src="script.js"></script>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
