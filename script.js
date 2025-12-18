@@ -169,3 +169,29 @@ thumbs.forEach(thumb => {//para cada thumbnail eu adiciono um evento de clique(m
     });
 });
 
+
+// TECNOLOGIAS -> FUNÇÕES PARA TROCA DE ATIVO E CONTEÚDO DA MESMA(eu usei uma lógica semelhante à da galeria, mas sem imagens)
+
+
+//aqui comecei pegando todos os elementos DOM necessários
+const techTitulo = document.getElementById("techTitulo");
+const techTexto = document.getElementById("techTexto");
+const techs = document.querySelectorAll(".tech-stack .skill");
+
+//como usei um querySelectorAll, techs vai ser uma lista de todos, então uso um for each para adcionar o evento de clique em cada um
+techs.forEach(tech => {
+  tech.addEventListener("click", () => {
+    if (tech.classList.contains("ativo")) return;//se o elemento já tiver ativo, não faz nada
+
+    techs.forEach(t => t.classList.remove("ativo"));//remove a classe ativo de todos os elementos(só se passar do if ali em cima)
+    tech.classList.add("ativo");//adiciona a classe ativo ao elemento clicado
+
+    techTexto.style.opacity = 0;//aqui eu deixo o texto invisível
+
+    setTimeout(() => {//depois de 180ms eu troco o conteúdo do título e do texto para o do elemento clicado e deixo o texto visível de novo
+      techTitulo.textContent = tech.dataset.titulo;//uso dataset para pegar os dados personalizados que adicionei no HTML
+      techTexto.textContent = tech.dataset.texto;//mesma coisa aqui
+      techTexto.style.opacity = 1;//deixo o texto visível de novo
+    }, 180);
+  });
+});

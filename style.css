@@ -323,3 +323,58 @@ section > * {
   color: var(--muted);
   line-height: 1.6;
 }
+
+
+/* TECNOLOGIAS QUE EU TO USANDO */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+}
+
+.skill {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.25s ease, transform 0.25s ease, outline 0.25s ease;
+}
+
+.skill:hover,
+.skill.ativo {
+  opacity: 1;
+}
+
+.skill.ativo {
+  outline: 2px solid var(--text);
+}
+
+.skill img {
+  width: 90px;
+  display: block;
+  margin: 0 auto;
+}
+
+.tech-focus {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.tech-descricao {
+  max-width: 480px;
+}
+
+.tech-descricao h3 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.tech-descricao p {
+  color: var(--muted);
+  line-height: 1.6;
+}
