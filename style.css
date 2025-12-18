@@ -462,3 +462,10 @@ section > * {
   transform: translateY(-6px);
   background: rgba(180, 80, 255, 0.1);
 }
+
+/*tipografia das seções corrigido aq*/
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
