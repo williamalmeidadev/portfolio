@@ -518,3 +518,148 @@ h2 {
 .contato-btn:hover svg {
   transform: scale(1.15);
 }
+
+/* RESPONSIVIDADE */
+
+/* 4K (3840px e acima) */
+@media (min-width: 3840px) {
+  section > * {
+    max-width: 2200px;
+  }
+
+  .hero-content {
+    gap: 120px;
+    grid-template-columns: 400px 1fr;
+  }
+
+  .hero-foto img {
+    width: 400px;
+    height: 400px;
+  }
+
+  .galeria-principal img {
+    height: 600px;
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+}
+
+/* 2K (2560px até 3839px) */
+@media (min-width: 2560px) and (max-width: 3839px) {
+  section > * {
+    max-width: 1800px;
+  }
+
+  .hero-content {
+    gap: 100px;
+    grid-template-columns: 350px 1fr;
+  }
+
+  .hero-foto img {
+    width: 350px;
+    height: 350px;
+  }
+
+  .galeria-principal img {
+    height: 500px;
+  }
+
+  h2 {
+    font-size: 3.2rem;
+  }
+}
+
+/* FullHD (1920px até 2559px) */
+@media (min-width: 1920px) and (max-width: 2559px) {
+  section > * {
+    max-width: 1400px;
+  }
+
+  .hero-content {
+    gap: 80px;
+    grid-template-columns: 300px 1fr;
+  }
+
+  .hero-foto img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .galeria-principal img {
+    height: 420px;
+  }
+
+  h2 {
+    font-size: 2.6rem;
+  }
+}
+
+/* HD (1280px até 1919px) */
+@media (min-width: 1280px) and (max-width: 1919px) {
+  section > * {
+    max-width: 1100px;
+  }
+
+  .hero-content {
+    gap: 60px;
+    grid-template-columns: 260px 1fr;
+  }
+
+  .hero-foto img {
+    width: 260px;
+    height: 260px;
+  }
+
+  .galeria-principal img {
+    height: 360px;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+  }
+}
+
+/* SD / Tablets / Mobile (1279px e abaixo) */
+@media (max-width: 1279px) {
+  html {
+    scroll-snap-type: none;
+  }
+
+  .hero-content,
+  .sobre-content,
+  .tech-focus {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-foto img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-botoes {
+    justify-content: center;
+  }
+
+  .sobre-galeria-focus {
+    grid-template-columns: 1fr;
+  }
+
+  .galeria-principal img {
+    height: 260px;
+  }
+
+  .galeria-stack {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+
