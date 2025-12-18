@@ -157,3 +157,114 @@ section > * {
   background: rgba(255, 255, 255, 0.05);
 }
 
+/* NOVA SEÇÃO DO SOBRE MIM */
+
+/* BOTÕES PARA LEVAR PRA NOTICIA/LINK NO GERAL*/
+.btn-primary,
+#btnPremiacao {
+  display: inline-block;
+  background: var(--text);
+  color: var(--bg);
+  padding: 14px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  transition: 0.25s ease;
+}
+
+#btnPremiacao {
+  margin: 10px auto 0 auto;
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+}
+
+.btn-primary:hover,
+#btnPremiacao:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* SECTION SOBRE NO GERAL */
+#sobre {
+  justify-content: center;
+}
+
+.sobre-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.sobre-texto {
+  max-width: 520px;
+}
+
+.sobre-texto p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* GALERIA DA SEÇÃO SOBRE MIM */
+
+/* GALERIA STACKED FOCUS */
+.sobre-galeria-focus {
+  display: grid;
+  grid-template-columns: 1fr 80px;
+  gap: 20px;
+}
+
+.galeria-principal {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.galeria-principal img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.25s ease, transform 0.6s ease;
+}
+
+.galeria-principal:hover img {
+  transform: scale(1.05);
+}
+
+.descricao-imagem {
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.5;
+  background: rgba(0, 0, 0, 0.6);
+  border-top: 1px solid var(--border);
+}
+
+.galeria-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.galeria-stack img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 1px solid var(--border);
+  transition: opacity 0.25s ease, transform 0.25s ease, outline 0.25s ease;
+}
+
+.galeria-stack img:hover,
+.galeria-stack img.ativo {
+  opacity: 1;
+}
+
+.galeria-stack img.ativo {
+  outline: 2px solid var(--text);
+}
