@@ -433,3 +433,39 @@ section > * {
 .project-botoes a:hover {
   filter: brightness(1.05);
 }
+
+/* meus CERTIFICADOS */
+
+.certificados-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.certificado-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.certificado-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.certificado-card:hover {
+  transform: translateY(-6px);
+  background: rgba(180, 80, 255, 0.1);
+}
+
+/*tipografia das seções corrigido aq*/
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
