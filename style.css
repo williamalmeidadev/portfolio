@@ -469,3 +469,52 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
 }
+
+/* CONTATOS */
+
+.contato-content {
+  text-align: center;
+}
+
+.contato-texto {
+  color: var(--muted);
+  margin-bottom: 35px;
+}
+
+.contato-botoes {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.contato-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.03);
+  transition: 0.25s ease;
+}
+
+.contato-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--text);
+}
+
+.contato-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.contato-btn:hover svg {
+  transform: scale(1.15);
+}
