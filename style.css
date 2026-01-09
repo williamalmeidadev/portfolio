@@ -347,6 +347,9 @@ section>* {
 .skill:hover,
 .skill.ativo {
     opacity: 1;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 24px 0 rgba(180, 80, 255, 0.18), 0 1.5px 6px 0 rgba(0,0,0,0.10);
+    transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1), transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1);
 }
 
 .skill.ativo {
