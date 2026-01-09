@@ -467,9 +467,9 @@ section>* {
 }
 
 .certificado-card:hover {
-    transform: translateY(-6px);
-    background: rgba(180, 80, 255, 0.1);
-}
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 6px 24px 0 rgba(180, 80, 255, 0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
+    }
 
 /*tipografia das seções corrigido aq*/
 h2 {
