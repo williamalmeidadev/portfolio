@@ -187,8 +187,11 @@ section>* {
 }
 
 /* SECTION SOBRE NO GERAL */
-#sobre {
-    justify-content: center;
+
+.project-card:hover,
+.project-card.ativo {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 6px 24px 0 rgba(180, 80, 255, 0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
 }
 
 .sobre-content {
@@ -397,6 +400,7 @@ section>* {
     border: 1px solid var(--border);
     background: rgba(255, 255, 255, 0.03);
     text-align: center;
+    transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1), transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1), background 0.25s;
 }
 
 .project-card img {
