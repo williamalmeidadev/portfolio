@@ -477,7 +477,9 @@ section>* {
     border-radius: 12px;
     padding: 16px;
     text-align: center;
-    transition: transform 0.25s ease, background 0.25s ease;
+    transition: transform 0.1s ease, background 0.25s ease, box-shadow 0.25s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
 }
 
 .certificado-card img {
@@ -487,9 +489,8 @@ section>* {
 }
 
 .certificado-card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 6px 24px 0 rgba(180, 80, 255, 0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
-    }
+    box-shadow: 0 8px 32px 0 rgba(180, 80, 255, 0.25), 0 4px 12px 0 rgba(0,0,0,0.15);
+}
 
 /*tipografia das seções corrigido aq*/
 h2 {
