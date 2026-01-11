@@ -527,17 +527,25 @@ h2 {
     gap: 10px;
     padding: 14px 28px;
     border-radius: 999px;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: var(--text);
     text-decoration: none;
     font-weight: 600;
-    background: rgba(255, 255, 255, 0.03);
-    transition: 0.25s ease;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contato-btn:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: var(--text);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(180, 80, 240, 0.6);
+    box-shadow: 0 8px 24px 0 rgba(180, 80, 255, 0.2),
+                0 4px 12px 0 rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
 }
 
 .contato-btn svg {
