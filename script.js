@@ -231,11 +231,13 @@ const pillLinks = document.querySelectorAll(".nav-pill a");
 // ABRIR OVERLAY
 navToggle.addEventListener("click", () => {
     navOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
 });
 
 // FECHAR OVERLAY
 navClose.addEventListener("click", () => {
     navOverlay.classList.remove("active");
+    document.body.style.overflow = "";
 });
 
 // FECHAR OVERLAY E ROLAR PARA A SECTION AO CLICAR
@@ -244,6 +246,7 @@ overlayLinks.forEach(link => {
         e.preventDefault();
         const target = document.querySelector(link.getAttribute("href"));
         navOverlay.classList.remove("active");
+        document.body.style.overflow = "";
         target.scrollIntoView({ behavior: "smooth" });
     });
 });
