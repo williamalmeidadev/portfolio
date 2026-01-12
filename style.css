@@ -1271,6 +1271,19 @@ h2 {
     transform: translateY(10px);
     animation: none;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.nav-overlay-links a svg {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.nav-overlay-links a:hover svg {
+    transform: scale(1.1);
 }
 
 .nav-overlay-links a:hover {
