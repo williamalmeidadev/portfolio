@@ -1198,9 +1198,13 @@ h2 {
     width: 44px;
     height: 44px;
     border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-toggle.active {
+    display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-toggle:hover {
@@ -1214,6 +1218,7 @@ h2 {
 .hamburger-icon {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 4px;
     width: 22px;
     height: 18px;
@@ -1358,6 +1363,8 @@ h2 {
 
     .nav-toggle {
         display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .nav-pill a {
