@@ -1247,13 +1247,14 @@ h2 {
     color: var(--text);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding: 0 20px;
+    padding: 20px;
     z-index: 15;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
 }
 
 .nav-overlay-links {
@@ -1262,6 +1263,7 @@ h2 {
     gap: 12px;
     width: 100%;
     max-width: 350px;
+    margin-top: 80px;
 }
 
 .nav-overlay-links a {
