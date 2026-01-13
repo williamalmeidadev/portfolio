@@ -60,7 +60,7 @@ gsap.from(".sobre-galeria-focus", {
     scrollTrigger: {
         trigger: "#sobre",
         start: "top 75%", 
-        toggleActions: "play none none none", 
+        toggleActions: "play reverse play reverse", 
     },
     x: -60,
     opacity: 0,
@@ -72,7 +72,7 @@ gsap.from(".sobre-texto", {
     scrollTrigger: {
         trigger: "#sobre",
         start: "top 75%",
-        toggleActions: "play none none none",
+        toggleActions: "play reverse play reverse",
     },
     x: 60,
     opacity: 0,
@@ -84,7 +84,7 @@ gsap.from(".sobre-texto h2", {
     scrollTrigger: {
         trigger: "#sobre",
         start: "top 70%",
-        toggleActions: "play none none none",
+        toggleActions: "play reverse play reverse",
     },
     y: 30,
     opacity: 0,
@@ -96,7 +96,7 @@ gsap.from(".sobre-texto p", {
     scrollTrigger: {
         trigger: "#sobre",
         start: "top 70%",
-        toggleActions: "play none none none",
+        toggleActions: "play reverse play reverse",
     },
     y: 20,
     opacity: 0,
@@ -111,7 +111,7 @@ gsap.from("#experiencia h2", {
     scrollTrigger: {
         trigger: "#experiencia",
         start: "top 75%",
-        toggleActions: "play none none none",
+        toggleActions: "play reverse play reverse",
     },
     y: 40,
     opacity: 0,
@@ -189,7 +189,7 @@ gsap.from("#tecnologias h2", {
     scrollTrigger: {
         trigger: "#tecnologias",
         start: "top 75%",
-        toggleActions: "play none none none",
+        toggleActions: "play reverse play reverse",
     },
     y: 40,
     opacity: 0,
@@ -201,7 +201,7 @@ gsap.from(".tech-descricao", {
     scrollTrigger: {
         trigger: ".tech-focus",
         start: "top 70%",
-        toggleActions: "play none none none",
+        toggleActions: "play reverse play reverse",
     },
     x: -50,
     opacity: 0,
@@ -213,7 +213,7 @@ gsap.from(".tech-stack .skill", {
     scrollTrigger: {
         trigger: ".tech-stack",
         start: "top 70%",
-        toggleActions: "play none none none",
+        toggleActions: "play reverse play reverse",
     },
     y: 40,
     opacity: 0,
@@ -228,7 +228,7 @@ gsap.from("#projetos h2", {
     scrollTrigger: {
         trigger: "#projetos",
         start: "top 75%",
-        toggleActions: "play none none none",
+        toggleActions: "play reverse play reverse",
     },
     y: 40,
     opacity: 0,
@@ -240,7 +240,7 @@ gsap.from(".projects-grid .project-card", {
     scrollTrigger: {
         trigger: ".projects-grid",
         start: "top 70%",
-        toggleActions: "play none none none",
+        toggleActions: "play reverse play reverse",
     },
     y: 50,
     opacity: 0,
@@ -254,7 +254,7 @@ gsap.from("#certificados h2", {
     scrollTrigger: {
         trigger: "#certificados",
         start: "top 75%",
-        toggleActions: "play none none none",
+        toggleActions: "play reverse play reverse",
     },
     y: 40,
     opacity: 0,
@@ -266,7 +266,7 @@ gsap.from(".certificados-grid .certificado-card", {
     scrollTrigger: {
         trigger: ".certificados-grid",
         start: "top 70%",
-        toggleActions: "play none none none",
+        toggleActions: "play reverse play reverse",
     },
     y: 50,
     opacity: 0,
@@ -287,11 +287,11 @@ gsap.from("#contato h2", {
     scrollTrigger: {
         trigger: "#contato",
         start: "top 75%",
-        toggleActions: "play none none none",
+        toggleActions: "play reverse play reverse",
     },
     y: 40,
     opacity: 0,
-    duration: 0.9,
+    duration: 0.5,
     ease: "power3.out"
 });
 
@@ -299,11 +299,11 @@ gsap.from(".contato-texto", {
     scrollTrigger: {
         trigger: "#contato",
         start: "top 70%",
-        toggleActions: "play none none none",
+        toggleActions: "play reverse play reverse",
     },
     y: 20,
     opacity: 0,
-    duration: 0.8,
+    duration: 0.4,
     ease: "power3.out"
 });
 
@@ -311,13 +311,13 @@ gsap.from(".contato-botoes .contato-btn", {
     scrollTrigger: {
         trigger: "#contato",
         start: "top 70%",
-        toggleActions: "play none none none",
+        toggleActions: "play reverse play reverse",
     },
     y: 30,
     opacity: 0,
     scale: 0.95,
-    duration: 0.7,
-    stagger: 0.1,
+    duration: 0.5,
+    stagger: 0.06,
     ease: "back.out(1.5)",
     clearProps: "all" 
 });
