@@ -386,7 +386,8 @@ section>* {
     background: rgba(255, 255, 255, 0.02);
     cursor: pointer;
     opacity: 0.6;
-    transition: opacity 0.25s ease, transform 0.25s ease, outline 0.25s ease;
+    will-change: transform, opacity;
+    transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1), transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1), outline 0.25s ease;
 }
 
 .skill:hover,
@@ -394,7 +395,6 @@ section>* {
     opacity: 1;
     transform: translateY(-4px) scale(1.05);
     box-shadow: 0 8px 24px 0 rgba(180, 80, 255, 0.18), 0 1.5px 6px 0 rgba(0,0,0,0.10);
-    transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1), transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1);
 }
 
 .skill.ativo {
@@ -442,7 +442,8 @@ section>* {
     border: 1px solid var(--border);
     background: rgba(255, 255, 255, 0.03);
     text-align: center;
-    transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1), transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1), background 0.25s;
+    will-change: transform, opacity;
+    transition: background 0.25s, box-shadow 0.35s cubic-bezier(0.4,0,0.2,1);
 }
 
 .project-card img {
@@ -499,9 +500,9 @@ section>* {
     border-radius: 12px;
     padding: 16px;
     text-align: center;
-    transition: transform 0.1s ease, background 0.25s ease, box-shadow 0.25s ease;
     transform-style: preserve-3d;
-    will-change: transform;
+    will-change: transform, opacity;
+    transition: background 0.25s ease, box-shadow 0.25s ease;
 }
 
 .certificado-card img {

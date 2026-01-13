@@ -145,6 +145,107 @@ gsap.from(".timeline::before", {
 
 
 // ============================================
+// STAGGER ANIMATIONS - CARDS E GRIDS
+// ============================================
+
+gsap.from("#tecnologias h2", {
+    scrollTrigger: {
+        trigger: "#tecnologias",
+        start: "top 75%",
+        toggleActions: "play none none none",
+    },
+    y: 40,
+    opacity: 0,
+    duration: 0.9,
+    ease: "power3.out"
+});
+
+gsap.from(".tech-descricao", {
+    scrollTrigger: {
+        trigger: ".tech-focus",
+        start: "top 70%",
+        toggleActions: "play none none none",
+    },
+    x: -50,
+    opacity: 0,
+    duration: 0.8,
+    ease: "power3.out"
+});
+
+gsap.from(".tech-stack .skill", {
+    scrollTrigger: {
+        trigger: ".tech-stack",
+        start: "top 70%",
+        toggleActions: "play none none none",
+    },
+    y: 40,
+    opacity: 0,
+    scale: 0.9,
+    duration: 0.6,
+    stagger: 0.08,
+    ease: "back.out(1.2)", 
+    clearProps: "all" 
+});
+
+gsap.from("#projetos h2", {
+    scrollTrigger: {
+        trigger: "#projetos",
+        start: "top 75%",
+        toggleActions: "play none none none",
+    },
+    y: 40,
+    opacity: 0,
+    duration: 0.9,
+    ease: "power3.out"
+});
+
+gsap.from(".projects-grid .project-card", {
+    scrollTrigger: {
+        trigger: ".projects-grid",
+        start: "top 70%",
+        toggleActions: "play none none none",
+    },
+    y: 50,
+    opacity: 0,
+    scale: 0.95,
+    duration: 0.7,
+    stagger: 0.15,
+    ease: "power3.out"
+});
+
+gsap.from("#certificados h2", {
+    scrollTrigger: {
+        trigger: "#certificados",
+        start: "top 75%",
+        toggleActions: "play none none none",
+    },
+    y: 40,
+    opacity: 0,
+    duration: 0.9,
+    ease: "power3.out"
+});
+
+gsap.from(".certificados-grid .certificado-card", {
+    scrollTrigger: {
+        trigger: ".certificados-grid",
+        start: "top 70%",
+        toggleActions: "play none none none",
+    },
+    y: 50,
+    opacity: 0,
+    scale: 0.9,
+    rotation: -3,
+    duration: 0.7,
+    stagger: {
+        amount: 0.6, 
+        from: "start", 
+        ease: "power1.inOut"
+    },
+    ease: "back.out(1.1)"
+});
+
+
+// ============================================
 // UTILITÁRIOS E HELPERS
 // ============================================
 
