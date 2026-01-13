@@ -106,6 +106,7 @@ gsap.from(".sobre-texto p", {
 });
 
 
+//SEÇÃO EXPERIÊNCIA 
 gsap.from("#experiencia h2", {
     scrollTrigger: {
         trigger: "#experiencia",
@@ -118,29 +119,65 @@ gsap.from("#experiencia h2", {
     ease: "power3.out"
 });
 
-gsap.from(".timeline-item", {
+gsap.to(".timeline::before", {
     scrollTrigger: {
         trigger: ".timeline",
-        start: "top 70%",
-        toggleActions: "play none none none",
-    },
-    x: -40,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: "power3.out"
+        start: "top 80%",
+        end: "bottom 60%",
+        scrub: 1,
+        markers: false, 
+        onUpdate: (self) => {
+            const timeline = document.querySelector(".timeline");
+            if (timeline) {
+                const progress = self.progress;
+                timeline.style.setProperty("--line-scale", progress);
+            }
+        }
+    }
 });
 
-gsap.from(".timeline::before", {
-    scrollTrigger: {
-        trigger: ".timeline",
-        start: "top 70%",
-        toggleActions: "play none none none",
-    },
-    scaleY: 0,
-    transformOrigin: "top center",
-    duration: 1.2,
-    ease: "power2.inOut"
+document.querySelectorAll(".timeline-dot").forEach((dot, index) => {
+    gsap.from(dot, {
+        scrollTrigger: {
+            trigger: ".timeline",
+            start: "top 80%",
+            end: "bottom 60%",
+            scrub: 0.5,
+            onUpdate: (self) => {
+                const totalDots = document.querySelectorAll(".timeline-dot").length;
+                const dotThreshold = index / totalDots;
+                const progress = self.progress;
+                
+                if (progress >= dotThreshold) {
+                    gsap.to(dot, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" });
+                }
+            }
+        },
+        scale: 0,
+        opacity: 0,
+    });
+});
+
+document.querySelectorAll(".timeline-item").forEach((item, index) => {
+    gsap.from(item, {
+        scrollTrigger: {
+            trigger: ".timeline",
+            start: "top 80%",
+            end: "bottom 60%",
+            scrub: 0.5,
+            onUpdate: (self) => {
+                const totalItems = document.querySelectorAll(".timeline-item").length;
+                const itemThreshold = index / totalItems;
+                const progress = self.progress;
+                
+                if (progress >= itemThreshold + 0.05) { // leve delay após o dot
+                    gsap.to(item, { x: 0, opacity: 1, duration: 0.5, ease: "power3.out" });
+                }
+            }
+        },
+        x: -40,
+        opacity: 0,
+    });
 });
 
 

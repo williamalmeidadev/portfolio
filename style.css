@@ -322,6 +322,7 @@ section>* {
     position: relative;
     margin: 40px 0;
     padding-left: 30px;
+    --line-scale: 0;
 }
 
 .timeline::before {
@@ -333,6 +334,8 @@ section>* {
     height: 100%;
     background: var(--primary);
     border-radius: 2px;
+    transform: scaleY(var(--line-scale));
+    transform-origin: top center;
 }
 
 .timeline-item {
