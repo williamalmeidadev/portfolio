@@ -282,6 +282,47 @@ gsap.from(".certificados-grid .certificado-card", {
 });
 
 
+//SEÇÃO CONTATO
+gsap.from("#contato h2", {
+    scrollTrigger: {
+        trigger: "#contato",
+        start: "top 75%",
+        toggleActions: "play none none none",
+    },
+    y: 40,
+    opacity: 0,
+    duration: 0.9,
+    ease: "power3.out"
+});
+
+gsap.from(".contato-texto", {
+    scrollTrigger: {
+        trigger: "#contato",
+        start: "top 70%",
+        toggleActions: "play none none none",
+    },
+    y: 20,
+    opacity: 0,
+    duration: 0.8,
+    ease: "power3.out"
+});
+
+gsap.from(".contato-botoes .contato-btn", {
+    scrollTrigger: {
+        trigger: "#contato",
+        start: "top 70%",
+        toggleActions: "play none none none",
+    },
+    y: 30,
+    opacity: 0,
+    scale: 0.95,
+    duration: 0.7,
+    stagger: 0.1,
+    ease: "back.out(1.5)",
+    clearProps: "all" 
+});
+
+
 // ============================================
 // UTILITÁRIOS E HELPERS
 // ============================================
@@ -299,4 +340,76 @@ function debugScrollTrigger(trigger) {
 
 window.addEventListener("load", () => {
     ScrollTrigger.refresh();
+});
+
+
+// ============================================
+// EFEITOS 3D TILT COM GSAP (Performance otimizada)
+// ============================================
+
+const heroFoto = document.querySelector(".hero-foto img");
+
+if (heroFoto) {
+    const xTo = gsap.quickTo(heroFoto, "rotationY", { duration: 0.5, ease: "power1.out" });
+    const yTo = gsap.quickTo(heroFoto, "rotationX", { duration: 0.5, ease: "power1.out" });
+    const scaleTo = gsap.quickTo(heroFoto, "scale", { duration: 0.5, ease: "power1.out" });
+    
+    gsap.set(".hero-foto", { perspective: 1200 });
+    
+    heroFoto.addEventListener("mousemove", e => {
+        const rect = heroFoto.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = ((y - centerY) / centerY) * -15;
+        const rotateY = ((x - centerX) / centerX) * 15;
+        
+        yTo(rotateX);
+        xTo(rotateY);
+        scaleTo(1.08);
+    });
+    
+    heroFoto.addEventListener("mouseleave", () => {
+        yTo(0);
+        xTo(0);
+        scaleTo(1);
+    });
+}
+
+const certificadoCards = document.querySelectorAll(".certificado-card");
+
+certificadoCards.forEach(card => {
+    const xTo = gsap.quickTo(card, "rotationY", { duration: 0.6, ease: "power1.out" });
+    const yTo = gsap.quickTo(card, "rotationX", { duration: 0.6, ease: "power1.out" });
+    const scaleTo = gsap.quickTo(card, "scale", { duration: 0.6, ease: "power1.out" });
+    const zTo = gsap.quickTo(card, "z", { duration: 0.6, ease: "power1.out" });
+    
+    gsap.set(card.parentElement, { perspective: 1500 });
+    
+    card.addEventListener("mousemove", e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = ((y - centerY) / centerY) * -12;
+        const rotateY = ((x - centerX) / centerX) * 12;
+        
+        yTo(rotateX);
+        xTo(rotateY);
+        scaleTo(1.06);
+        zTo(30);
+    });
+    
+    card.addEventListener("mouseleave", () => {
+        yTo(0);
+        xTo(0);
+        scaleTo(1);
+        zTo(0);
+    });
 });

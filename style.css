@@ -126,7 +126,6 @@ section>* {
     object-fit: cover;
     border-radius: 18px;
     border: 1px solid var(--border);
-    transition: transform 0.1s ease;
     transform-style: preserve-3d;
     will-change: transform;
     cursor: pointer;
@@ -559,6 +558,7 @@ h2 {
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1),
                 inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
 }
 
 .contato-btn:hover {
@@ -571,15 +571,16 @@ h2 {
 }
 
 .contato-btn svg {
-    width: 18px;
-    height: 18px;
-    fill: currentColor;
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
-    transition: transform 0.25s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--primary);
 }
 
 .contato-btn:hover svg {
-    transform: scale(1.15);
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(0 0 8px rgba(180, 80, 240, 0.6));
 }
 
 /* PARTE DE RESPONSIVIDADE */
