@@ -221,10 +221,37 @@ const observer = new IntersectionObserver(entries => {//usei intersectionObserve
 
 sections.forEach(section => observer.observe(section));//observo todas as seções para o observer monitorar quando elas entram na tela
 
-// MENU MOBILE - Migrado para GSAP (ver gsap-animations.js)
+// ELEMENTOS
+const navToggle = document.getElementById("navToggle");
+const navOverlay = document.getElementById("navOverlay");
+const navClose = document.getElementById("navClose");
+const overlayLinks = document.querySelectorAll(".nav-overlay-links a");
+const pillLinks = document.querySelectorAll(".nav-pill a");
+
+// ABRIR OVERLAY
+navToggle.addEventListener("click", () => {
+    navOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+});
+
+// FECHAR OVERLAY
+navClose.addEventListener("click", () => {
+    navOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+});
+
+// FECHAR OVERLAY E ROLAR PARA A SECTION AO CLICAR
+overlayLinks.forEach(link => {
+    link.addEventListener("click", e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute("href"));
+        navOverlay.classList.remove("active");
+        document.body.style.overflow = "";
+        target.scrollIntoView({ behavior: "smooth" });
+    });
+});
 
 // ROLAR PARA SECTION NO MENU NORMAL (desktop)
-const pillLinks = document.querySelectorAll(".nav-pill a");
 pillLinks.forEach(link => {
     link.addEventListener("click", e => {
         e.preventDefault();
@@ -233,4 +260,50 @@ pillLinks.forEach(link => {
     });
 });
 
-// EFEITO 3D TILT - Migrado para gsap-animations.js (usando quickTo para melhor performance)
+// EFEITO 3D TILT NA FOTO DO HERO
+
+const heroFoto = document.querySelector(".hero-foto img");
+
+if (heroFoto) {
+    heroFoto.addEventListener("mousemove", e => {
+        const rect = heroFoto.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / centerY * -10;
+        const rotateY = (x - centerX) / centerX * 10;
+        
+        heroFoto.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+    
+    heroFoto.addEventListener("mouseleave", () => {
+        heroFoto.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale(1)";
+    });
+}
+
+// EFEITO HOVER 3D NOS CARDS DE CERTIFICADO
+
+const certificadoCards = document.querySelectorAll(".certificado-card");
+
+certificadoCards.forEach(card => {
+    card.addEventListener("mousemove", e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / centerY * -10;
+        const rotateY = (x - centerX) / centerX * 10;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+    
+    card.addEventListener("mouseleave", () => {
+        card.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale(1)";
+    });
+});
