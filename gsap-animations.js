@@ -52,6 +52,102 @@ heroTimeline
     }, "-=0.5");
 
 
+// ============================================
+// SCROLL REVEALS - SEÇÕES
+// ============================================
+
+gsap.from(".sobre-galeria-focus", {
+    scrollTrigger: {
+        trigger: "#sobre",
+        start: "top 75%", 
+        toggleActions: "play none none none", 
+    },
+    x: -60,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out"
+});
+
+gsap.from(".sobre-texto", {
+    scrollTrigger: {
+        trigger: "#sobre",
+        start: "top 75%",
+        toggleActions: "play none none none",
+    },
+    x: 60,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out"
+});
+
+gsap.from(".sobre-texto h2", {
+    scrollTrigger: {
+        trigger: "#sobre",
+        start: "top 70%",
+        toggleActions: "play none none none",
+    },
+    y: 30,
+    opacity: 0,
+    duration: 0.8,
+    ease: "power3.out"
+});
+
+gsap.from(".sobre-texto p", {
+    scrollTrigger: {
+        trigger: "#sobre",
+        start: "top 70%",
+        toggleActions: "play none none none",
+    },
+    y: 20,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: "power3.out"
+});
+
+
+gsap.from("#experiencia h2", {
+    scrollTrigger: {
+        trigger: "#experiencia",
+        start: "top 75%",
+        toggleActions: "play none none none",
+    },
+    y: 40,
+    opacity: 0,
+    duration: 0.9,
+    ease: "power3.out"
+});
+
+gsap.from(".timeline-item", {
+    scrollTrigger: {
+        trigger: ".timeline",
+        start: "top 70%",
+        toggleActions: "play none none none",
+    },
+    x: -40,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "power3.out"
+});
+
+gsap.from(".timeline::before", {
+    scrollTrigger: {
+        trigger: ".timeline",
+        start: "top 70%",
+        toggleActions: "play none none none",
+    },
+    scaleY: 0,
+    transformOrigin: "top center",
+    duration: 1.2,
+    ease: "power2.inOut"
+});
+
+
+// ============================================
+// UTILITÁRIOS E HELPERS
+// ============================================
+
 function debugScrollTrigger(trigger) {
     ScrollTrigger.create({
         trigger: trigger,
