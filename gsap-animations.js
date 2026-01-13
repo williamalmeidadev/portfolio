@@ -324,6 +324,108 @@ gsap.from(".contato-botoes .contato-btn", {
 
 
 // ============================================
+// MENU MOBILE - ANIMAÇÕES GSAP
+// ============================================
+
+const navToggle = document.getElementById("navToggle");
+const navOverlay = document.getElementById("navOverlay");
+const navClose = document.getElementById("navClose");
+const overlayLinks = document.querySelectorAll(".nav-overlay-links a");
+
+gsap.set(navOverlay, { 
+    opacity: 0, 
+    scale: 1.1,
+    pointerEvents: "none"
+});
+
+gsap.set(overlayLinks, { 
+    y: 20, 
+    opacity: 0,
+    rotationX: -10
+});
+
+const menuOpenTimeline = gsap.timeline({ paused: true });
+
+menuOpenTimeline
+    .to(navOverlay, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.25,
+        ease: "power2.out",
+        onStart: () => {
+            navOverlay.style.pointerEvents = "all";
+            document.body.style.overflow = "hidden";
+        }
+    })
+    .to(navClose, {
+        rotation: 90,
+        scale: 1.05,
+        duration: 0.2,
+        ease: "power2.out"
+    }, "-=0.15")
+    .to(overlayLinks, {
+        y: 0,
+        opacity: 1,
+        rotationX: 0,
+        duration: 0.35,
+        stagger: 0.05,
+        ease: "power2.out"
+    }, "-=0.2");
+
+const menuCloseTimeline = gsap.timeline({ paused: true });
+
+menuCloseTimeline
+    .to(overlayLinks, {
+        y: -15,
+        opacity: 0,
+        rotationX: 10,
+        duration: 0.2,
+        stagger: 0.03,
+        ease: "power2.in"
+    })
+    .to(navClose, {
+        rotation: 0,
+        scale: 1,
+        duration: 0.15,
+        ease: "power2.in"
+    }, "-=0.15")
+    .to(navOverlay, {
+        opacity: 0,
+        scale: 0.98,
+        duration: 0.2,
+        ease: "power2.in",
+        onComplete: () => {
+            navOverlay.style.pointerEvents = "none";
+            document.body.style.overflow = "";
+        }
+    }, "-=0.2");
+
+navToggle.addEventListener("click", () => {
+    menuCloseTimeline.pause(0);
+    menuOpenTimeline.restart();
+});
+
+navClose.addEventListener("click", () => {
+    menuOpenTimeline.pause(0);
+    menuCloseTimeline.restart();
+});
+
+overlayLinks.forEach(link => {
+    link.addEventListener("click", e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute("href"));
+        
+        menuOpenTimeline.pause(0);
+        menuCloseTimeline.restart();
+        
+        setTimeout(() => {
+            target.scrollIntoView({ behavior: "smooth" });
+        }, 300);
+    });
+});
+
+
+// ============================================
 // UTILITÁRIOS E HELPERS
 // ============================================
 

@@ -221,37 +221,10 @@ const observer = new IntersectionObserver(entries => {//usei intersectionObserve
 
 sections.forEach(section => observer.observe(section));//observo todas as seções para o observer monitorar quando elas entram na tela
 
-// ELEMENTOS
-const navToggle = document.getElementById("navToggle");
-const navOverlay = document.getElementById("navOverlay");
-const navClose = document.getElementById("navClose");
-const overlayLinks = document.querySelectorAll(".nav-overlay-links a");
-const pillLinks = document.querySelectorAll(".nav-pill a");
-
-// ABRIR OVERLAY
-navToggle.addEventListener("click", () => {
-    navOverlay.classList.add("active");
-    document.body.style.overflow = "hidden";
-});
-
-// FECHAR OVERLAY
-navClose.addEventListener("click", () => {
-    navOverlay.classList.remove("active");
-    document.body.style.overflow = "";
-});
-
-// FECHAR OVERLAY E ROLAR PARA A SECTION AO CLICAR
-overlayLinks.forEach(link => {
-    link.addEventListener("click", e => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute("href"));
-        navOverlay.classList.remove("active");
-        document.body.style.overflow = "";
-        target.scrollIntoView({ behavior: "smooth" });
-    });
-});
+// MENU MOBILE - Migrado para GSAP (ver gsap-animations.js)
 
 // ROLAR PARA SECTION NO MENU NORMAL (desktop)
+const pillLinks = document.querySelectorAll(".nav-pill a");
 pillLinks.forEach(link => {
     link.addEventListener("click", e => {
         e.preventDefault();
