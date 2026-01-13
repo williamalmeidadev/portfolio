@@ -199,7 +199,7 @@ gsap.from("#tecnologias h2", {
 
 gsap.from(".tech-descricao", {
     scrollTrigger: {
-        trigger: ".tech-focus",
+        trigger: "#tecnologias",
         start: "top 70%",
         toggleActions: "play reverse play reverse",
     },
@@ -211,7 +211,7 @@ gsap.from(".tech-descricao", {
 
 gsap.from(".tech-stack .skill", {
     scrollTrigger: {
-        trigger: ".tech-stack",
+        trigger: "#tecnologias",
         start: "top 70%",
         toggleActions: "play reverse play reverse",
     },
