@@ -47,9 +47,9 @@ heroTimeline
     .to(".hero-botoes .btn-primary, .hero-botoes .btn-outline", {
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: 0.3,
         stagger: 0.12
-    }, "-=0.5");
+    }, "-=0.7");
 
 
 // ============================================
