@@ -52,9 +52,56 @@ const imagensGaleria = [
   },
 ]
 
+
+import { useEffect } from 'react';
+
 function App() {
+  useEffect(() => {
+    // Scroll suave para navegação
+    const pillLinks = document.querySelectorAll('.nav-pill a');
+    pillLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (!href) return;
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Observer para navegação ativa
+    const navLinks = document.querySelectorAll('.nav-pill a');
+    const sections = document.querySelectorAll('main section');
+    function resetNav() {
+      navLinks.forEach(link => link.classList.remove('ativo'));
+    }
+    const observer = new window.IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        const navLink = document.querySelector(`.nav-pill a[href="#${id}"]`);
+        if (entry.isIntersecting && navLink) {
+          resetNav();
+          navLink.classList.add('ativo');
+        }
+      });
+    }, { threshold: 0.5 });
+    sections.forEach(section => observer.observe(section));
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <>
+      {/* Pill bar navigation */}
+      <nav className="nav-pill">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        {/* Adicione outros links conforme necessário */}
+      </nav>
       <CanvasBG />
       <main>
         <Hero />
@@ -63,7 +110,7 @@ function App() {
         </section>
       </main>
     </>
-  )
+  );
 }
 
 export default App
