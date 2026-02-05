@@ -1,4 +1,4 @@
-import foto from '../assets/foto.jpeg'
+import foto from '../assets/foto.webp'
 
 
 export default function Hero() {

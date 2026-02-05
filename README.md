@@ -31,6 +31,7 @@ The current version is built with **React + Vite + TypeScript**, focusing on acc
 - **CSS3** (custom animations, responsive grid, glassmorphism styling)
 - **GSAP + ScrollTrigger** for scroll-based motion
 - **Canvas 2D** for background effects
+- **WebP** images for faster loading
 - **Font**: Inter (Google Fonts)
 
 ---
