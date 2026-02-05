@@ -1,15 +1,15 @@
 import React from "react";
-import { certificados } from "../data/content";
+import { certificates } from "../data/content";
 
 const Certificados: React.FC = () => (
-  <section id="certificados" className="secao-centralizada">
-    <div className="secao-wrapper">
+  <section id="certificates" className="section section-center">
+    <div className="section-wrapper">
       <h2>Estudos & Certificados</h2>
-      <div className="certificados-grid">
-        {certificados.map((c) => (
-          <div className="certificado-card" key={c.desc}>
-            <img src={c.img} alt={c.desc} />
-            <p>{c.desc}</p>
+      <div className="certificates-grid">
+        {certificates.map((c) => (
+          <div className="certificate-card" key={c.description}>
+            <img src={c.img} alt={c.description} />
+            <p>{c.description}</p>
           </div>
         ))}
       </div>

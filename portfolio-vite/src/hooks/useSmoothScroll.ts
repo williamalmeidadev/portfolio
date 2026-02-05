@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 export function useSmoothScroll() {
   useEffect(() => {
-    const pillLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-pill a')
+    const pillLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-pill a, .nav-overlay-links a')
 
     const handlers: Array<[(e: Event) => void, HTMLAnchorElement]> = []
 

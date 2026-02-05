@@ -1,0 +1,81 @@
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-text {
+  max-width: 520px;
+}
+
+.about-text p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.about-gallery {
+  display: grid;
+  grid-template-columns: 1fr 80px;
+  gap: 20px;
+}
+
+.gallery-main {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.gallery-main img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.25s ease, transform 0.6s ease;
+}
+
+.gallery-main:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-caption {
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.5;
+  background: rgba(0, 0, 0, 0.6);
+  border-top: 1px solid var(--border);
+  transition: opacity 0.25s ease;
+}
+
+.gallery-main img.fade,
+.gallery-caption.fade {
+  opacity: 0;
+}
+
+.gallery-thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.gallery-thumbs img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 1px solid var(--border);
+  transition: opacity 0.25s ease, transform 0.25s ease, outline 0.25s ease;
+}
+
+.gallery-thumbs img:hover,
+.gallery-thumbs img.is-active {
+  opacity: 1;
+}
+
+.gallery-thumbs img.is-active {
+  outline: 2px solid var(--text);
+}

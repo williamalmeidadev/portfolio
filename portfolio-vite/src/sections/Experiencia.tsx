@@ -1,18 +1,18 @@
 import React from "react";
-import { experiencias } from "../data/content";
+import { experience } from "../data/content";
 
 const Experiencia: React.FC = () => (
-  <section id="experiencia" className="secao-centralizada">
-    <div className="secao-wrapper">
+  <section id="experience" className="section section-center">
+    <div className="section-wrapper">
       <h2>Experiência</h2>
       <div className="timeline">
-        {experiencias.map((item) => (
-          <div className="timeline-item" key={item.titulo}>
+        {experience.map((item) => (
+          <div className="timeline-item" key={item.title}>
             <div className="timeline-dot"></div>
             <div className="timeline-content">
-              <h3>{item.titulo}</h3>
-              <span>{item.periodo}</span>
-              <p>{item.descricao}</p>
+              <h3>{item.title}</h3>
+              <span>{item.period}</span>
+              <p>{item.description}</p>
             </div>
           </div>
         ))}

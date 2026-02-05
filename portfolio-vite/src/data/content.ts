@@ -14,11 +14,11 @@ import python from '../assets/python.svg'
 import reactLogo from '../assets/react.svg'
 import spring from '../assets/spring.svg'
 
-export const sobreGaleria = [
+export const aboutGallery = [
   {
     src: obt,
     alt: 'OBT',
-    descricao:
+    description:
       'Medalha de prata nacional e 3º lugar na modalidade júri especialista na Olimpíada Brasileira de Tecnologia (OBT)',
     link:
       'https://www.ceara.gov.br/2025/07/16/escolas-da-rede-estadual-obtem-ouro-prata-e-bronze-na-olimpiada-brasileira-de-tecnologia-2025/'
@@ -26,57 +26,57 @@ export const sobreGaleria = [
   {
     src: maratonatech,
     alt: 'Maratona Tech',
-    descricao:
+    description:
       'Duas vezes medalhista de bronze na Maratona Tech, competição nacional de tecnologia, trazendo também premiação de destaque nordeste para a escola',
     link:
       'https://al.ce.gov.br/noticias/48491-solenidade-na-alece-entrega-medalhas-a-74-alunos-do-ce-premiados-na-maratona-tech'
   }
 ] as const
 
-export const tecnologias = [
+export const technologies = [
   {
-    titulo: 'Python',
-    texto:
+    title: 'Python',
+    description:
       'Utilizo Python para automações, lógica de backend, scripts e estudos em inteligência artificial e machine learning.',
     img: python
   },
   {
-    titulo: 'JavaScript',
-    texto:
+    title: 'JavaScript',
+    description:
       'Uso JavaScript para criar interfaces interativas, consumir APIs e desenvolver aplicações web modernas.',
     img: javascript
   },
   {
-    titulo: 'React',
-    texto:
+    title: 'React',
+    description:
       'React é minha principal ferramenta no frontend, permitindo criar interfaces componentizadas, performáticas e escaláveis.',
     img: reactLogo
   },
   {
-    titulo: 'Java',
-    texto:
+    title: 'Java',
+    description:
       'Utilizo Java para aplicações robustas, orientação a objetos e projetos acadêmicos com foco em backend.',
     img: java
   },
   {
-    titulo: 'PostgreSQL',
-    texto:
+    title: 'PostgreSQL',
+    description:
       'Uso PostgreSQL para modelagem e gerenciamento de bancos de dados relacionais em sistemas reais.',
     img: postgresql
   },
   {
-    titulo: 'Spring',
-    texto:
+    title: 'Spring',
+    description:
       'Spring Framework é utilizado para construção de APIs REST seguras e organizadas no ecossistema Java.',
     img: spring
   }
 ] as const
 
-export const projetos = [
+export const projects = [
   {
     img: portfolioreact,
-    titulo: 'Portfolio React',
-    descricao: 'Portfolio pessoal desenvolvido com React para apresentar meus projetos e habilidades.',
+    title: 'Portfolio React',
+    description: 'Portfolio pessoal desenvolvido com React para apresentar meus projetos e habilidades.',
     links: [
       {
         href: 'https://github.com/williamalmeidadev/williamalmeidadev.github.io',
@@ -88,36 +88,36 @@ export const projetos = [
   },
   {
     img: ecoacao,
-    titulo: 'Projeto EcoAção',
-    descricao: 'Projeto premiado na OBT 2025, focado em sustentabilidade e conscientização ambiental.',
+    title: 'Projeto EcoAção',
+    description: 'Projeto premiado na OBT 2025, focado em sustentabilidade e conscientização ambiental.',
     links: [{ href: 'https://projetoecoacao.vercel.app/', label: 'Testar', primary: true }]
   },
   {
     img: placas,
-    titulo: 'Projeto Placas',
-    descricao: 'Site para divulgar venda de placas personalizadas em acrílico, funcionando como catálogo.',
+    title: 'Projeto Placas',
+    description: 'Site para divulgar venda de placas personalizadas em acrílico, funcionando como catálogo.',
     links: [{ href: 'https://siteplacas.vercel.app/', label: 'Testar', primary: true }]
   }
 ] as const
 
-export const certificados = [
-  { img: google, desc: 'Certificação Suporte de TI Google - 2025' },
-  { img: bd, desc: 'Administrador de Banco de Dados - 2025' },
-  { img: solyd, desc: 'Introdução ao Pentest - 2024' },
-  { img: tecnico, desc: 'Técnico em Desenvolvimento de Sistemas - 2023/2025' }
+export const certificates = [
+  { img: google, description: 'Certificação Suporte de TI Google - 2025' },
+  { img: bd, description: 'Administrador de Banco de Dados - 2025' },
+  { img: solyd, description: 'Introdução ao Pentest - 2024' },
+  { img: tecnico, description: 'Técnico em Desenvolvimento de Sistemas - 2023/2025' }
 ] as const
 
-export const experiencias = [
+export const experience = [
   {
-    titulo: 'Aspirante à Desenvolvedor - Alpha Edtech',
-    periodo: '2025',
-    descricao:
+    title: 'Aspirante à Desenvolvedor - Alpha Edtech',
+    period: '2025',
+    description:
       'Atualmente em estudo focado em desenvolvimento web full stack, aprimorando habilidades em front-end e back-end.'
   },
   {
-    titulo: 'Estágio em Desenvolvimento Web - Ouvidoria do Estado do Ceará',
-    periodo: 'Ago 2025 - Dez 2025',
-    descricao:
+    title: 'Estágio em Desenvolvimento Web - Ouvidoria do Estado do Ceará',
+    period: 'Ago 2025 - Dez 2025',
+    description:
       'Desenvolvimento de aplicações front-end e back-end, criação de APIs e manutenção de sistemas internos. Utilização de Java e Angular.'
   }
 ] as const

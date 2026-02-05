@@ -10,31 +10,32 @@ export function useGsapAnimations() {
   useEffect(() => {
     if (!rootRef.current) return
 
+    const cleanups: Array<() => void> = []
+
     const ctx = gsap.context(() => {
-      const cleanups: Array<() => void> = []
       const heroTimeline = gsap.timeline({
         defaults: { ease: 'power3.out', duration: 1 }
       })
 
       heroTimeline
-        .set('.hero-foto img', { y: 50, opacity: 0 })
-        .set('.hero-texto .eyebrow', { y: 30, opacity: 0 })
-        .set('.hero-texto h1', { y: 40, opacity: 0 })
-        .set('.hero-texto p', { y: 30, opacity: 0 })
-        .set('.hero-botoes .btn-primary, .hero-botoes .btn-outline', { y: 10, opacity: 0 })
-        .to('.hero-foto img', { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' })
-        .to('.hero-texto .eyebrow', { y: 0, opacity: 1, duration: 0.8 }, '-=0.6')
-        .to('.hero-texto h1', { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.5')
-        .to('.hero-texto p', { y: 0, opacity: 1, duration: 0.8 }, '-=0.6')
+        .set('.hero-photo img', { y: 50, opacity: 0 })
+        .set('.hero-text .eyebrow', { y: 30, opacity: 0 })
+        .set('.hero-text h1', { y: 40, opacity: 0 })
+        .set('.hero-text p', { y: 30, opacity: 0 })
+        .set('.hero-actions .btn-primary, .hero-actions .btn-outline', { y: 10, opacity: 0 })
+        .to('.hero-photo img', { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' })
+        .to('.hero-text .eyebrow', { y: 0, opacity: 1, duration: 0.8 }, '-=0.6')
+        .to('.hero-text h1', { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.5')
+        .to('.hero-text p', { y: 0, opacity: 1, duration: 0.8 }, '-=0.6')
         .to(
-          '.hero-botoes .btn-primary, .hero-botoes .btn-outline',
+          '.hero-actions .btn-primary, .hero-actions .btn-outline',
           { y: 0, opacity: 1, duration: 0.3, stagger: 0.12 },
           '-=0.7'
         )
 
-      gsap.from('.sobre-galeria-focus', {
+      gsap.from('.about-gallery', {
         scrollTrigger: {
-          trigger: '#sobre',
+          trigger: '#about',
           start: 'top 75%',
           toggleActions: 'play reverse play reverse'
         },
@@ -44,9 +45,9 @@ export function useGsapAnimations() {
         ease: 'power3.out'
       })
 
-      gsap.from('.sobre-texto', {
+      gsap.from('.about-text', {
         scrollTrigger: {
-          trigger: '#sobre',
+          trigger: '#about',
           start: 'top 75%',
           toggleActions: 'play reverse play reverse'
         },
@@ -56,9 +57,9 @@ export function useGsapAnimations() {
         ease: 'power3.out'
       })
 
-      gsap.from('.sobre-texto h2', {
+      gsap.from('.about-text h2', {
         scrollTrigger: {
-          trigger: '#sobre',
+          trigger: '#about',
           start: 'top 70%',
           toggleActions: 'play reverse play reverse'
         },
@@ -68,9 +69,9 @@ export function useGsapAnimations() {
         ease: 'power3.out'
       })
 
-      gsap.from('.sobre-texto p', {
+      gsap.from('.about-text p', {
         scrollTrigger: {
-          trigger: '#sobre',
+          trigger: '#about',
           start: 'top 70%',
           toggleActions: 'play reverse play reverse'
         },
@@ -81,9 +82,9 @@ export function useGsapAnimations() {
         ease: 'power3.out'
       })
 
-      gsap.from('#experiencia h2', {
+      gsap.from('#experience h2', {
         scrollTrigger: {
-          trigger: '#experiencia',
+          trigger: '#experience',
           start: 'top 75%',
           toggleActions: 'play reverse play reverse'
         },
@@ -143,9 +144,9 @@ export function useGsapAnimations() {
         })
       })
 
-      gsap.from('#tecnologias h2', {
+      gsap.from('#technologies h2', {
         scrollTrigger: {
-          trigger: '#tecnologias',
+          trigger: '#technologies',
           start: 'top 75%',
           toggleActions: 'play reverse play reverse'
         },
@@ -155,9 +156,9 @@ export function useGsapAnimations() {
         ease: 'power3.out'
       })
 
-      gsap.from('.tech-descricao', {
+      gsap.from('.tech-description', {
         scrollTrigger: {
-          trigger: '#tecnologias',
+          trigger: '#technologies',
           start: 'top 70%',
           toggleActions: 'play reverse play reverse'
         },
@@ -169,7 +170,7 @@ export function useGsapAnimations() {
 
       gsap.from('.tech-stack .skill', {
         scrollTrigger: {
-          trigger: '#tecnologias',
+          trigger: '#technologies',
           start: 'top 70%',
           toggleActions: 'play reverse play reverse'
         },
@@ -182,9 +183,9 @@ export function useGsapAnimations() {
         clearProps: 'all'
       })
 
-      gsap.from('#projetos h2', {
+      gsap.from('#projects h2', {
         scrollTrigger: {
-          trigger: '#projetos',
+          trigger: '#projects',
           start: 'top 75%',
           toggleActions: 'play reverse play reverse'
         },
@@ -208,9 +209,9 @@ export function useGsapAnimations() {
         ease: 'power3.out'
       })
 
-      gsap.from('#certificados h2', {
+      gsap.from('#certificates h2', {
         scrollTrigger: {
-          trigger: '#certificados',
+          trigger: '#certificates',
           start: 'top 75%',
           toggleActions: 'play reverse play reverse'
         },
@@ -220,9 +221,9 @@ export function useGsapAnimations() {
         ease: 'power3.out'
       })
 
-      gsap.from('.certificados-grid .certificado-card', {
+      gsap.from('.certificates-grid .certificate-card', {
         scrollTrigger: {
-          trigger: '.certificados-grid',
+          trigger: '.certificates-grid',
           start: 'top 70%',
           toggleActions: 'play reverse play reverse'
         },
@@ -239,9 +240,9 @@ export function useGsapAnimations() {
         ease: 'back.out(1.1)'
       })
 
-      gsap.from('#contato h2', {
+      gsap.from('#contact h2', {
         scrollTrigger: {
-          trigger: '#contato',
+          trigger: '#contact',
           start: 'top 75%',
           toggleActions: 'play reverse play reverse'
         },
@@ -251,9 +252,9 @@ export function useGsapAnimations() {
         ease: 'power3.out'
       })
 
-      gsap.from('.contato-texto', {
+      gsap.from('.contact-text', {
         scrollTrigger: {
-          trigger: '#contato',
+          trigger: '#contact',
           start: 'top 70%',
           toggleActions: 'play reverse play reverse'
         },
@@ -263,9 +264,9 @@ export function useGsapAnimations() {
         ease: 'power3.out'
       })
 
-      gsap.from('.contato-botoes .contato-btn', {
+      gsap.from('.contact-actions .contact-button', {
         scrollTrigger: {
-          trigger: '#contato',
+          trigger: '#contact',
           start: 'top 70%',
           toggleActions: 'play reverse play reverse'
         },
@@ -282,14 +283,14 @@ export function useGsapAnimations() {
       window.addEventListener('load', handleRefresh)
       cleanups.push(() => window.removeEventListener('load', handleRefresh))
 
-      const heroFoto = document.querySelector<HTMLElement>('.hero-foto img')
+      const heroFoto = document.querySelector<HTMLElement>('.hero-photo img')
 
       if (heroFoto) {
         const xTo = gsap.quickTo(heroFoto, 'rotationY', { duration: 0.5, ease: 'power1.out' })
         const yTo = gsap.quickTo(heroFoto, 'rotationX', { duration: 0.5, ease: 'power1.out' })
         const scaleTo = gsap.quickTo(heroFoto, 'scale', { duration: 0.5, ease: 'power1.out' })
 
-        gsap.set('.hero-foto', { perspective: 1200 })
+        gsap.set('.hero-photo', { perspective: 1200 })
 
         const handleMove = (e: MouseEvent) => {
           const rect = heroFoto.getBoundingClientRect()
@@ -319,7 +320,7 @@ export function useGsapAnimations() {
         })
       }
 
-      document.querySelectorAll<HTMLElement>('.certificado-card').forEach(card => {
+      document.querySelectorAll<HTMLElement>('.certificate-card').forEach(card => {
         const xTo = gsap.quickTo(card, 'rotationY', { duration: 0.6, ease: 'power1.out' })
         const yTo = gsap.quickTo(card, 'rotationX', { duration: 0.6, ease: 'power1.out' })
         const scaleTo = gsap.quickTo(card, 'scale', { duration: 0.6, ease: 'power1.out' })
@@ -356,13 +357,12 @@ export function useGsapAnimations() {
           card.removeEventListener('mouseleave', handleLeave)
         })
       })
-
-      return () => {
-        cleanups.forEach(cleanup => cleanup())
-      }
     }, rootRef)
 
-    return () => ctx.revert()
+    return () => {
+      cleanups.forEach(cleanup => cleanup())
+      ctx.revert()
+    }
   }, [])
 
   return rootRef

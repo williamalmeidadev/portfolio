@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { sobreGaleria } from "../data/content";
+import { aboutGallery } from "../data/content";
 
 const Sobre: React.FC = () => {
   const [imgIndex, setImgIndex] = useState(0);
@@ -23,25 +23,23 @@ const Sobre: React.FC = () => {
   }
 
   return (
-    <section id="sobre">
-      <div className="sobre-content">
-        <div className="sobre-galeria-focus">
-          <div className="galeria-principal">
+    <section id="about" className="section">
+      <div className="about-content">
+        <div className="about-gallery">
+          <div className="gallery-main">
             <img
-              id="imagemPrincipal"
-              src={sobreGaleria[imgIndex].src}
-              alt={sobreGaleria[imgIndex].alt}
+              src={aboutGallery[imgIndex].src}
+              alt={aboutGallery[imgIndex].alt}
               className={isFading ? "fade" : ""}
             />
-            <p id="descricaoImagem" className={`descricao-imagem${isFading ? " fade" : ""}`}>
-              {sobreGaleria[imgIndex].descricao}
+            <p className={`gallery-caption${isFading ? " fade" : ""}`}>
+              {aboutGallery[imgIndex].description}
               <br />
-              {sobreGaleria[imgIndex].link && (
+              {aboutGallery[imgIndex].link && (
                 <a
-                  id="btnPremiacao"
-                  href={sobreGaleria[imgIndex].link}
+                  href={aboutGallery[imgIndex].link}
                   target="_blank"
-                  className="btn-primary"
+                  className="btn-primary btn-small"
                   rel="noopener noreferrer"
                 >
                   Ver Notícia
@@ -49,20 +47,19 @@ const Sobre: React.FC = () => {
               )}
             </p>
           </div>
-          <div className="galeria-stack">
-            {sobreGaleria.map((img, i) => (
+          <div className="gallery-thumbs">
+            {aboutGallery.map((img, i) => (
               <img
                 key={img.alt}
                 src={img.src}
-                className={i === imgIndex ? "ativo" : ""}
+                className={i === imgIndex ? "is-active" : ""}
                 alt={img.alt}
                 onClick={() => handleThumbClick(i)}
-                style={{ cursor: "pointer" }}
               />
             ))}
           </div>
         </div>
-        <div className="sobre-texto">
+        <div className="about-text">
           <h2>Sobre mim</h2>
           <p>
             Sou estudante de Desenvolvimento de Sistemas, cearense, com 17 anos, movido pela curiosidade e pelo interesse constante em tecnologia. Tenho afinidade com olimpíadas científicas e tecnológicas, nas quais já representei o Ceará em competições nacionais e conquistei medalhas.
