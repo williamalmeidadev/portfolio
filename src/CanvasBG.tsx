@@ -8,6 +8,7 @@ export const CanvasBG: React.FC = () => {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+    const context = ctx;
 
     const METEOR_COLOR = '180, 80, 255';
     const BASE_WIDTH = 1200;
@@ -47,8 +48,8 @@ export const CanvasBG: React.FC = () => {
         canvas.height = Math.floor(height * dpr);
         canvas.style.width = `${width}px`;
         canvas.style.height = `${height}px`;
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        bgGradient = ctx.createLinearGradient(0, 0, 0, height);
+        context.setTransform(dpr, 0, 0, dpr, 0, 0);
+        bgGradient = context.createLinearGradient(0, 0, 0, height);
         bgGradient.addColorStop(0, BG_TOP);
         bgGradient.addColorStop(1, BG_BOTTOM);
         createParticles();
@@ -77,9 +78,10 @@ export const CanvasBG: React.FC = () => {
     }
 
     function drawParticles(dt: number) {
-      if (!canvas || !ctx) return;
+      if (!canvas) return;
       const w = width;
       const h = height;
+      const ctx = context;
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
         ctx.beginPath();
@@ -119,7 +121,8 @@ export const CanvasBG: React.FC = () => {
     }
 
     function drawMeteors(dt: number) {
-      if (!canvas || !ctx) return;
+      if (!canvas) return;
+      const ctx = context;
       for (let i = meteors.length - 1; i >= 0; i--) {
         const m = meteors[i];
         const dx = m.v * 0.6 * dt * 0.06 * m.dir;
@@ -142,7 +145,8 @@ export const CanvasBG: React.FC = () => {
     }
 
     function loop(time: number) {
-      if (!canvas || !ctx) return;
+      if (!canvas) return;
+      const ctx = context;
       const dt = lastTime ? Math.min(time - lastTime, 50) : 16.7;
       lastTime = time;
       if (bgGradient) ctx.fillStyle = bgGradient;

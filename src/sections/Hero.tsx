@@ -10,7 +10,7 @@ export default function Hero() {
             src={foto}
             alt="Foto de William Almeida"
             decoding="async"
-            fetchpriority="high"
+            fetchPriority="high"
           />
         </div>
         <div className="hero-text">
