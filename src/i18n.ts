@@ -116,9 +116,9 @@ const strings = {
       dark: 'Dark'
     }
   }
-} as const
+} as const satisfies Record<Lang, unknown>
 
-export type Strings = typeof strings['pt-BR']
+export type Strings = (typeof strings)[Lang]
 
 export function getStrings(lang: Lang): Strings {
   return strings[lang]

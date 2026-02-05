@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
-import { getStrings, Lang, type Strings } from '../i18n'
+import { getStrings, type Lang, type Strings } from '../i18n'
 
 type LanguageContextValue = {
   lang: Lang
