@@ -21,12 +21,13 @@
 }
 
 .project-card img {
-  width: 100%;
-  max-width: 280px;
-  border-radius: 10px;
-  margin-bottom: 15px;
+  width: min(100%, 360px);
+  max-width: 360px;
+  margin: 0 auto 18px;
   border: 1px solid var(--border);
+  border-radius: 12px;
   display: block;
+  object-fit: cover;
 }
 
 .project-actions {
