@@ -7,6 +7,7 @@
   --canvas-bg-top: #050414;
   --canvas-bg-bottom: #02010a;
   --particle-color: 255, 255, 255;
+  --particle-opacity: 1;
   --surface: rgba(255, 255, 255, 0.03);
   --surface-strong: rgba(0, 0, 0, 0.6);
   --surface-border: rgba(255, 255, 255, 0.2);
@@ -30,7 +31,8 @@
   --primary: #7b56d6;
   --canvas-bg-top: #eff3ff;
   --canvas-bg-bottom: #e6ecf7;
-  --particle-color: 65, 75, 95;
+  --particle-color: 38, 50, 72;
+  --particle-opacity: 1.25;
   --surface: rgba(242, 246, 255, 0.92);
   --surface-strong: rgba(12, 18, 32, 0.6);
   --surface-border: rgba(12, 18, 32, 0.16);

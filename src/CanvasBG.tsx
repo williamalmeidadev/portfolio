@@ -33,6 +33,7 @@ export const CanvasBG: React.FC = () => {
     let resizeRaf = 0;
     let bgGradient: CanvasGradient | null = null;
     let particleColor = '255, 255, 255';
+    let particleOpacity = 1;
     let themeObserver: MutationObserver | null = null;
 
     function getScaleFactor() {
@@ -44,7 +45,9 @@ export const CanvasBG: React.FC = () => {
       const top = styles.getPropertyValue('--canvas-bg-top').trim() || BG_TOP;
       const bottom = styles.getPropertyValue('--canvas-bg-bottom').trim() || BG_BOTTOM;
       const particles = styles.getPropertyValue('--particle-color').trim() || '255, 255, 255';
+      const opacity = Number(styles.getPropertyValue('--particle-opacity').trim()) || 1;
       particleColor = particles;
+      particleOpacity = opacity;
       if (height > 0) {
         bgGradient = context.createLinearGradient(0, 0, 0, height);
         bgGradient.addColorStop(0, top);
@@ -100,7 +103,7 @@ export const CanvasBG: React.FC = () => {
         ctx.beginPath();
         const twinkle = Math.sin(p.to) * 0.18 + 0.82;
         ctx.arc(p.x, p.y, p.r * twinkle, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${particleColor}, ${p.o * twinkle})`;
+        ctx.fillStyle = `rgba(${particleColor}, ${p.o * twinkle * particleOpacity})`;
         ctx.fill();
         p.x += p.vx * dt;
         p.y += p.vy * dt;
