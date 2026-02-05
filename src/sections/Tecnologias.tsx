@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import { technologies } from "../data/content";
+import { getContent } from "../data/content";
+import { useLanguage } from "../hooks/useLanguage";
 
 const Tecnologias: React.FC = () => {
+  const { lang, strings } = useLanguage();
+  const { technologies } = getContent(lang);
   const [index, setIndex] = useState(0);
 
   return (
   <section id="technologies" className="section section-center">
     <div className="section-wrapper">
-      <h2>Tecnologias</h2>
+      <h2>{strings.technologies.title}</h2>
       <div className="tech-layout">
         <div className="tech-description">
           <h3>{technologies[index].title}</h3>

@@ -13,111 +13,150 @@ import postgresql from '../assets/postgresql.svg'
 import python from '../assets/python.svg'
 import reactLogo from '../assets/react.svg'
 import spring from '../assets/spring.svg'
+import type { Lang } from '../i18n'
 
-export const aboutGallery = [
-  {
-    src: obt,
-    alt: 'OBT',
-    description:
-      'Medalha de prata nacional e 3º lugar na modalidade júri especialista na Olimpíada Brasileira de Tecnologia (OBT)',
-    link:
-      'https://www.ceara.gov.br/2025/07/16/escolas-da-rede-estadual-obtem-ouro-prata-e-bronze-na-olimpiada-brasileira-de-tecnologia-2025/'
-  },
-  {
-    src: maratonatech,
-    alt: 'Maratona Tech',
-    description:
-      'Duas vezes medalhista de bronze na Maratona Tech, competição nacional de tecnologia, trazendo também premiação de destaque nordeste para a escola',
-    link:
-      'https://al.ce.gov.br/noticias/48491-solenidade-na-alece-entrega-medalhas-a-74-alunos-do-ce-premiados-na-maratona-tech'
-  }
-] as const
+export function getContent(lang: Lang) {
+  const isPt = lang === 'pt-BR'
 
-export const technologies = [
-  {
-    title: 'Python',
-    description:
-      'Utilizo Python para automações, lógica de backend, scripts e estudos em inteligência artificial e machine learning.',
-    img: python
-  },
-  {
-    title: 'JavaScript',
-    description:
-      'Uso JavaScript para criar interfaces interativas, consumir APIs e desenvolver aplicações web modernas.',
-    img: javascript
-  },
-  {
-    title: 'React',
-    description:
-      'React é minha principal ferramenta no frontend, permitindo criar interfaces componentizadas, performáticas e escaláveis.',
-    img: reactLogo
-  },
-  {
-    title: 'Java',
-    description:
-      'Utilizo Java para aplicações robustas, orientação a objetos e projetos acadêmicos com foco em backend.',
-    img: java
-  },
-  {
-    title: 'PostgreSQL',
-    description:
-      'Uso PostgreSQL para modelagem e gerenciamento de bancos de dados relacionais em sistemas reais.',
-    img: postgresql
-  },
-  {
-    title: 'Spring',
-    description:
-      'Spring Framework é utilizado para construção de APIs REST seguras e organizadas no ecossistema Java.',
-    img: spring
-  }
-] as const
+  const aboutGallery = [
+    {
+      src: obt,
+      alt: 'OBT',
+      description: isPt
+        ? 'Medalha de prata nacional e 3º lugar na modalidade júri especialista na Olimpíada Brasileira de Tecnologia (OBT)'
+        : 'National silver medal and 3rd place in the expert jury category at the Brazilian Technology Olympiad (OBT)',
+      link:
+        'https://www.ceara.gov.br/2025/07/16/escolas-da-rede-estadual-obtem-ouro-prata-e-bronze-na-olimpiada-brasileira-de-tecnologia-2025/'
+    },
+    {
+      src: maratonatech,
+      alt: 'Maratona Tech',
+      description: isPt
+        ? 'Duas vezes medalhista de bronze na Maratona Tech, competição nacional de tecnologia, trazendo também premiação de destaque nordeste para a escola'
+        : 'Two-time bronze medalist at Maratona Tech, a national tech competition, also bringing a Northeast highlight award to the school',
+      link:
+        'https://al.ce.gov.br/noticias/48491-solenidade-na-alece-entrega-medalhas-a-74-alunos-do-ce-premiados-na-maratona-tech'
+    }
+  ] as const
 
-export const projects = [
-  {
-    img: portfolioreact,
-    title: 'Portfolio React',
-    description: 'Portfolio pessoal desenvolvido com React para apresentar meus projetos e habilidades.',
-    links: [
-      {
-        href: 'https://github.com/williamalmeidadev/williamalmeidadev.github.io',
-        label: 'GitHub',
-        primary: false
-      },
-      { href: 'https://williamalmeidadev.github.io/', label: 'Testar', primary: true }
-    ]
-  },
-  {
-    img: ecoacao,
-    title: 'Projeto EcoAção',
-    description: 'Projeto premiado na OBT 2025, focado em sustentabilidade e conscientização ambiental.',
-    links: [{ href: 'https://projetoecoacao.vercel.app/', label: 'Testar', primary: true }]
-  },
-  {
-    img: placas,
-    title: 'Projeto Placas',
-    description: 'Site para divulgar venda de placas personalizadas em acrílico, funcionando como catálogo.',
-    links: [{ href: 'https://siteplacas.vercel.app/', label: 'Testar', primary: true }]
-  }
-] as const
+  const technologies = [
+    {
+      title: 'Python',
+      description: isPt
+        ? 'Utilizo Python para automações, lógica de backend, scripts e estudos em inteligência artificial e machine learning.'
+        : 'I use Python for automation, backend logic, scripts, and studies in AI and machine learning.',
+      img: python
+    },
+    {
+      title: 'JavaScript',
+      description: isPt
+        ? 'Uso JavaScript para criar interfaces interativas, consumir APIs e desenvolver aplicações web modernas.'
+        : 'I use JavaScript to build interactive interfaces, consume APIs, and develop modern web apps.',
+      img: javascript
+    },
+    {
+      title: 'React',
+      description: isPt
+        ? 'React é minha principal ferramenta no frontend, permitindo criar interfaces componentizadas, performáticas e escaláveis.'
+        : 'React is my main frontend tool, enabling componentized, performant, and scalable interfaces.',
+      img: reactLogo
+    },
+    {
+      title: 'Java',
+      description: isPt
+        ? 'Utilizo Java para aplicações robustas, orientação a objetos e projetos acadêmicos com foco em backend.'
+        : 'I use Java for robust applications, OOP, and academic projects focused on backend.',
+      img: java
+    },
+    {
+      title: 'PostgreSQL',
+      description: isPt
+        ? 'Uso PostgreSQL para modelagem e gerenciamento de bancos de dados relacionais em sistemas reais.'
+        : 'I use PostgreSQL for modeling and managing relational databases in real systems.',
+      img: postgresql
+    },
+    {
+      title: 'Spring',
+      description: isPt
+        ? 'Spring Framework é utilizado para construção de APIs REST seguras e organizadas no ecossistema Java.'
+        : 'Spring Framework is used to build secure, organized REST APIs in the Java ecosystem.',
+      img: spring
+    }
+  ] as const
 
-export const certificates = [
-  { img: google, description: 'Certificação Suporte de TI Google - 2025' },
-  { img: bd, description: 'Administrador de Banco de Dados - 2025' },
-  { img: solyd, description: 'Introdução ao Pentest - 2024' },
-  { img: tecnico, description: 'Técnico em Desenvolvimento de Sistemas - 2023/2025' }
-] as const
+  const projects = [
+    {
+      img: portfolioreact,
+      title: 'Portfolio React',
+      description: isPt
+        ? 'Portfolio pessoal desenvolvido com React para apresentar meus projetos e habilidades.'
+        : 'Personal portfolio built with React to showcase my projects and skills.',
+      links: [
+        {
+          href: 'https://github.com/williamalmeidadev/williamalmeidadev.github.io',
+          label: 'GitHub',
+          primary: false
+        },
+        { href: 'https://williamalmeidadev.github.io/', label: isPt ? 'Testar' : 'Live', primary: true }
+      ]
+    },
+    {
+      img: ecoacao,
+      title: isPt ? 'Projeto EcoAção' : 'EcoAção Project',
+      description: isPt
+        ? 'Projeto premiado na OBT 2025, focado em sustentabilidade e conscientização ambiental.'
+        : 'Award-winning project at OBT 2025, focused on sustainability and environmental awareness.',
+      links: [{ href: 'https://projetoecoacao.vercel.app/', label: isPt ? 'Testar' : 'Live', primary: true }]
+    },
+    {
+      img: placas,
+      title: isPt ? 'Projeto Placas' : 'Plates Project',
+      description: isPt
+        ? 'Site para divulgar venda de placas personalizadas em acrílico, funcionando como catálogo.'
+        : 'Website to showcase custom acrylic plates, working as a product catalog.',
+      links: [{ href: 'https://siteplacas.vercel.app/', label: isPt ? 'Testar' : 'Live', primary: true }]
+    }
+  ] as const
 
-export const experience = [
-  {
-    title: 'Aspirante à Desenvolvedor - Alpha Edtech',
-    period: '2025',
-    description:
-      'Atualmente em estudo focado em desenvolvimento web full stack, aprimorando habilidades em front-end e back-end.'
-  },
-  {
-    title: 'Estágio em Desenvolvimento Web - Ouvidoria do Estado do Ceará',
-    period: 'Ago 2025 - Dez 2025',
-    description:
-      'Desenvolvimento de aplicações front-end e back-end, criação de APIs e manutenção de sistemas internos. Utilização de Java e Angular.'
-  }
-] as const
+  const certificates = [
+    {
+      img: google,
+      description: isPt ? 'Certificação Suporte de TI Google - 2025' : 'Google IT Support Certificate - 2025'
+    },
+    {
+      img: bd,
+      description: isPt ? 'Administrador de Banco de Dados - 2025' : 'Database Administrator - 2025'
+    },
+    {
+      img: solyd,
+      description: isPt ? 'Introdução ao Pentest - 2024' : 'Intro to Pentest - 2024'
+    },
+    {
+      img: tecnico,
+      description: isPt
+        ? 'Técnico em Desenvolvimento de Sistemas - 2023/2025'
+        : 'Systems Development Technician - 2023/2025'
+    }
+  ] as const
+
+  const experience = [
+    {
+      title: isPt ? 'Aspirante à Desenvolvedor - Alpha Edtech' : 'Aspiring Developer - Alpha Edtech',
+      period: isPt ? '2025' : '2025',
+      description: isPt
+        ? 'Atualmente em estudo focado em desenvolvimento web full stack, aprimorando habilidades em front-end e back-end.'
+        : 'Currently studying full stack web development, improving front-end and back-end skills.'
+    },
+    {
+      title: isPt
+        ? 'Estágio em Desenvolvimento Web - Ouvidoria do Estado do Ceará'
+        : 'Web Development Internship - Ceará State Ombudsman',
+      period: isPt ? 'Ago 2025 - Dez 2025' : 'Aug 2025 - Dec 2025',
+      description: isPt
+        ? 'Desenvolvimento de aplicações front-end e back-end, criação de APIs e manutenção de sistemas internos. Utilização de Java e Angular.'
+        : 'Front-end and back-end development, API creation, and maintenance of internal systems. Using Java and Angular.'
+    }
+  ] as const
+
+  return { aboutGallery, technologies, projects, certificates, experience }
+}
