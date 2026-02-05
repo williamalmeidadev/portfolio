@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { getStrings, Lang, type Strings } from '../i18n'
 
 type LanguageContextValue = {
@@ -17,7 +17,7 @@ function getInitialLang(): Lang {
   return browser.startsWith('pt') ? 'pt-BR' : 'en'
 }
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
+export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>(getInitialLang)
   const strings = useMemo(() => getStrings(lang), [lang])
 

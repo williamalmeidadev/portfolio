@@ -1,7 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { aboutGallery } from "../data/content";
+import { getContent } from "../data/content";
+import { useLanguage } from "../hooks/useLanguage";
 
 const Sobre: React.FC = () => {
+  const { lang, strings } = useLanguage();
+  const { aboutGallery } = getContent(lang);
   const [imgIndex, setImgIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
   const timeoutRef = useRef<number | null>(null);
@@ -44,7 +47,7 @@ const Sobre: React.FC = () => {
                   className="btn-primary btn-small"
                   rel="noopener noreferrer"
                 >
-                  Ver Notícia
+                  {strings.about.galleryCta}
                 </a>
               )}
             </p>
@@ -64,16 +67,10 @@ const Sobre: React.FC = () => {
           </div>
         </div>
         <div className="about-text">
-          <h2>Sobre mim</h2>
-          <p>
-            Sou estudante de Desenvolvimento de Sistemas, cearense, com 17 anos, movido pela curiosidade e pelo interesse constante em tecnologia. Tenho afinidade com olimpíadas científicas e tecnológicas, nas quais já representei o Ceará em competições nacionais e conquistei medalhas.
-          </p>
-          <p>
-            Sou autodidata e foco meus estudos no desenvolvimento web full stack, criando interfaces modernas e sistemas bem estruturados, sempre buscando boas práticas e eficiência.
-          </p>
-          <p>
-            Também tenho grande interesse por áreas como Inteligência Artificial, Machine Learning e Visão Computacional, que encaro como parte essencial do futuro da tecnologia e da inovação.
-          </p>
+          <h2>{strings.about.title}</h2>
+          {strings.about.paragraphs.map((text) => (
+            <p key={text}>{text}</p>
+          ))}
         </div>
       </div>
     </section>

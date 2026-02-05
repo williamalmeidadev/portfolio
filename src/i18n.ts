@@ -21,6 +21,7 @@ const strings = {
       title: 'William Almeida',
       description:
         'Construo interfaces modernas, sistemas eficientes e soluções reais usando tecnologia de forma prática e objetiva.',
+      photoAlt: 'Foto de William Almeida',
       ctaProjects: 'Ver projetos',
       ctaAbout: 'Minha trajetória'
     },
@@ -51,6 +52,10 @@ const strings = {
       description: 'Quer conversar sobre projetos, ideias ou oportunidades?',
       email: 'Email'
     },
+    aria: {
+      themeToggle: 'Alternar tema',
+      langToggle: 'Trocar idioma'
+    },
     theme: {
       light: 'Claro',
       dark: 'Escuro'
@@ -71,6 +76,7 @@ const strings = {
       title: 'William Almeida',
       description:
         'I build modern interfaces, efficient systems, and real solutions using technology in a practical, objective way.',
+      photoAlt: 'Photo of William Almeida',
       ctaProjects: 'View projects',
       ctaAbout: 'My journey'
     },
@@ -100,6 +106,10 @@ const strings = {
       title: 'Contact',
       description: 'Want to talk about projects, ideas, or opportunities?',
       email: 'Email'
+    },
+    aria: {
+      themeToggle: 'Toggle theme',
+      langToggle: 'Switch language'
     },
     theme: {
       light: 'Light',
