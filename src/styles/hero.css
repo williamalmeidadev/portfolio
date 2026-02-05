@@ -1,0 +1,38 @@
+.hero {
+  justify-content: center;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-photo img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  transform-style: preserve-3d;
+  will-change: transform;
+  cursor: pointer;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
+  font-weight: 900;
+}
+
+.hero-text p {
+  max-width: 520px;
+  margin: 20px 0 28px;
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
