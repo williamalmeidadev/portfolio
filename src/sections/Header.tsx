@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useActiveSection } from "../hooks/useActiveSection";
 
 const navLinks = [
@@ -28,6 +28,15 @@ const navLinks = [
 const Header: React.FC = () => {
   const [overlay, setOverlay] = useState(false);
   const activeId = useActiveSection();
+  const initialTheme = useMemo(() => {
+    if (typeof window === "undefined") return "dark";
+    const saved = window.localStorage.getItem("theme");
+    if (saved === "light" || saved === "dark") return saved;
+    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  }, []);
+  const [theme, setTheme] = useState<"light" | "dark">(
+    initialTheme === "light" ? "light" : "dark"
+  );
 
   useEffect(() => {
     document.body.style.overflow = overlay ? "hidden" : "";
@@ -35,6 +44,12 @@ const Header: React.FC = () => {
       document.body.style.overflow = "";
     };
   }, [overlay]);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.dataset.theme = theme;
+    window.localStorage.setItem("theme", theme);
+  }, [theme]);
 
   return (
     <header>
@@ -48,6 +63,34 @@ const Header: React.FC = () => {
             {link.label}
           </a>
         ))}
+        <button
+          className="theme-toggle"
+          type="button"
+          aria-label="Alternar tema"
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        >
+          {theme === "light" ? (
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="4.5" stroke="currentColor" strokeWidth="1.6" />
+              <path
+                d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M19.8 4.2 18 6M6 18l-1.8 1.8"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+              />
+            </svg>
+          ) : (
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7.5 7.5 0 1 0 21 14.5Z"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          )}
+        </button>
         <button className="nav-toggle" onClick={() => setOverlay(true)}>
           <span className="hamburger-icon">
             <span></span>
@@ -59,6 +102,40 @@ const Header: React.FC = () => {
       <div className={`nav-overlay${overlay ? " is-open" : ""}`}>
         <button className="nav-close" onClick={() => setOverlay(false)}>&times;</button>
         <div className="nav-overlay-links">
+          <button
+            className="theme-toggle theme-toggle-overlay"
+            type="button"
+            aria-label="Alternar tema"
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          >
+            {theme === "light" ? (
+              <>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" strokeWidth="2" />
+                  <path
+                    d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M19.8 4.2 18 6M6 18l-1.8 1.8"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <span>Claro</span>
+              </>
+            ) : (
+              <>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7.5 7.5 0 1 0 21 14.5Z"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span>Escuro</span>
+              </>
+            )}
+          </button>
           {navLinks.map((link) => (
             <a
               href={link.href}

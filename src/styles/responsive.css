@@ -586,6 +586,14 @@
   .nav-pill a {
     display: none;
   }
+
+  .theme-toggle {
+    display: none;
+  }
+
+  .theme-toggle.theme-toggle-overlay {
+    display: inline-flex;
+  }
 }
 
 @media (max-width: 480px) {

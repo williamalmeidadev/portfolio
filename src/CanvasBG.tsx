@@ -32,9 +32,27 @@ export const CanvasBG: React.FC = () => {
     let lastTime = 0;
     let resizeRaf = 0;
     let bgGradient: CanvasGradient | null = null;
+    let particleColor = '255, 255, 255';
+    let particleOpacity = 1;
+    let themeObserver: MutationObserver | null = null;
 
     function getScaleFactor() {
       return Math.min(window.innerWidth / BASE_WIDTH, 1.6);
+    }
+
+    function updateThemeVars() {
+      const styles = getComputedStyle(document.documentElement);
+      const top = styles.getPropertyValue('--canvas-bg-top').trim() || BG_TOP;
+      const bottom = styles.getPropertyValue('--canvas-bg-bottom').trim() || BG_BOTTOM;
+      const particles = styles.getPropertyValue('--particle-color').trim() || '255, 255, 255';
+      const opacity = Number(styles.getPropertyValue('--particle-opacity').trim()) || 1;
+      particleColor = particles;
+      particleOpacity = opacity;
+      if (height > 0) {
+        bgGradient = context.createLinearGradient(0, 0, 0, height);
+        bgGradient.addColorStop(0, top);
+        bgGradient.addColorStop(1, bottom);
+      }
     }
 
     function resize() {
@@ -49,9 +67,7 @@ export const CanvasBG: React.FC = () => {
         canvas.style.width = `${width}px`;
         canvas.style.height = `${height}px`;
         context.setTransform(dpr, 0, 0, dpr, 0, 0);
-        bgGradient = context.createLinearGradient(0, 0, 0, height);
-        bgGradient.addColorStop(0, BG_TOP);
-        bgGradient.addColorStop(1, BG_BOTTOM);
+        updateThemeVars();
         createParticles();
       });
     }
@@ -87,7 +103,7 @@ export const CanvasBG: React.FC = () => {
         ctx.beginPath();
         const twinkle = Math.sin(p.to) * 0.18 + 0.82;
         ctx.arc(p.x, p.y, p.r * twinkle, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${p.o * twinkle})`;
+        ctx.fillStyle = `rgba(${particleColor}, ${p.o * twinkle * particleOpacity})`;
         ctx.fill();
         p.x += p.vx * dt;
         p.y += p.vy * dt;
@@ -159,9 +175,18 @@ export const CanvasBG: React.FC = () => {
     }
 
     createParticles();
+    updateThemeVars();
+    themeObserver = new MutationObserver(() => {
+      updateThemeVars();
+    });
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
     rafId = requestAnimationFrame(loop);
     return () => {
       window.removeEventListener('resize', resize);
+      if (themeObserver) themeObserver.disconnect();
       if (resizeRaf) cancelAnimationFrame(resizeRaf);
       if (rafId) cancelAnimationFrame(rafId);
     };
