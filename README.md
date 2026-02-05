@@ -1,43 +1,63 @@
-# William Almeida | Portfólio Online
+# William Almeida | Online Portfolio
 
-## Descrição
+## Overview
 
-Portfólio pessoal de **William Almeida**, desenvolvedor full stack. O site apresenta minha trajetória, habilidades, projetos, certificações e formas de contato. Possui um design moderno, responsivo e interativo, com efeitos visuais em **canvas** (partículas e meteoros) e animações suaves.
+Personal portfolio of **William Almeida**, a full stack developer. The site presents my background, skills, projects, certifications, and contact channels. It features a modern, responsive, and interactive design, with a canvas background (particles and meteors), smooth animations, and polished UI details.
 
-O projeto foi desenvolvido utilizando **HTML, CSS puro e JavaScript**, priorizando acessibilidade, performance e experiência do usuário.
-
----
-
-## Funcionalidades
-
-- Seção **Hero** com apresentação pessoal e links para projetos e trajetória.
-- Seção **Sobre mim** com mini-galeria de conquistas e premiações.
-- Linha do tempo de **Experiência** profissional e acadêmica.
-- Seção de **Tecnologias** com interação para exibir descrições detalhadas.
-- Seção de **Projetos** com cards contendo imagens, descrições e links.
-- Seção de **Certificados** com visualização de diplomas e cursos.
-- Seção de **Contato** com links diretos para Email, GitHub e LinkedIn.
-- **Canvas em background** com partículas e meteoros animados.
-- Navbar dinâmica que atualiza o item ativo conforme a rolagem.
-- Layout totalmente **responsivo** (desktop, tablet e mobile).
+The current version is built with **React + Vite + TypeScript**, focusing on accessibility, performance, and user experience.
 
 ---
 
-## Tecnologias Utilizadas
+## Features
 
-- **HTML5** – Estrutura semântica e organizada.
-- **CSS3** – Design moderno, animações, responsividade e grid layouts.
-- **JavaScript (Vanilla JS)** – Interatividade, animações, canvas, mini-galeria e troca de conteúdos dinâmicos.
-- **Fonts**: Inter (Google Fonts).
+- **Hero** section with personal intro and quick links.
+- **About** section with a mini-gallery of achievements.
+- **Experience** timeline (professional and academic).
+- **Technologies** section with interactive descriptions.
+- **Projects** grid with images, descriptions, and links.
+- **Certificates** showcase.
+- **Contact** section with direct links (Email, GitHub, LinkedIn).
+- **Animated canvas background** (particles + meteors).
+- **Dynamic navbar** highlighting active section on scroll.
+- **Custom purple glassmorphism scrollbar**.
+- **Responsive layout** for desktop, tablet, and mobile.
+- **Reduced motion support** for users who prefer less animation.
 
 ---
 
-## Como Executar
+## Tech Stack
 
-1. Clone o repositório:
+- **React** + **Vite** + **TypeScript**
+- **CSS3** (custom animations, responsive grid, glassmorphism styling)
+- **GSAP + ScrollTrigger** for scroll-based motion
+- **Canvas 2D** for background effects
+- **WebP** images for faster loading
+- **Font**: Inter (Google Fonts)
+
+---
+
+## Getting Started
+
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/williamalmeidadev/williamalmeidadev.github.io.git
 ```
 
-2. Abra o arquivo index.html em seu navegador (Chrome, Firefox, Edge, etc.).
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Run locally:
+
+```bash
+npm run dev
+```
+
+4. Build for production:
+
+```bash
+npm run build
+```
