@@ -4,6 +4,46 @@
   --muted: #aaa;
   --border: rgba(255, 255, 255, 0.15);
   --primary: #b450f0;
+  --canvas-bg-top: #050414;
+  --canvas-bg-bottom: #02010a;
+  --particle-color: 255, 255, 255;
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-strong: rgba(0, 0, 0, 0.6);
+  --surface-border: rgba(255, 255, 255, 0.2);
+  --caption-text: #d8d1e3;
+  --btn-primary-bg: rgba(255, 255, 255, 0.9);
+  --btn-primary-bg-hover: rgba(255, 255, 255, 1);
+  --btn-primary-text: #000;
+  --btn-primary-border: rgba(255, 255, 255, 0.3);
+  --btn-outline-bg: rgba(255, 255, 255, 0.03);
+  --btn-outline-bg-hover: rgba(255, 255, 255, 0.08);
+  --btn-outline-border: rgba(255, 255, 255, 0.2);
+  --btn-outline-border-hover: rgba(255, 255, 255, 0.4);
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --bg: #f1f4fb;
+  --text: #120f1a;
+  --muted: #5a6478;
+  --border: rgba(12, 8, 18, 0.12);
+  --primary: #7b56d6;
+  --canvas-bg-top: #eff3ff;
+  --canvas-bg-bottom: #e6ecf7;
+  --particle-color: 65, 75, 95;
+  --surface: rgba(242, 246, 255, 0.92);
+  --surface-strong: rgba(12, 18, 32, 0.6);
+  --surface-border: rgba(12, 18, 32, 0.16);
+  --caption-text: #eef2fb;
+  --btn-primary-bg: #2a3a5e;
+  --btn-primary-bg-hover: #31466f;
+  --btn-primary-text: #f2f6ff;
+  --btn-primary-border: rgba(16, 24, 40, 0.45);
+  --btn-outline-bg: rgba(255, 255, 255, 0.75);
+  --btn-outline-bg-hover: rgba(255, 255, 255, 0.95);
+  --btn-outline-border: rgba(16, 24, 40, 0.18);
+  --btn-outline-border-hover: rgba(16, 24, 40, 0.32);
+  color-scheme: light;
 }
 
 *,
@@ -37,6 +77,10 @@ body {
   position: relative;
   scrollbar-color: rgba(180, 80, 240, 0.45) rgba(10, 6, 20, 0.65);
   scrollbar-width: thin;
+}
+
+:root[data-theme='light'] body {
+  scrollbar-color: rgba(140, 60, 210, 0.45) rgba(232, 228, 245, 0.8);
 }
 
 main {
@@ -91,6 +135,31 @@ h2 {
   );
 }
 
+:root[data-theme='light'] *::-webkit-scrollbar-track {
+  background: rgba(232, 228, 245, 0.8);
+  border-left: 1px solid rgba(140, 60, 210, 0.08);
+}
+
+:root[data-theme='light'] *::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(190, 135, 245, 0.55),
+    rgba(140, 90, 210, 0.55)
+  );
+  border: 1px solid rgba(232, 228, 245, 0.8);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+    0 6px 16px rgba(130, 80, 200, 0.16);
+}
+
+:root[data-theme='light'] *::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(200, 150, 250, 0.7),
+    rgba(150, 105, 220, 0.7)
+  );
+}
+
 .section {
   min-height: 100vh;
   scroll-snap-align: start;
@@ -122,14 +191,14 @@ h2 {
 
 .btn-primary {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--bg);
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   padding: 14px 30px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--btn-primary-border);
   backdrop-filter: blur(8px) saturate(150%);
   -webkit-backdrop-filter: blur(8px) saturate(150%);
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08),
@@ -138,7 +207,7 @@ h2 {
 }
 
 .btn-primary:hover {
-  background: rgba(255, 255, 255, 1);
+  background: var(--btn-primary-bg-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
@@ -157,8 +226,8 @@ h2 {
   text-decoration: none;
   font-weight: 700;
   color: var(--text);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--btn-outline-bg);
+  border: 1px solid var(--btn-outline-border);
   backdrop-filter: blur(8px) saturate(150%);
   -webkit-backdrop-filter: blur(8px) saturate(150%);
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05),
@@ -167,8 +236,8 @@ h2 {
 }
 
 .btn-outline:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--btn-outline-border-hover);
+  background: var(--btn-outline-bg-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.08),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.15);

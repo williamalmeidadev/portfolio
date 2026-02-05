@@ -8,7 +8,7 @@
   padding: 25px;
   border-radius: 14px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--surface);
   text-align: center;
   will-change: transform, opacity;
   transition: background 0.25s, box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -47,16 +47,22 @@
 }
 
 .project-actions a.btn-primary {
-  background: var(--text);
-  color: var(--bg);
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: 1px solid var(--btn-primary-border);
 }
 
 .project-actions a.btn-outline {
-  border: 1px solid var(--border);
+  border: 1px solid var(--btn-outline-border);
   color: var(--text);
-  background: transparent;
+  background: var(--btn-outline-bg);
 }
 
 .project-actions a:hover {
   filter: brightness(1.05);
+}
+
+:root[data-theme='light'] .project-card:hover {
+  box-shadow: 0 10px 26px rgba(36, 20, 60, 0.14),
+    0 4px 12px rgba(120, 70, 200, 0.16);
 }
