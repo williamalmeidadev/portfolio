@@ -112,7 +112,7 @@ const Header: React.FC = () => {
           ) : (
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path
-                d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7.5 7.5 0 1 0 21 14.5Z"
+                d="M21.4 14.2A9.2 9.2 0 0 1 9.8 2.6a.9.9 0 0 0-1 .9A9.5 9.5 0 1 0 21.4 15a.9.9 0 0 0 0-.8.9.9 0 0 0-1-.0Z"
                 stroke="currentColor"
                 strokeWidth="1.6"
                 strokeLinecap="round"
@@ -155,7 +155,7 @@ const Header: React.FC = () => {
               <>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
-                    d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7.5 7.5 0 1 0 21 14.5Z"
+                    d="M21.4 14.2A9.2 9.2 0 0 1 9.8 2.6a.9.9 0 0 0-1 .9A9.5 9.5 0 1 0 21.4 15a.9.9 0 0 0 0-.8.9.9 0 0 0-1-.0Z"
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
