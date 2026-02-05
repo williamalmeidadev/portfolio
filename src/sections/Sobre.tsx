@@ -31,6 +31,8 @@ const Sobre: React.FC = () => {
               src={aboutGallery[imgIndex].src}
               alt={aboutGallery[imgIndex].alt}
               className={isFading ? "fade" : ""}
+              loading="lazy"
+              decoding="async"
             />
             <p className={`gallery-caption${isFading ? " fade" : ""}`}>
               {aboutGallery[imgIndex].description}
@@ -54,6 +56,8 @@ const Sobre: React.FC = () => {
                 src={img.src}
                 className={i === imgIndex ? "is-active" : ""}
                 alt={img.alt}
+                loading="lazy"
+                decoding="async"
                 onClick={() => handleThumbClick(i)}
               />
             ))}

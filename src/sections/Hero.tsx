@@ -6,7 +6,12 @@ export default function Hero() {
     <section id="home" className="section hero">
       <div className="hero-content">
         <div className="hero-photo">
-          <img src={foto} alt="Foto de William Almeida" />
+          <img
+            src={foto}
+            alt="Foto de William Almeida"
+            decoding="async"
+            fetchpriority="high"
+          />
         </div>
         <div className="hero-text">
           <span className="eyebrow">Desenvolvedor Full Stack</span>

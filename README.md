@@ -1,43 +1,73 @@
-# William Almeida | Portfólio Online
+# React + TypeScript + Vite
 
-## Descrição
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Portfólio pessoal de **William Almeida**, desenvolvedor full stack. O site apresenta minha trajetória, habilidades, projetos, certificações e formas de contato. Possui um design moderno, responsivo e interativo, com efeitos visuais em **canvas** (partículas e meteoros) e animações suaves.
+Currently, two official plugins are available:
 
-O projeto foi desenvolvido utilizando **HTML, CSS puro e JavaScript**, priorizando acessibilidade, performance e experiência do usuário.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
----
+## React Compiler
 
-## Funcionalidades
+The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
 
-- Seção **Hero** com apresentação pessoal e links para projetos e trajetória.
-- Seção **Sobre mim** com mini-galeria de conquistas e premiações.
-- Linha do tempo de **Experiência** profissional e acadêmica.
-- Seção de **Tecnologias** com interação para exibir descrições detalhadas.
-- Seção de **Projetos** com cards contendo imagens, descrições e links.
-- Seção de **Certificados** com visualização de diplomas e cursos.
-- Seção de **Contato** com links diretos para Email, GitHub e LinkedIn.
-- **Canvas em background** com partículas e meteoros animados.
-- Navbar dinâmica que atualiza o item ativo conforme a rolagem.
-- Layout totalmente **responsivo** (desktop, tablet e mobile).
+## Expanding the ESLint configuration
 
----
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Tecnologias Utilizadas
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-- **HTML5** – Estrutura semântica e organizada.
-- **CSS3** – Design moderno, animações, responsividade e grid layouts.
-- **JavaScript (Vanilla JS)** – Interatividade, animações, canvas, mini-galeria e troca de conteúdos dinâmicos.
-- **Fonts**: Inter (Google Fonts).
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
----
-
-## Como Executar
-
-1. Clone o repositório:
-
-```bash
-git clone https://github.com/williamalmeidadev/williamalmeidadev.github.io.git
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-2. Abra o arquivo index.html em seu navegador (Chrome, Firefox, Edge, etc.).
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```

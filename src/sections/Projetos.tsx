@@ -8,7 +8,7 @@ const Projetos: React.FC = () => (
       <div className="projects-grid">
         {projects.map((proj) => (
           <div className="project-card" key={proj.title}>
-            <img src={proj.img} alt={proj.title} />
+            <img src={proj.img} alt={proj.title} loading="lazy" decoding="async" />
             <h3>{proj.title}</h3>
             <p>{proj.description}</p>
             <div className="project-actions">

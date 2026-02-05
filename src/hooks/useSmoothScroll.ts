@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 
 export function useSmoothScroll() {
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
     const pillLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-pill a, .nav-overlay-links a')
 
     const handlers: Array<[(e: Event) => void, HTMLAnchorElement]> = []

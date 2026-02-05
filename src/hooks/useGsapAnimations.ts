@@ -9,6 +9,7 @@ export function useGsapAnimations() {
 
   useEffect(() => {
     if (!rootRef.current) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const cleanups: Array<() => void> = []
 

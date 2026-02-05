@@ -20,7 +20,7 @@ const Tecnologias: React.FC = () => {
               className={`skill${i === index ? " is-active" : ""}`}
               onClick={() => setIndex(i)}
             >
-                <img src={tech.img} alt={tech.title} />
+                <img src={tech.img} alt={tech.title} loading="lazy" decoding="async" />
               </div>
             ))}
           </div>

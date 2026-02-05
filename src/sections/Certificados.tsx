@@ -8,7 +8,7 @@ const Certificados: React.FC = () => (
       <div className="certificates-grid">
         {certificates.map((c) => (
           <div className="certificate-card" key={c.description}>
-            <img src={c.img} alt={c.description} />
+            <img src={c.img} alt={c.description} loading="lazy" decoding="async" />
             <p>{c.description}</p>
           </div>
         ))}
