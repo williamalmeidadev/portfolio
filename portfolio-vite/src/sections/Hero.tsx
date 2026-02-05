@@ -1,4 +1,3 @@
-import './Hero.css'
 import foto from '../assets/foto.jpeg'
 
 
