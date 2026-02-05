@@ -1,73 +1,62 @@
-# React + TypeScript + Vite
+# William Almeida | Online Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+Personal portfolio of **William Almeida**, a full stack developer. The site presents my background, skills, projects, certifications, and contact channels. It features a modern, responsive, and interactive design, with a canvas background (particles and meteors), smooth animations, and polished UI details.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The current version is built with **React + Vite + TypeScript**, focusing on accessibility, performance, and user experience.
 
-## React Compiler
+---
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## Features
 
-## Expanding the ESLint configuration
+- **Hero** section with personal intro and quick links.
+- **About** section with a mini-gallery of achievements.
+- **Experience** timeline (professional and academic).
+- **Technologies** section with interactive descriptions.
+- **Projects** grid with images, descriptions, and links.
+- **Certificates** showcase.
+- **Contact** section with direct links (Email, GitHub, LinkedIn).
+- **Animated canvas background** (particles + meteors).
+- **Dynamic navbar** highlighting active section on scroll.
+- **Custom purple glassmorphism scrollbar**.
+- **Responsive layout** for desktop, tablet, and mobile.
+- **Reduced motion support** for users who prefer less animation.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **React** + **Vite** + **TypeScript**
+- **CSS3** (custom animations, responsive grid, glassmorphism styling)
+- **GSAP + ScrollTrigger** for scroll-based motion
+- **Canvas 2D** for background effects
+- **Font**: Inter (Google Fonts)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## Getting Started
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/williamalmeidadev/williamalmeidadev.github.io.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm install
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+3. Run locally:
+
+```bash
+npm run dev
+```
+
+4. Build for production:
+
+```bash
+npm run build
 ```
