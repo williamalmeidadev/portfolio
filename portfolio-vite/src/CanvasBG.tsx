@@ -11,18 +11,48 @@ export const CanvasBG: React.FC = () => {
 
     const METEOR_COLOR = '180, 80, 255';
     const BASE_WIDTH = 1200;
-    const particles: Array<{ x: number; y: number; vx: number; vy: number; r: number; o: number }> = [];
-    const meteors: Array<{ x: number; y: number; len: number; v: number; o: number }> = [];
+    const BG_TOP = '#050414';
+    const BG_BOTTOM = '#02010a';
+    const MAX_DPR = 2;
+    const particles: Array<{
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      r: number;
+      o: number;
+      tw: number;
+      to: number;
+    }> = [];
+    const meteors: Array<{ x: number; y: number; len: number; v: number; o: number; dir: number }> = [];
+    let width = 0;
+    let height = 0;
+    let rafId = 0;
+    let lastTime = 0;
+    let resizeRaf = 0;
+    let bgGradient: CanvasGradient | null = null;
 
     function getScaleFactor() {
-      return Math.min(window.innerWidth / BASE_WIDTH, 1.5);
+      return Math.min(window.innerWidth / BASE_WIDTH, 1.6);
     }
 
     function resize() {
-      if (!canvas) return;
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      createParticles();
+      if (resizeRaf) cancelAnimationFrame(resizeRaf);
+      resizeRaf = requestAnimationFrame(() => {
+        if (!canvas) return;
+        const dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        canvas.style.width = `${width}px`;
+        canvas.style.height = `${height}px`;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        bgGradient = ctx.createLinearGradient(0, 0, 0, height);
+        bgGradient.addColorStop(0, BG_TOP);
+        bgGradient.addColorStop(1, BG_BOTTOM);
+        createParticles();
+      });
     }
 
     window.addEventListener('resize', resize);
@@ -34,89 +64,102 @@ export const CanvasBG: React.FC = () => {
       const particleCount = Math.floor(60 * getScaleFactor());
       for (let i = 0; i < particleCount; i++) {
         particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.3,
-          vy: (Math.random() - 0.5) * 0.3,
-          r: Math.random() * 2 + 0.5,
-          o: Math.random() * 0.4 + 0.1,
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.06,
+          vy: (Math.random() - 0.5) * 0.06,
+          r: Math.random() * 1.9 + 0.55,
+          o: Math.random() * 0.28 + 0.08,
+          tw: Math.random() * 0.5 + 0.15,
+          to: Math.random() * Math.PI * 2,
         });
       }
     }
 
-    function drawParticles() {
+    function drawParticles(dt: number) {
       if (!canvas || !ctx) return;
-      particles.forEach((p) => {
+      const w = width;
+      const h = height;
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${p.o})`;
+        const twinkle = Math.sin(p.to) * 0.18 + 0.82;
+        ctx.arc(p.x, p.y, p.r * twinkle, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${p.o * twinkle})`;
         ctx.fill();
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
-      });
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
+        p.to += p.tw * dt * 0.012;
+        if (p.x < 0) p.x = w;
+        if (p.x > w) p.x = 0;
+        if (p.y < 0) p.y = h;
+        if (p.y > h) p.y = 0;
+      }
     }
 
     function createMeteor() {
       if (!canvas) return;
       const scale = getScaleFactor();
-      const max = Math.floor(4 + scale * 6);
-      const chance = 0.01 * scale;
+      const max = Math.floor(3 + scale * 5);
+      const chance = 0.006 * scale;
       if (meteors.length < max && Math.random() < chance) {
-        const startX = Math.random() * canvas.width;
-        const startY = -50 - Math.random() * 100;
+        const dir = Math.random() < 0.5 ? 1 : -1;
+        const startX =
+          dir > 0 ? -120 + Math.random() * (width + 240) : width + 120 - Math.random() * (width + 240);
+        const startY = -80 - Math.random() * 140;
         meteors.push({
           x: startX,
           y: startY,
           len: 80 + Math.random() * 120,
-          v: 4 + Math.random() * 3,
+          v: 4.5 + Math.random() * 3.5,
           o: Math.random() * 0.5 + 0.3,
+          dir,
         });
       }
     }
 
-    function drawMeteors() {
+    function drawMeteors(dt: number) {
       if (!canvas || !ctx) return;
-      meteors.forEach((m, i) => {
-        const dx = m.v * 0.6;
-        const dy = m.v;
-        const grad = ctx.createLinearGradient(
-          m.x - dx * 10,
-          m.y - dy * 10,
-          m.x,
-          m.y
-        );
+      for (let i = meteors.length - 1; i >= 0; i--) {
+        const m = meteors[i];
+        const dx = m.v * 0.6 * dt * 0.06 * m.dir;
+        const dy = m.v * dt * 0.06;
+        const tailX = m.x - dx * 10;
+        const tailY = m.y - dy * 10;
+        const grad = ctx.createLinearGradient(tailX, tailY, m.x, m.y);
         grad.addColorStop(0, `rgba(${METEOR_COLOR}, 0)`);
         grad.addColorStop(1, `rgba(${METEOR_COLOR}, ${m.o})`);
         ctx.beginPath();
-        ctx.moveTo(m.x - dx * 10, m.y - dy * 10);
+        ctx.moveTo(tailX, tailY);
         ctx.lineTo(m.x, m.y);
         ctx.strokeStyle = grad;
-        ctx.lineWidth = 1.5;
+        ctx.lineWidth = 1.4;
         ctx.stroke();
         m.x += dx;
         m.y += dy;
-        if (m.y > canvas.height + 200) meteors.splice(i, 1);
-      });
+        if (m.y > height + 200 || m.x > width + 200 || m.x < -200) meteors.splice(i, 1);
+      }
     }
 
-    function loop() {
+    function loop(time: number) {
       if (!canvas || !ctx) return;
-      ctx.fillStyle = '#02010a';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      drawParticles();
+      const dt = lastTime ? Math.min(time - lastTime, 50) : 16.7;
+      lastTime = time;
+      if (bgGradient) ctx.fillStyle = bgGradient;
+      else ctx.fillStyle = BG_BOTTOM;
+      ctx.fillRect(0, 0, width, height);
+      drawParticles(dt);
       createMeteor();
-      drawMeteors();
-      requestAnimationFrame(loop);
+      drawMeteors(dt);
+      rafId = requestAnimationFrame(loop);
     }
 
     createParticles();
-    loop();
+    rafId = requestAnimationFrame(loop);
     return () => {
       window.removeEventListener('resize', resize);
+      if (resizeRaf) cancelAnimationFrame(resizeRaf);
+      if (rafId) cancelAnimationFrame(rafId);
     };
   }, []);
 
