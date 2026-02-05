@@ -71,22 +71,22 @@ const Header: React.FC = () => {
         >
           {theme === "light" ? (
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path
-                d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7.5 7.5 0 1 0 21 14.5Z"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          ) : (
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <circle cx="12" cy="12" r="4.5" stroke="currentColor" strokeWidth="1.6" />
               <path
                 d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M19.8 4.2 18 6M6 18l-1.8 1.8"
                 stroke="currentColor"
                 strokeWidth="1.6"
                 strokeLinecap="round"
+              />
+            </svg>
+          ) : (
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7.5 7.5 0 1 0 21 14.5Z"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           )}
@@ -101,15 +101,41 @@ const Header: React.FC = () => {
       </nav>
       <div className={`nav-overlay${overlay ? " is-open" : ""}`}>
         <button className="nav-close" onClick={() => setOverlay(false)}>&times;</button>
-        <button
-          className="theme-toggle theme-toggle-overlay"
-          type="button"
-          aria-label="Alternar tema"
-          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        >
-          {theme === "light" ? "Dark mode" : "Light mode"}
-        </button>
         <div className="nav-overlay-links">
+          <button
+            className="theme-toggle theme-toggle-overlay"
+            type="button"
+            aria-label="Alternar tema"
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          >
+            {theme === "light" ? (
+              <>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" strokeWidth="2" />
+                  <path
+                    d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M19.8 4.2 18 6M6 18l-1.8 1.8"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <span>Claro</span>
+              </>
+            ) : (
+              <>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7.5 7.5 0 1 0 21 14.5Z"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span>Escuro</span>
+              </>
+            )}
+          </button>
           {navLinks.map((link) => (
             <a
               href={link.href}

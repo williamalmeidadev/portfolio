@@ -8,12 +8,15 @@
   gap: 18px;
   padding: 12px 26px;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
-    0 2px 8px 0 rgba(180, 80, 240, 0.1),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  background: rgba(28, 30, 38, 0.72);
+  backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(210, 220, 255, 0.16);
+  box-shadow:
+    0 6px 10px rgba(8, 10, 14, 0.5),
+    0 22px 48px rgba(8, 10, 14, 0.45),
+    0 10px 22px rgba(180, 80, 240, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(120, 140, 180, 0.12);
   z-index: 10;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -44,13 +47,30 @@
 }
 
 .theme-toggle-overlay {
-  margin-top: 80px;
-  width: auto;
-  padding: 12px 22px;
-  font-size: 0.95rem;
+  width: 100%;
+  max-width: 350px;
+  padding: 16px 24px;
+  font-size: 1.4rem;
   font-weight: 600;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  line-height: 1;
+  min-height: 56px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle-overlay:hover {
+  color: var(--primary);
+  background: rgba(180, 80, 240, 0.12);
+  border-color: rgba(180, 80, 240, 0.4);
+  box-shadow: 0 8px 24px rgba(180, 80, 240, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px) scale(1.02);
 }
 
 .nav-pill a {
@@ -194,6 +214,22 @@
   perspective: 1000px;
 }
 
+.theme-toggle-overlay {
+  color: var(--text);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.theme-toggle-overlay:hover {
+  color: var(--primary);
+  background: rgba(180, 80, 240, 0.12);
+  border-color: rgba(180, 80, 240, 0.4);
+  box-shadow: 0 8px 24px rgba(180, 80, 240, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px) scale(1.02);
+}
+
 .nav-overlay-links a svg {
   flex-shrink: 0;
   transition: transform 0.3s ease;
@@ -284,6 +320,11 @@
 }
 
 :root[data-theme='light'] .nav-overlay-links a {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(24, 32, 48, 0.16);
+}
+
+:root[data-theme='light'] .theme-toggle-overlay {
   background: rgba(255, 255, 255, 0.72);
   border-color: rgba(24, 32, 48, 0.16);
 }
