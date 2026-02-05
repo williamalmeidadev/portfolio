@@ -1,8 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { sobreGaleria } from "../data/content";
 
 const Sobre: React.FC = () => {
   const [imgIndex, setImgIndex] = useState(0);
+  const [isFading, setIsFading] = useState(false);
+  const timeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  function handleThumbClick(index: number) {
+    if (index === imgIndex) return;
+    setIsFading(true);
+    if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    timeoutRef.current = window.setTimeout(() => {
+      setImgIndex(index);
+      setIsFading(false);
+    }, 180);
+  }
 
   return (
     <section id="sobre">
@@ -13,8 +31,9 @@ const Sobre: React.FC = () => {
               id="imagemPrincipal"
               src={sobreGaleria[imgIndex].src}
               alt={sobreGaleria[imgIndex].alt}
+              className={isFading ? "fade" : ""}
             />
-            <p id="descricaoImagem" className="descricao-imagem">
+            <p id="descricaoImagem" className={`descricao-imagem${isFading ? " fade" : ""}`}>
               {sobreGaleria[imgIndex].descricao}
               <br />
               {sobreGaleria[imgIndex].link && (
@@ -37,7 +56,7 @@ const Sobre: React.FC = () => {
                 src={img.src}
                 className={i === imgIndex ? "ativo" : ""}
                 alt={img.alt}
-                onClick={() => setImgIndex(i)}
+                onClick={() => handleThumbClick(i)}
                 style={{ cursor: "pointer" }}
               />
             ))}

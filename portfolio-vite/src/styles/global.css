@@ -310,6 +310,12 @@ section>* {
     line-height: 1.5;
     background: rgba(0, 0, 0, 0.6);
     border-top: 1px solid var(--border);
+    transition: opacity 0.25s ease;
+}
+
+.galeria-principal img.fade,
+.descricao-imagem.fade {
+    opacity: 0;
 }
 
 .galeria-stack {
