@@ -10,7 +10,18 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.vite
 *.local
+coverage
+*.tsbuildinfo
+.eslintcache
+.npm
+.env
+.env.*
+!.env.example
+
+portfolio-vite@0.0.0
+tsc
 
 # Editor directories and files
 .vscode/*
