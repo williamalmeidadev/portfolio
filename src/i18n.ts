@@ -28,9 +28,10 @@ const strings = {
     about: {
       title: 'Sobre mim',
       paragraphs: [
-        'Sou estudante de Desenvolvimento de Sistemas, cearense, com 17 anos, movido pela curiosidade e pelo interesse constante em tecnologia. Tenho afinidade com olimpíadas científicas e tecnológicas, nas quais já representei o Ceará em competições nacionais e conquistei medalhas.',
-        'Sou autodidata e foco meus estudos no desenvolvimento web full stack, criando interfaces modernas e sistemas bem estruturados, sempre buscando boas práticas e eficiência.',
-        'Também tenho grande interesse por áreas como Inteligência Artificial, Machine Learning e Visão Computacional, que encaro como parte essencial do futuro da tecnologia e da inovação.'
+        'Sou desenvolvedor de sistemas, tenho 18 anos e sou movido pela curiosidade e pelo interesse constante em tecnologia.',
+        'Tenho afinidade com olimpíadas científicas e tecnológicas, já participei de competições nacionais e conquistei medalhas.',
+        'Sou autodidata e foco meus estudos no desenvolvimento web full stack, criando interfaces modernas e sistemas bem estruturados com boas práticas e eficiência.',
+        'Também tenho grande interesse por Inteligência Artificial, Machine Learning e Visão Computacional, áreas que considero essenciais para o futuro da tecnologia e da inovação.'
       ],
       galleryCta: 'Ver notícia'
     },
@@ -83,8 +84,9 @@ const strings = {
     about: {
       title: 'About me',
       paragraphs: [
-        'I am a Systems Development student from Ceará, 17 years old, driven by curiosity and a constant interest in technology. I enjoy scientific and tech olympiads, representing Ceará in national competitions and earning medals.',
-        'I am self-taught and focus my studies on full stack web development, creating modern interfaces and well-structured systems while following best practices and efficiency.',
+        'I am a systems developer, 18 years old, driven by curiosity and a constant interest in technology.',
+        'I enjoy scientific and tech olympiads, have competed nationally, and earned medals.',
+        'I am self-taught and focus my studies on full stack web development, creating modern interfaces and well-structured systems with best practices and efficiency.',
         'I am also very interested in Artificial Intelligence, Machine Learning, and Computer Vision, which I see as essential to the future of technology and innovation.'
       ],
       galleryCta: 'Read article'

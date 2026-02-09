@@ -48,6 +48,44 @@ const Header: React.FC = () => {
   }, [overlay]);
 
   useEffect(() => {
+    const nav = document.querySelector<HTMLElement>(".nav-pill");
+    if (!nav) return;
+
+    const updateUnderline = () => {
+      const links = nav.querySelector<HTMLElement>(".nav-links");
+      const underline = nav.querySelector<HTMLElement>(".nav-underline");
+      if (!links || !underline) return;
+      if (!underline) return;
+      const active = links.querySelector<HTMLElement>(".is-active");
+      if (!active) {
+        underline.style.opacity = "0";
+        return;
+      }
+      const linksRect = links.getBoundingClientRect();
+      const linkRect = active.getBoundingClientRect();
+      const left = linkRect.left - linksRect.left;
+      const lineWidth = Math.round(linkRect.width * 0.7);
+      underline.style.width = `${lineWidth}px`;
+      const centeredLeft = left + (linkRect.width - lineWidth) / 2;
+      underline.style.transform = `translateX(${centeredLeft}px)`;
+      underline.style.opacity = "1";
+      };
+
+    updateUnderline();
+
+    const handleResize = () => updateUnderline();
+    window.addEventListener("resize", handleResize);
+
+    const observer = new ResizeObserver(() => updateUnderline());
+    observer.observe(nav);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      observer.disconnect();
+    };
+  }, [activeId, lang]);
+
+  useEffect(() => {
     const root = document.documentElement;
     root.dataset.theme = theme;
     window.localStorage.setItem("theme", theme);
@@ -60,15 +98,18 @@ const Header: React.FC = () => {
   return (
     <header>
       <nav className="nav-pill">
-        {navLinks.map((link) => (
-          <a
-            href={link.href}
-            key={link.href}
-            className={activeId === link.href.replace("#", "") ? "is-active" : ""}
-          >
-            {strings.nav[link.key as keyof typeof strings.nav]}
-          </a>
-        ))}
+        <div className="nav-links">
+          {navLinks.map((link) => (
+            <a
+              href={link.href}
+              key={link.href}
+              className={activeId === link.href.replace("#", "") ? "is-active" : ""}
+            >
+              {strings.nav[link.key as keyof typeof strings.nav]}
+            </a>
+          ))}
+          <span className="nav-underline" aria-hidden="true" />
+        </div>
         <button
           className="lang-toggle"
           type="button"

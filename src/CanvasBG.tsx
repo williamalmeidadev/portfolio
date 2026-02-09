@@ -9,6 +9,11 @@ export const CanvasBG: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     const context = ctx;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+    const saveData = connection?.saveData === true;
+    const slowConnection = (connection?.effectiveType || '').includes('2g');
+    const lowPower = reduceMotion || saveData || slowConnection;
 
     const METEOR_COLOR = '180, 80, 255';
     const BASE_WIDTH = 1200;
@@ -35,6 +40,7 @@ export const CanvasBG: React.FC = () => {
     let particleColor = '255, 255, 255';
     let particleOpacity = 1;
     let themeObserver: MutationObserver | null = null;
+    let isPaused = false;
 
     function getScaleFactor() {
       return Math.min(window.innerWidth / BASE_WIDTH, 1.6);
@@ -69,6 +75,7 @@ export const CanvasBG: React.FC = () => {
         context.setTransform(dpr, 0, 0, dpr, 0, 0);
         updateThemeVars();
         createParticles();
+        if (lowPower) renderFrame(performance.now());
       });
     }
 
@@ -78,7 +85,8 @@ export const CanvasBG: React.FC = () => {
     function createParticles() {
       if (!canvas) return;
       particles.length = 0;
-      const particleCount = Math.floor(60 * getScaleFactor());
+      const density = lowPower ? 0.45 : 1;
+      const particleCount = Math.floor(60 * getScaleFactor() * density);
       for (let i = 0; i < particleCount; i++) {
         particles.push({
           x: Math.random() * width,
@@ -118,8 +126,8 @@ export const CanvasBG: React.FC = () => {
     function createMeteor() {
       if (!canvas) return;
       const scale = getScaleFactor();
-      const max = Math.floor(3 + scale * 5);
-      const chance = 0.006 * scale;
+      const max = Math.floor((3 + scale * 5) * (lowPower ? 0.4 : 1));
+      const chance = 0.006 * scale * (lowPower ? 0.35 : 1);
       if (meteors.length < max && Math.random() < chance) {
         const dir = Math.random() < 0.5 ? 1 : -1;
         const startX =
@@ -160,7 +168,7 @@ export const CanvasBG: React.FC = () => {
       }
     }
 
-    function loop(time: number) {
+    function renderFrame(time: number) {
       if (!canvas) return;
       const ctx = context;
       const dt = lastTime ? Math.min(time - lastTime, 50) : 16.7;
@@ -171,6 +179,11 @@ export const CanvasBG: React.FC = () => {
       drawParticles(dt);
       createMeteor();
       drawMeteors(dt);
+    }
+
+    function loop(time: number) {
+      if (isPaused) return;
+      renderFrame(time);
       rafId = requestAnimationFrame(loop);
     }
 
@@ -183,9 +196,28 @@ export const CanvasBG: React.FC = () => {
       attributes: true,
       attributeFilter: ['data-theme']
     });
-    rafId = requestAnimationFrame(loop);
+    const handleVisibility = () => {
+      if (document.hidden) {
+        isPaused = true;
+        if (rafId) cancelAnimationFrame(rafId);
+      } else {
+        isPaused = false;
+        lastTime = 0;
+        if (!lowPower) rafId = requestAnimationFrame(loop);
+        else renderFrame(performance.now());
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibility);
+
+    if (lowPower) {
+      renderFrame(performance.now());
+    } else {
+      rafId = requestAnimationFrame(loop);
+    }
     return () => {
       window.removeEventListener('resize', resize);
+      document.removeEventListener('visibilitychange', handleVisibility);
       if (themeObserver) themeObserver.disconnect();
       if (resizeRaf) cancelAnimationFrame(resizeRaf);
       if (rafId) cancelAnimationFrame(rafId);
