@@ -34,34 +34,66 @@ export function useGsapAnimations() {
           '-=0.7'
         )
 
-      gsap.from('.about-gallery', {
-        scrollTrigger: {
-          trigger: '#about',
-          start: 'top 75%',
-          toggleActions: 'play reverse play reverse'
-        },
-        x: -60,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
+      const isMobile = window.matchMedia('(max-width: 767px)').matches
+      const startPrimary = isMobile ? 'top 90%' : 'top 75%'
+      const startSecondary = isMobile ? 'top 90%' : 'top 70%'
+      const media = gsap.matchMedia()
+
+      media.add('(max-width: 767px)', () => {
+        gsap.from('.about-gallery', {
+          scrollTrigger: {
+            trigger: '#about',
+            start: startPrimary,
+            toggleActions: 'play reverse play reverse'
+          },
+          clipPath: 'inset(0 0 100% 0)',
+          opacity: 0,
+          duration: 0.6,
+          ease: 'power2.out'
+        })
+
+        gsap.from('.about-text', {
+          scrollTrigger: {
+            trigger: '#about',
+            start: startPrimary,
+            toggleActions: 'play reverse play reverse'
+          },
+          opacity: 0,
+          duration: 0.6,
+          ease: 'power2.out'
+        })
       })
 
-      gsap.from('.about-text', {
-        scrollTrigger: {
-          trigger: '#about',
-          start: 'top 75%',
-          toggleActions: 'play reverse play reverse'
-        },
-        x: 60,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
+      media.add('(min-width: 768px)', () => {
+        gsap.from('.about-gallery', {
+          scrollTrigger: {
+            trigger: '#about',
+            start: startPrimary,
+            toggleActions: 'play reverse play reverse'
+          },
+          x: -60,
+          opacity: 0,
+          duration: 1,
+          ease: 'power3.out'
+        })
+
+        gsap.from('.about-text', {
+          scrollTrigger: {
+            trigger: '#about',
+            start: startPrimary,
+            toggleActions: 'play reverse play reverse'
+          },
+          x: 60,
+          opacity: 0,
+          duration: 1,
+          ease: 'power3.out'
+        })
       })
 
       gsap.from('.about-text h2', {
         scrollTrigger: {
           trigger: '#about',
-          start: 'top 70%',
+          start: startSecondary,
           toggleActions: 'play reverse play reverse'
         },
         y: 30,
@@ -73,7 +105,7 @@ export function useGsapAnimations() {
       gsap.from('.about-text p', {
         scrollTrigger: {
           trigger: '#about',
-          start: 'top 70%',
+          start: startSecondary,
           toggleActions: 'play reverse play reverse'
         },
         y: 20,
@@ -86,7 +118,7 @@ export function useGsapAnimations() {
       gsap.from('#experience h2', {
         scrollTrigger: {
           trigger: '#experience',
-          start: 'top 75%',
+          start: startPrimary,
           toggleActions: 'play reverse play reverse'
         },
         y: 40,
@@ -148,7 +180,7 @@ export function useGsapAnimations() {
       gsap.from('#technologies h2', {
         scrollTrigger: {
           trigger: '#technologies',
-          start: 'top 75%',
+          start: startPrimary,
           toggleActions: 'play reverse play reverse'
         },
         y: 40,
@@ -160,7 +192,7 @@ export function useGsapAnimations() {
       gsap.from('.tech-description', {
         scrollTrigger: {
           trigger: '#technologies',
-          start: 'top 70%',
+          start: startSecondary,
           toggleActions: 'play reverse play reverse'
         },
         x: -50,
@@ -172,7 +204,7 @@ export function useGsapAnimations() {
       gsap.from('.tech-stack .skill', {
         scrollTrigger: {
           trigger: '#technologies',
-          start: 'top 70%',
+          start: startSecondary,
           toggleActions: 'play reverse play reverse'
         },
         y: 40,
@@ -187,7 +219,7 @@ export function useGsapAnimations() {
       gsap.from('#projects h2', {
         scrollTrigger: {
           trigger: '#projects',
-          start: 'top 75%',
+          start: startPrimary,
           toggleActions: 'play reverse play reverse'
         },
         y: 40,
@@ -196,24 +228,73 @@ export function useGsapAnimations() {
         ease: 'power3.out'
       })
 
-      gsap.from('.projects-grid .project-card', {
-        scrollTrigger: {
-          trigger: '.projects-grid',
-          start: 'top 70%',
-          toggleActions: 'play reverse play reverse'
-        },
-        y: 50,
-        opacity: 0,
-        scale: 0.95,
-        duration: 0.7,
-        stagger: 0.15,
-        ease: 'power3.out'
+      media.add('(max-width: 767px)', () => {
+        gsap.from('.projects-grid .project-card', {
+          scrollTrigger: {
+            trigger: '.projects-grid',
+            start: startSecondary,
+            toggleActions: 'play reverse play reverse'
+          },
+          clipPath: 'inset(0 0 100% 0)',
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.12,
+          ease: 'power2.out'
+        })
+
+        gsap.from('.certificates-grid .certificate-card', {
+          scrollTrigger: {
+            trigger: '.certificates-grid',
+            start: startSecondary,
+            toggleActions: 'play reverse play reverse'
+          },
+          clipPath: 'inset(0 0 100% 0)',
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power2.out'
+        })
+      })
+
+      media.add('(min-width: 768px)', () => {
+        gsap.from('.projects-grid .project-card', {
+          scrollTrigger: {
+            trigger: '.projects-grid',
+            start: startSecondary,
+            toggleActions: 'play reverse play reverse'
+          },
+          y: 50,
+          opacity: 0,
+          scale: 0.95,
+          duration: 0.7,
+          stagger: 0.15,
+          ease: 'power3.out'
+        })
+
+        gsap.from('.certificates-grid .certificate-card', {
+          scrollTrigger: {
+            trigger: '.certificates-grid',
+            start: startSecondary,
+            toggleActions: 'play reverse play reverse'
+          },
+          y: 50,
+          opacity: 0,
+          scale: 0.9,
+          rotation: -3,
+          duration: 0.7,
+          stagger: {
+            amount: 0.6,
+            from: 'start',
+            ease: 'power1.inOut'
+          },
+          ease: 'back.out(1.1)'
+        })
       })
 
       gsap.from('#certificates h2', {
         scrollTrigger: {
           trigger: '#certificates',
-          start: 'top 75%',
+          start: startPrimary,
           toggleActions: 'play reverse play reverse'
         },
         y: 40,
@@ -222,30 +303,14 @@ export function useGsapAnimations() {
         ease: 'power3.out'
       })
 
-      gsap.from('.certificates-grid .certificate-card', {
-        scrollTrigger: {
-          trigger: '.certificates-grid',
-          start: 'top 70%',
-          toggleActions: 'play reverse play reverse'
-        },
-        y: 50,
-        opacity: 0,
-        scale: 0.9,
-        rotation: -3,
-        duration: 0.7,
-        stagger: {
-          amount: 0.6,
-          from: 'start',
-          ease: 'power1.inOut'
-        },
-        ease: 'back.out(1.1)'
-      })
+      cleanups.push(() => media.revert())
 
       gsap.from('#contact h2', {
         scrollTrigger: {
           trigger: '#contact',
-          start: 'top 75%',
-          toggleActions: 'play reverse play reverse'
+          start: startPrimary,
+          toggleActions: 'play none none none',
+          once: true
         },
         y: 40,
         opacity: 0,
@@ -256,8 +321,9 @@ export function useGsapAnimations() {
       gsap.from('.contact-text', {
         scrollTrigger: {
           trigger: '#contact',
-          start: 'top 70%',
-          toggleActions: 'play reverse play reverse'
+          start: startSecondary,
+          toggleActions: 'play none none none',
+          once: true
         },
         y: 20,
         opacity: 0,
@@ -268,8 +334,9 @@ export function useGsapAnimations() {
       gsap.from('.contact-actions .contact-button', {
         scrollTrigger: {
           trigger: '#contact',
-          start: 'top 70%',
-          toggleActions: 'play reverse play reverse'
+          start: startSecondary,
+          toggleActions: 'play none none none',
+          once: true
         },
         y: 30,
         opacity: 0,

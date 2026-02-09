@@ -447,9 +447,22 @@
     scroll-snap-type: none;
   }
 
+  body {
+    scrollbar-width: none;
+  }
+
+  body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
   .section {
     padding: 0 16px;
     overflow-x: hidden;
+  }
+
+  #about {
+    overflow: hidden;
   }
 
   .hero-content,
@@ -459,6 +472,33 @@
     text-align: center;
     gap: 30px;
     width: 100%;
+  }
+
+  .about-gallery {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .gallery-main img {
+    height: 220px;
+  }
+
+  .gallery-thumbs {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    gap: 10px;
+  }
+
+  .gallery-thumbs img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 
   .hero-photo img {

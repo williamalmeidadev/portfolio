@@ -63,6 +63,8 @@ html {
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;
   overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
 }
 
 html,
@@ -77,6 +79,8 @@ body {
   color: var(--text);
   overflow-x: hidden;
   position: relative;
+  padding-right: calc(100vw - 100%);
+  scrollbar-gutter: stable;
   scrollbar-color: rgba(180, 80, 240, 0.45) rgba(10, 6, 20, 0.65);
   scrollbar-width: thin;
 }
