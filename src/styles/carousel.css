@@ -37,22 +37,30 @@
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
 }
 
-.carousel-viewport {
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+.carousel-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
-.carousel-track {
+.embla {
+  width: 100%;
+}
+
+.embla__viewport {
+  overflow: hidden;
+  padding: 14px 4px 28px;
+}
+
+.embla__container {
   display: flex;
   gap: 25px;
-  padding: 4px 4px 18px;
 }
 
-.carousel-track > * {
-  scroll-snap-align: start;
+.embla__slide {
+  flex: 0 0 auto;
+  padding: 6px;
 }
 
 @media (max-width: 768px) {

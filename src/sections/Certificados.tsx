@@ -1,18 +1,31 @@
 import React from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { getContent } from "../data/content";
 import { useLanguage } from "../hooks/useLanguage";
 
 const Certificados: React.FC = () => {
   const { lang, strings } = useLanguage();
   const { certificates } = getContent(lang);
-  const viewportRef = React.useRef<HTMLDivElement>(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", containScroll: "trimSnaps" });
+  const [canScrollPrev, setCanScrollPrev] = React.useState(false);
+  const [canScrollNext, setCanScrollNext] = React.useState(false);
 
-  const handleScroll = (direction: number) => {
-    const viewport = viewportRef.current;
-    if (!viewport) return;
-    const scrollAmount = Math.round(viewport.clientWidth * 0.85);
-    viewport.scrollBy({ left: direction * scrollAmount, behavior: "smooth" });
-  };
+  const onSelect = React.useCallback(() => {
+    if (!emblaApi) return;
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  React.useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
+    };
+  }, [emblaApi, onSelect]);
 
   return (
     <section id="certificates" className="section section-center">
@@ -24,7 +37,8 @@ const Certificados: React.FC = () => {
               <button
                 type="button"
                 className="carousel-button"
-                onClick={() => handleScroll(-1)}
+                onClick={() => emblaApi?.scrollPrev()}
+                disabled={!canScrollPrev}
                 aria-controls="certificates-carousel"
               >
                 {strings.carousel.prev}
@@ -32,21 +46,26 @@ const Certificados: React.FC = () => {
               <button
                 type="button"
                 className="carousel-button"
-                onClick={() => handleScroll(1)}
+                onClick={() => emblaApi?.scrollNext()}
+                disabled={!canScrollNext}
                 aria-controls="certificates-carousel"
               >
                 {strings.carousel.next}
               </button>
             </div>
           </div>
-          <div className="carousel-viewport" id="certificates-carousel" ref={viewportRef}>
-            <div className="carousel-track">
-              {certificates.map((c) => (
-                <div className="certificate-card" key={c.description}>
-                  <img src={c.img} alt={c.description} loading="lazy" decoding="async" />
-                  <p>{c.description}</p>
-                </div>
-              ))}
+          <div className="embla" id="certificates-carousel">
+            <div className="embla__viewport" ref={emblaRef}>
+              <div className="embla__container">
+                {certificates.map((c) => (
+                  <div className="embla__slide" key={c.description}>
+                    <div className="certificate-card">
+                      <img src={c.img} alt={c.description} loading="lazy" decoding="async" />
+                      <p>{c.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
