@@ -6,14 +6,20 @@ import { useLanguage } from "../hooks/useLanguage";
 const Certificados: React.FC = () => {
   const { lang, strings } = useLanguage();
   const { certificates } = getContent(lang);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", containScroll: "trimSnaps" });
+  const loopCertificates =
+    certificates.length > 1 ? [...certificates, ...certificates] : certificates;
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "center",
+    loop: true,
+    dragFree: false,
+  });
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
   const [canScrollNext, setCanScrollNext] = React.useState(false);
 
   const onSelect = React.useCallback(() => {
     if (!emblaApi) return;
-    setCanScrollPrev(emblaApi.canScrollPrev());
-    setCanScrollNext(emblaApi.canScrollNext());
+    setCanScrollPrev(true);
+    setCanScrollNext(true);
   }, [emblaApi]);
 
   React.useEffect(() => {
@@ -57,8 +63,8 @@ const Certificados: React.FC = () => {
           <div className="embla" id="certificates-carousel">
             <div className="embla__viewport" ref={emblaRef}>
               <div className="embla__container">
-                {certificates.map((c) => (
-                  <div className="embla__slide" key={c.description}>
+                {loopCertificates.map((c, index) => (
+                  <div className="embla__slide" key={`${c.description}-${index}`}>
                     <div className="certificate-card">
                       <img src={c.img} alt={c.description} loading="lazy" decoding="async" />
                       <p>{c.description}</p>

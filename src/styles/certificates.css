@@ -1,5 +1,5 @@
-.certificates-carousel .embla__container {
-  gap: 20px;
+.certificates-carousel {
+  --carousel-gap: 20px;
 }
 
 .certificate-card {

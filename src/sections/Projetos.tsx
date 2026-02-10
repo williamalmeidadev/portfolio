@@ -6,14 +6,19 @@ import { useLanguage } from "../hooks/useLanguage";
 const Projetos: React.FC = () => {
   const { lang, strings } = useLanguage();
   const { projects } = getContent(lang);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", containScroll: "trimSnaps" });
+  const loopProjects = projects.length > 1 ? [...projects, ...projects] : projects;
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "center",
+    loop: true,
+    dragFree: false,
+  });
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
   const [canScrollNext, setCanScrollNext] = React.useState(false);
 
   const onSelect = React.useCallback(() => {
     if (!emblaApi) return;
-    setCanScrollPrev(emblaApi.canScrollPrev());
-    setCanScrollNext(emblaApi.canScrollNext());
+    setCanScrollPrev(true);
+    setCanScrollNext(true);
   }, [emblaApi]);
 
   React.useEffect(() => {
@@ -57,8 +62,8 @@ const Projetos: React.FC = () => {
           <div className="embla" id="projects-carousel">
             <div className="embla__viewport" ref={emblaRef}>
               <div className="embla__container">
-                {projects.map((proj) => (
-                  <div className="embla__slide" key={proj.title}>
+                {loopProjects.map((proj, index) => (
+                  <div className="embla__slide" key={`${proj.title}-${index}`}>
                     <div className="project-card">
                       <img src={proj.img} alt={proj.title} loading="lazy" decoding="async" />
                       <h3>{proj.title}</h3>

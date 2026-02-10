@@ -1,5 +1,5 @@
-.projects-carousel .embla__container {
-  gap: 28px;
+.projects-carousel {
+  --carousel-gap: 28px;
 }
 
 .project-card {
