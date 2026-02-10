@@ -356,7 +356,8 @@ export function useGsapAnimations() {
       if (heroFoto) {
         const xTo = gsap.quickTo(heroFoto, 'rotationY', { duration: 0.5, ease: 'power1.out' })
         const yTo = gsap.quickTo(heroFoto, 'rotationX', { duration: 0.5, ease: 'power1.out' })
-        const scaleTo = gsap.quickTo(heroFoto, 'scale', { duration: 0.5, ease: 'power1.out' })
+        const scaleXTo = gsap.quickTo(heroFoto, 'scaleX', { duration: 0.5, ease: 'power1.out' })
+        const scaleYTo = gsap.quickTo(heroFoto, 'scaleY', { duration: 0.5, ease: 'power1.out' })
 
         gsap.set('.hero-photo', { perspective: 1200 })
 
@@ -370,13 +371,15 @@ export function useGsapAnimations() {
           const rotateY = ((x - centerX) / centerX) * 15
           yTo(rotateX)
           xTo(rotateY)
-          scaleTo(1.08)
+          scaleXTo(1.08)
+          scaleYTo(1.08)
         }
 
         const handleLeave = () => {
           yTo(0)
           xTo(0)
-          scaleTo(1)
+          scaleXTo(1)
+          scaleYTo(1)
         }
 
         heroFoto.addEventListener('mousemove', handleMove)
@@ -391,7 +394,8 @@ export function useGsapAnimations() {
       document.querySelectorAll<HTMLElement>('.certificate-card').forEach(card => {
         const xTo = gsap.quickTo(card, 'rotationY', { duration: 0.6, ease: 'power1.out' })
         const yTo = gsap.quickTo(card, 'rotationX', { duration: 0.6, ease: 'power1.out' })
-        const scaleTo = gsap.quickTo(card, 'scale', { duration: 0.6, ease: 'power1.out' })
+        const scaleXTo = gsap.quickTo(card, 'scaleX', { duration: 0.6, ease: 'power1.out' })
+        const scaleYTo = gsap.quickTo(card, 'scaleY', { duration: 0.6, ease: 'power1.out' })
         const zTo = gsap.quickTo(card, 'z', { duration: 0.6, ease: 'power1.out' })
 
         if (card.parentElement) gsap.set(card.parentElement, { perspective: 1500 })
@@ -406,14 +410,16 @@ export function useGsapAnimations() {
           const rotateY = ((x - centerX) / centerX) * 12
           yTo(rotateX)
           xTo(rotateY)
-          scaleTo(1.06)
+          scaleXTo(1.06)
+          scaleYTo(1.06)
           zTo(30)
         }
 
         const handleLeave = () => {
           yTo(0)
           xTo(0)
-          scaleTo(1)
+          scaleXTo(1)
+          scaleYTo(1)
           zTo(0)
         }
 
