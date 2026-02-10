@@ -16,20 +16,29 @@ const Tecnologias: React.FC = () => {
           <h3>{technologies[index].title}</h3>
           <p>{technologies[index].description}</p>
         </div>
-        <div className="skills-grid tech-stack">
-          {technologies.map((tech, i) => (
-            <div
-              key={tech.title}
-              className={`skill${i === index ? " is-active" : ""}`}
-              onClick={() => setIndex(i)}
-            >
+        <div className="tech-web tech-orbit" aria-label={strings.technologies.title} role="list">
+          <div className="orbit-ring orbit-ring-one" aria-hidden="true" />
+          <div className="orbit-ring orbit-ring-two" aria-hidden="true" />
+          <div className="orbit-ring orbit-ring-three" aria-hidden="true" />
+          <div className="tech-nodes">
+            {technologies.map((tech, i) => (
+              <button
+                type="button"
+                key={tech.title}
+                className={`tech-node${i === index ? " is-active" : ""}`}
+                onClick={() => setIndex(i)}
+                aria-pressed={i === index}
+                aria-label={tech.title}
+                role="listitem"
+              >
                 <img src={tech.img} alt={tech.title} loading="lazy" decoding="async" />
-              </div>
+              </button>
             ))}
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
   );
 };
 

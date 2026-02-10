@@ -80,16 +80,24 @@
     font-size: 2.5rem;
   }
 
-  .skills-grid {
-    gap: 30px;
+  .tech-web {
+    width: min(720px, 90vw);
   }
 
-  .skill {
-    padding: 40px;
+  .tech-orbit {
+    --orbit-1: 150px;
+    --orbit-2: 260px;
+    --orbit-3: 360px;
   }
 
-  .skill img {
-    width: 150px;
+  .tech-node {
+    width: 108px;
+    height: 108px;
+  }
+
+  .tech-node img {
+    width: 64px;
+    height: 64px;
   }
 
   .tech-layout {
@@ -240,16 +248,24 @@
     font-size: 2rem;
   }
 
-  .skills-grid {
-    gap: 24px;
+  .tech-web {
+    width: min(640px, 90vw);
   }
 
-  .skill {
-    padding: 35px;
+  .tech-orbit {
+    --orbit-1: 130px;
+    --orbit-2: 230px;
+    --orbit-3: 320px;
   }
 
-  .skill img {
-    width: 130px;
+  .tech-node {
+    width: 98px;
+    height: 98px;
+  }
+
+  .tech-node img {
+    width: 58px;
+    height: 58px;
   }
 
   .tech-layout {
@@ -435,10 +451,24 @@
     text-align: center;
   }
 
-  .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 12px;
-    width: 100%;
+  .tech-web {
+    width: min(420px, 90vw);
+  }
+
+  .tech-orbit {
+    --orbit-1: 80px;
+    --orbit-2: 140px;
+    --orbit-3: 200px;
+  }
+
+  .tech-node {
+    width: 70px;
+    height: 70px;
+  }
+
+  .tech-node img {
+    width: 40px;
+    height: 40px;
   }
 }
 
@@ -518,6 +548,27 @@
     justify-content: center;
   }
 
+  .tech-web {
+    width: min(320px, 86vw);
+    margin: 10px auto 0;
+  }
+
+  .tech-orbit {
+    --orbit-1: 76px;
+    --orbit-2: 130px;
+    --orbit-3: 184px;
+  }
+
+  .tech-node {
+    width: 58px;
+    height: 58px;
+  }
+
+  .tech-node img {
+    width: 36px;
+    height: 36px;
+  }
+
   .nav-pill a {
     display: none !important;
   }
@@ -586,6 +637,27 @@
   .projects-grid,
   .certificates-grid {
     gap: 16px;
+  }
+
+  .tech-web {
+    width: min(280px, 84vw);
+    margin: 8px auto 0;
+  }
+
+  .tech-orbit {
+    --orbit-1: 70px;
+    --orbit-2: 120px;
+    --orbit-3: 168px;
+  }
+
+  .tech-node {
+    width: 52px;
+    height: 52px;
+  }
+
+  .tech-node img {
+    width: 32px;
+    height: 32px;
   }
 }
 

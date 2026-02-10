@@ -1,6 +1,9 @@
 import bd from '../assets/galeria/bd.webp'
+import css from '../assets/css.svg'
 import ecoacao from '../assets/galeria/ecoacao.webp'
+import express from '../assets/express.svg'
 import google from '../assets/galeria/google.webp'
+import html from '../assets/html.svg'
 import maratonatech from '../assets/galeria/maratonatech.webp'
 import obt from '../assets/galeria/obt.webp'
 import placas from '../assets/galeria/placas.webp'
@@ -9,10 +12,13 @@ import solyd from '../assets/galeria/solyd.webp'
 import tecnico from '../assets/galeria/tecnico.webp'
 import java from '../assets/java.svg'
 import javascript from '../assets/javascript.svg'
+import nodejs from '../assets/nodejs.svg'
 import postgresql from '../assets/postgresql.svg'
 import python from '../assets/python.svg'
 import reactLogo from '../assets/react.svg'
 import spring from '../assets/spring.svg'
+import typescript from '../assets/typescript.svg'
+import vite from '../assets/vite.svg'
 import type { Lang } from '../i18n'
 
 export function getContent(lang: Lang) {
@@ -55,11 +61,53 @@ export function getContent(lang: Lang) {
       img: javascript
     },
     {
+      title: 'HTML',
+      description: isPt
+        ? 'HTML é a base estrutural das interfaces web, garantindo semântica e acessibilidade.'
+        : 'HTML is the structural foundation of web interfaces, ensuring semantics and accessibility.',
+      img: html
+    },
+    {
+      title: 'CSS',
+      description: isPt
+        ? 'Com CSS crio layouts responsivos, animações e identidade visual consistente.'
+        : 'With CSS I create responsive layouts, animations, and a consistent visual identity.',
+      img: css
+    },
+    {
+      title: 'TypeScript',
+      description: isPt
+        ? 'Com TypeScript ganho tipagem, previsibilidade e mais segurança ao escalar projetos web.'
+        : 'With TypeScript I gain typing, predictability, and more safety when scaling web projects.',
+      img: typescript
+    },
+    {
       title: 'React',
       description: isPt
         ? 'React é minha principal ferramenta no frontend, permitindo criar interfaces componentizadas, performáticas e escaláveis.'
         : 'React is my main frontend tool, enabling componentized, performant, and scalable interfaces.',
       img: reactLogo
+    },
+    {
+      title: 'Node.js',
+      description: isPt
+        ? 'Uso Node.js para construir APIs, integrações e serviços backend com JavaScript.'
+        : 'I use Node.js to build APIs, integrations, and backend services with JavaScript.',
+      img: nodejs
+    },
+    {
+      title: 'Express.js',
+      description: isPt
+        ? 'Express.js me permite criar APIs e rotas leves e rápidas no ecossistema Node.'
+        : 'Express.js lets me build fast, lightweight APIs and routes in the Node ecosystem.',
+      img: express
+    },
+    {
+      title: 'Vite',
+      description: isPt
+        ? 'Vite acelera meu desenvolvimento frontend com build rápido e HMR eficiente.'
+        : 'Vite speeds up my frontend development with fast builds and efficient HMR.',
+      img: vite
     },
     {
       title: 'Java',

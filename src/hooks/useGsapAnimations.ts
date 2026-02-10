@@ -201,7 +201,7 @@ export function useGsapAnimations() {
         ease: 'power3.out'
       })
 
-      gsap.from('.tech-stack .skill', {
+      gsap.from('.tech-web .tech-node', {
         scrollTrigger: {
           trigger: '#technologies',
           start: startSecondary,

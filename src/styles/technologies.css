@@ -1,40 +1,130 @@
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 15px;
+.tech-web {
+  position: relative;
+  width: min(520px, 90vw);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: transparent;
+  overflow: visible;
 }
 
-.skill {
-  padding: 20px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--surface);
-  cursor: pointer;
+.tech-orbit {
+  --orbit-1: 110px;
+  --orbit-2: 210px;
+  --orbit-3: 310px;
+}
+
+.tech-orbit::before {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(180, 80, 255, 0.11), transparent 58%),
+    radial-gradient(circle at 70% 70%, rgba(80, 200, 255, 0.1), transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.07), transparent 65%);
+  filter: blur(9px);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.orbit-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  transform: translate(-50%, -50%);
   opacity: 0.6;
-  will-change: transform, opacity;
+}
+
+.orbit-ring-one {
+  width: calc(var(--orbit-1) * 2);
+  height: calc(var(--orbit-1) * 2);
+}
+
+.orbit-ring-two {
+  width: calc(var(--orbit-2) * 2);
+  height: calc(var(--orbit-2) * 2);
+}
+
+.orbit-ring-three {
+  width: calc(var(--orbit-3) * 2);
+  height: calc(var(--orbit-3) * 2);
+}
+
+.tech-nodes {
+  position: absolute;
+  inset: 0;
+}
+
+.tech-node {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 76px;
+  height: 76px;
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--angle, 0deg))
+    translate(var(--radius, 0px))
+    rotate(calc(var(--angle, 0deg) * -1));
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.06));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.65;
   transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.25s ease,
     outline 0.25s ease;
 }
 
-.skill:hover,
-.skill.is-active {
+.tech-node:hover,
+.tech-node.is-active {
   opacity: 1;
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 8px 24px 0 rgba(180, 80, 255, 0.18),
-    0 1.5px 6px 0 rgba(0, 0, 0, 0.1);
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--angle, 0deg))
+    translate(var(--radius, 0px))
+    rotate(calc(var(--angle, 0deg) * -1))
+    scale(1.08);
+  box-shadow: 0 12px 28px rgba(160, 200, 255, 0.25),
+    0 6px 16px rgba(0, 0, 0, 0.18);
+  border-color: rgba(160, 200, 255, 0.5);
 }
 
-.skill.is-active {
+.tech-node.is-active {
   outline: 2px solid var(--text);
 }
 
-.skill img {
-  width: 90px;
-  display: block;
-  margin: 0 auto;
+.tech-node:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
 }
+
+.tech-node img {
+  width: 44px;
+  height: 44px;
+  display: block;
+}
+
+.tech-nodes .tech-node:nth-child(1) { --radius: var(--orbit-1); --angle: 20deg; }
+.tech-nodes .tech-node:nth-child(2) { --radius: var(--orbit-1); --angle: 110deg; }
+.tech-nodes .tech-node:nth-child(3) { --radius: var(--orbit-1); --angle: 200deg; }
+.tech-nodes .tech-node:nth-child(4) { --radius: var(--orbit-1); --angle: 300deg; }
+.tech-nodes .tech-node:nth-child(5) { --radius: var(--orbit-2); --angle: 40deg; }
+.tech-nodes .tech-node:nth-child(6) { --radius: var(--orbit-2); --angle: 140deg; }
+.tech-nodes .tech-node:nth-child(7) { --radius: var(--orbit-2); --angle: 240deg; }
+.tech-nodes .tech-node:nth-child(8) { --radius: var(--orbit-2); --angle: 330deg; }
+.tech-nodes .tech-node:nth-child(9) { --radius: var(--orbit-3); --angle: 10deg; }
+.tech-nodes .tech-node:nth-child(10) { --radius: var(--orbit-3); --angle: 120deg; }
+.tech-nodes .tech-node:nth-child(11) { --radius: var(--orbit-3); --angle: 220deg; }
+.tech-nodes .tech-node:nth-child(12) { --radius: var(--orbit-3); --angle: 320deg; }
 
 .tech-layout {
   display: grid;
