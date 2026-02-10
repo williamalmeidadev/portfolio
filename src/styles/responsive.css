@@ -100,6 +100,12 @@
     height: 64px;
   }
 
+  .tech-center {
+    width: 98px;
+    height: 98px;
+    font-size: 0.7rem;
+  }
+
   .tech-layout {
     gap: 100px;
   }
@@ -268,6 +274,12 @@
     height: 58px;
   }
 
+  .tech-center {
+    width: 86px;
+    height: 86px;
+    font-size: 0.65rem;
+  }
+
   .tech-layout {
     gap: 80px;
   }
@@ -382,6 +394,15 @@
   }
 }
 
+@media (max-width: 1060px) {
+  .tech-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+    gap: 38px;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1279px) {
   html {
     scroll-snap-type: none;
@@ -470,6 +491,12 @@
     width: 40px;
     height: 40px;
   }
+
+  .tech-center {
+    width: 70px;
+    height: 70px;
+    font-size: 0.55rem;
+  }
 }
 
 @media (max-width: 767px) {
@@ -500,7 +527,7 @@
   .tech-layout {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 30px;
+    gap: 38px;
     width: 100%;
   }
 
@@ -548,9 +575,18 @@
     justify-content: center;
   }
 
+  .tech-description {
+    max-width: 100%;
+    margin-bottom: 14px;
+  }
+
+  .tech-web {
+    margin: 18px auto 0;
+  }
+
   .tech-web {
     width: min(320px, 86vw);
-    margin: 10px auto 0;
+    margin: 30px auto 0;
   }
 
   .tech-orbit {
@@ -568,6 +604,12 @@
   .tech-node img {
     width: 32px;
     height: 32px;
+  }
+
+  .tech-center {
+    width: 64px;
+    height: 64px;
+    font-size: 0.55rem;
   }
 
   .nav-pill a {
@@ -632,7 +674,7 @@
 
   .about-content,
   .tech-layout {
-    gap: 20px;
+    gap: 28px;
   }
 
   .projects-grid,
@@ -642,7 +684,7 @@
 
   .tech-web {
     width: min(280px, 84vw);
-    margin: 8px auto 0;
+    margin: 28px auto 0;
   }
 
   .tech-orbit {
@@ -660,6 +702,33 @@
   .tech-node img {
     width: 30px;
     height: 30px;
+  }
+
+  .tech-center {
+    width: 58px;
+    height: 58px;
+    font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .tech-web {
+    width: min(248px, 80vw);
+    margin: 28px auto 0;
+  }
+
+  .tech-orbit {
+    --orbit-1: 60px;
+    --orbit-2: 102px;
+    --orbit-3: 142px;
+  }
+
+  .tech-nodes .tech-node[data-tech="node"] {
+    --angle: 225deg;
+  }
+
+  .tech-nodes .tech-node[data-tech="postgres"] {
+    --angle: 205deg;
   }
 }
 

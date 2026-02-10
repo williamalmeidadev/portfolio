@@ -54,6 +54,32 @@
   height: calc(var(--orbit-3) * 2);
 }
 
+.tech-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-align: center;
+  pointer-events: none;
+}
+
+.tech-center span {
+  max-width: 62px;
+}
+
 .tech-nodes {
   position: absolute;
   inset: 0;
@@ -141,18 +167,18 @@
   }
 }
 
-.tech-nodes .tech-node:nth-child(1) { --radius: var(--orbit-1); --angle: 20deg; }
-.tech-nodes .tech-node:nth-child(2) { --radius: var(--orbit-1); --angle: 110deg; }
-.tech-nodes .tech-node:nth-child(3) { --radius: var(--orbit-1); --angle: 200deg; }
-.tech-nodes .tech-node:nth-child(4) { --radius: var(--orbit-1); --angle: 300deg; }
-.tech-nodes .tech-node:nth-child(5) { --radius: var(--orbit-2); --angle: 40deg; }
-.tech-nodes .tech-node:nth-child(6) { --radius: var(--orbit-2); --angle: 140deg; }
-.tech-nodes .tech-node:nth-child(7) { --radius: var(--orbit-2); --angle: 240deg; }
-.tech-nodes .tech-node:nth-child(8) { --radius: var(--orbit-2); --angle: 330deg; }
-.tech-nodes .tech-node:nth-child(9) { --radius: var(--orbit-3); --angle: 10deg; }
-.tech-nodes .tech-node:nth-child(10) { --radius: var(--orbit-3); --angle: 120deg; }
-.tech-nodes .tech-node:nth-child(11) { --radius: var(--orbit-3); --angle: 220deg; }
-.tech-nodes .tech-node:nth-child(12) { --radius: var(--orbit-3); --angle: 320deg; }
+.tech-nodes .tech-node[data-tech="python"] { --radius: var(--orbit-1); --angle: 20deg; }
+.tech-nodes .tech-node[data-tech="javascript"] { --radius: var(--orbit-1); --angle: 110deg; }
+.tech-nodes .tech-node[data-tech="html"] { --radius: var(--orbit-1); --angle: 200deg; }
+.tech-nodes .tech-node[data-tech="css"] { --radius: var(--orbit-1); --angle: 300deg; }
+.tech-nodes .tech-node[data-tech="typescript"] { --radius: var(--orbit-2); --angle: 40deg; }
+.tech-nodes .tech-node[data-tech="react"] { --radius: var(--orbit-2); --angle: 140deg; }
+.tech-nodes .tech-node[data-tech="node"] { --radius: var(--orbit-2); --angle: 240deg; }
+.tech-nodes .tech-node[data-tech="express"] { --radius: var(--orbit-2); --angle: 270deg; }
+.tech-nodes .tech-node[data-tech="vite"] { --radius: var(--orbit-3); --angle: 350deg; }
+.tech-nodes .tech-node[data-tech="java"] { --radius: var(--orbit-3); --angle: 120deg; }
+.tech-nodes .tech-node[data-tech="postgres"] { --radius: var(--orbit-3); --angle: 220deg; }
+.tech-nodes .tech-node[data-tech="spring"] { --radius: var(--orbit-3); --angle: 245deg; }
 
 .tech-layout {
   display: grid;

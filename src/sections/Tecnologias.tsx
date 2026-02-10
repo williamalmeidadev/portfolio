@@ -6,6 +6,20 @@ const Tecnologias: React.FC = () => {
   const { lang, strings } = useLanguage();
   const { technologies } = getContent(lang);
   const [index, setIndex] = useState(0);
+  const techIdMap: Record<string, string> = {
+    Python: "python",
+    JavaScript: "javascript",
+    HTML: "html",
+    CSS: "css",
+    TypeScript: "typescript",
+    React: "react",
+    "Node.js": "node",
+    "Express.js": "express",
+    Vite: "vite",
+    Java: "java",
+    PostgreSQL: "postgres",
+    Spring: "spring"
+  };
 
   return (
   <section id="technologies" className="section section-center">
@@ -20,6 +34,9 @@ const Tecnologias: React.FC = () => {
           <div className="orbit-ring orbit-ring-one" aria-hidden="true" />
           <div className="orbit-ring orbit-ring-two" aria-hidden="true" />
           <div className="orbit-ring orbit-ring-three" aria-hidden="true" />
+          <div className="tech-center" aria-hidden="true">
+            <span>Stack</span>
+          </div>
           <div className="tech-nodes">
             {technologies.map((tech, i) => (
               <button
@@ -30,6 +47,7 @@ const Tecnologias: React.FC = () => {
                 aria-pressed={i === index}
                 aria-label={tech.title}
                 role="listitem"
+                data-tech={techIdMap[tech.title] ?? tech.title.toLowerCase()}
               >
                 <img src={tech.img} alt={tech.title} loading="lazy" decoding="async" />
               </button>
