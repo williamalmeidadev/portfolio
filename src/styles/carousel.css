@@ -82,7 +82,12 @@
 @media (max-width: 768px) {
   .carousel-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+  }
+
+  .carousel-header h2 {
+    text-align: center;
+    width: 100%;
   }
 
   .carousel-controls {
