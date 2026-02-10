@@ -34,7 +34,7 @@ const Header: React.FC = () => {
     if (typeof window === "undefined") return "dark";
     const saved = window.localStorage.getItem("theme");
     if (saved === "light" || saved === "dark") return saved;
-    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    return "dark";
   }, []);
   const [theme, setTheme] = useState<"light" | "dark">(
     initialTheme === "light" ? "light" : "dark"
