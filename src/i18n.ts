@@ -48,6 +48,10 @@ const strings = {
     certificates: {
       title: 'Estudos & Certificados'
     },
+    carousel: {
+      prev: 'Anterior',
+      next: 'Próximo'
+    },
     contact: {
       title: 'Contato',
       description: 'Quer conversar sobre projetos, ideias ou oportunidades?',
@@ -103,6 +107,10 @@ const strings = {
     },
     certificates: {
       title: 'Studies & Certificates'
+    },
+    carousel: {
+      prev: 'Previous',
+      next: 'Next'
     },
     contact: {
       title: 'Contact',

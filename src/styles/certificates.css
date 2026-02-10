@@ -1,8 +1,5 @@
-.certificates-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+.certificates-carousel .carousel-track {
   gap: 20px;
-  justify-items: center;
 }
 
 .certificate-card {
@@ -11,6 +8,8 @@
   border-radius: 12px;
   padding: 16px;
   text-align: center;
+  flex: 0 0 auto;
+  width: clamp(200px, 70vw, 360px);
   transform-style: preserve-3d;
   will-change: transform, opacity;
   transition: background 0.25s ease, box-shadow 0.25s ease;
