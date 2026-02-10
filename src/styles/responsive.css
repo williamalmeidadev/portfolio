@@ -118,7 +118,7 @@
     font-size: 2.6rem;
   }
 
-  .projects-grid {
+  .projects-carousel .carousel-track {
     gap: 50px;
   }
 
@@ -136,7 +136,7 @@
     font-size: 2.8rem;
   }
 
-  .certificates-grid {
+  .certificates-carousel .carousel-track {
     gap: 40px;
   }
 
@@ -292,7 +292,7 @@
     font-size: 2rem;
   }
 
-  .projects-grid {
+  .projects-carousel .carousel-track {
     gap: 40px;
   }
 
@@ -310,7 +310,7 @@
     font-size: 2.2rem;
   }
 
-  .certificates-grid {
+  .certificates-carousel .carousel-track {
     gap: 35px;
   }
 
@@ -677,8 +677,8 @@
     gap: 28px;
   }
 
-  .projects-grid,
-  .certificates-grid {
+  .projects-carousel .carousel-track,
+  .certificates-carousel .carousel-track {
     gap: 16px;
   }
 

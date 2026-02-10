@@ -229,9 +229,9 @@ export function useGsapAnimations() {
       })
 
       media.add('(max-width: 767px)', () => {
-        gsap.from('.projects-grid .project-card', {
+        gsap.from('.projects-carousel .project-card', {
           scrollTrigger: {
-            trigger: '.projects-grid',
+            trigger: '.projects-carousel',
             start: startSecondary,
             toggleActions: 'play reverse play reverse'
           },
@@ -242,9 +242,9 @@ export function useGsapAnimations() {
           ease: 'power2.out'
         })
 
-        gsap.from('.certificates-grid .certificate-card', {
+        gsap.from('.certificates-carousel .certificate-card', {
           scrollTrigger: {
-            trigger: '.certificates-grid',
+            trigger: '.certificates-carousel',
             start: startSecondary,
             toggleActions: 'play reverse play reverse'
           },
@@ -257,9 +257,9 @@ export function useGsapAnimations() {
       })
 
       media.add('(min-width: 768px)', () => {
-        gsap.from('.projects-grid .project-card', {
+        gsap.from('.projects-carousel .project-card', {
           scrollTrigger: {
-            trigger: '.projects-grid',
+            trigger: '.projects-carousel',
             start: startSecondary,
             toggleActions: 'play reverse play reverse'
           },
@@ -271,9 +271,9 @@ export function useGsapAnimations() {
           ease: 'power3.out'
         })
 
-        gsap.from('.certificates-grid .certificate-card', {
+        gsap.from('.certificates-carousel .certificate-card', {
           scrollTrigger: {
-            trigger: '.certificates-grid',
+            trigger: '.certificates-carousel',
             start: startSecondary,
             toggleActions: 'play reverse play reverse'
           },
