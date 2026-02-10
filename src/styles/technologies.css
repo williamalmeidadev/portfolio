@@ -12,6 +12,7 @@
   --orbit-1: 110px;
   --orbit-2: 210px;
   --orbit-3: 310px;
+  --node-scale: 1.08;
 }
 
 .tech-orbit::before {
@@ -56,6 +57,7 @@
 .tech-nodes {
   position: absolute;
   inset: 0;
+  animation: orbit-rotate 200s linear infinite;
 }
 
 .tech-node {
@@ -92,7 +94,7 @@
     rotate(var(--angle, 0deg))
     translate(var(--radius, 0px))
     rotate(calc(var(--angle, 0deg) * -1))
-    scale(1.08);
+    scale(var(--node-scale, 1.08));
   box-shadow: 0 12px 28px rgba(160, 200, 255, 0.25),
     0 6px 16px rgba(0, 0, 0, 0.18);
   border-color: rgba(160, 200, 255, 0.5);
@@ -111,6 +113,32 @@
   width: 44px;
   height: 44px;
   display: block;
+  animation: orbit-counter 200s linear infinite;
+}
+
+@keyframes orbit-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-counter {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-nodes,
+  .tech-node img {
+    animation: none;
+  }
 }
 
 .tech-nodes .tech-node:nth-child(1) { --radius: var(--orbit-1); --angle: 20deg; }

@@ -554,19 +554,20 @@
   }
 
   .tech-orbit {
-    --orbit-1: 76px;
-    --orbit-2: 130px;
-    --orbit-3: 184px;
+    --orbit-1: 82px;
+    --orbit-2: 144px;
+    --orbit-3: 206px;
+    --node-scale: 1.05;
   }
 
   .tech-node {
-    width: 58px;
-    height: 58px;
+    width: 52px;
+    height: 52px;
   }
 
   .tech-node img {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
 
   .nav-pill a {
@@ -645,19 +646,20 @@
   }
 
   .tech-orbit {
-    --orbit-1: 70px;
-    --orbit-2: 120px;
-    --orbit-3: 168px;
+    --orbit-1: 74px;
+    --orbit-2: 130px;
+    --orbit-3: 186px;
+    --node-scale: 1.04;
   }
 
   .tech-node {
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
   }
 
   .tech-node img {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
   }
 }
 
