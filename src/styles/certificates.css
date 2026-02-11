@@ -34,11 +34,11 @@
 }
 
 .certificate-card:hover {
-  box-shadow: 0 8px 32px 0 rgba(180, 80, 255, 0.25),
-    0 4px 12px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 14px 0 rgba(180, 80, 255, 0.1),
+    0 2px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 :root[data-theme='light'] .certificate-card:hover {
-  box-shadow: 0 10px 26px rgba(36, 20, 60, 0.14),
-    0 4px 12px rgba(120, 70, 200, 0.16);
+  box-shadow: 0 6px 14px rgba(36, 20, 60, 0.08),
+    0 2px 8px rgba(120, 70, 200, 0.09);
 }

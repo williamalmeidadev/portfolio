@@ -139,6 +139,12 @@ export function getContent(lang: Lang) {
       description: isPt
         ? 'Portfolio pessoal desenvolvido com React para apresentar meus projetos e habilidades.'
         : 'Personal portfolio built with React to showcase my projects and skills.',
+      stack: [
+        { title: 'React', img: reactLogo },
+        { title: 'TypeScript', img: typescript },
+        { title: 'Vite', img: vite },
+        { title: 'CSS', img: css }
+      ],
       links: [
         {
           href: 'https://github.com/williamalmeidadev/williamalmeidadev.github.io',
@@ -154,6 +160,12 @@ export function getContent(lang: Lang) {
       description: isPt
         ? 'Projeto premiado na OBT 2025, focado em sustentabilidade e conscientização ambiental.'
         : 'Award-winning project at OBT 2025, focused on sustainability and environmental awareness.',
+      stack: [
+        { title: 'React', img: reactLogo },
+        { title: 'JavaScript', img: javascript },
+        { title: 'HTML', img: html },
+        { title: 'CSS', img: css }
+      ],
       links: [{ href: 'https://projetoecoacao.vercel.app/', label: isPt ? 'Testar' : 'Live', primary: true }]
     },
     {
@@ -162,6 +174,11 @@ export function getContent(lang: Lang) {
       description: isPt
         ? 'Site para divulgar venda de placas personalizadas em acrílico, funcionando como catálogo.'
         : 'Website to showcase custom acrylic plates, working as a product catalog.',
+      stack: [
+        { title: 'HTML', img: html },
+        { title: 'CSS', img: css },
+        { title: 'JavaScript', img: javascript }
+      ],
       links: [{ href: 'https://siteplacas.vercel.app/', label: isPt ? 'Testar' : 'Live', primary: true }]
     }
   ] as const

@@ -65,9 +65,28 @@ const Projetos: React.FC = () => {
                 {loopProjects.map((proj, index) => (
                   <div className="embla__slide" key={`${proj.title}-${index}`}>
                     <div className="project-card">
-                      <img src={proj.img} alt={proj.title} loading="lazy" decoding="async" />
+                      <img
+                        src={proj.img}
+                        alt={proj.title}
+                        className="project-cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
                       <h3>{proj.title}</h3>
                       <p>{proj.description}</p>
+                      <div className="project-stack" aria-label="Project technologies">
+                        {proj.stack.map((tech) => (
+                          <img
+                            key={`${proj.title}-${tech.title}`}
+                            className="project-stack-icon"
+                            src={tech.img}
+                            alt={tech.title}
+                            title={tech.title}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ))}
+                      </div>
                       <div className="project-actions">
                         {proj.links.map((link) => (
                           <a

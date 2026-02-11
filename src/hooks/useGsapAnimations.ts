@@ -392,11 +392,11 @@ export function useGsapAnimations() {
       }
 
       document.querySelectorAll<HTMLElement>('.certificate-card').forEach(card => {
-        const xTo = gsap.quickTo(card, 'rotationY', { duration: 0.6, ease: 'power1.out' })
-        const yTo = gsap.quickTo(card, 'rotationX', { duration: 0.6, ease: 'power1.out' })
-        const scaleXTo = gsap.quickTo(card, 'scaleX', { duration: 0.6, ease: 'power1.out' })
-        const scaleYTo = gsap.quickTo(card, 'scaleY', { duration: 0.6, ease: 'power1.out' })
-        const zTo = gsap.quickTo(card, 'z', { duration: 0.6, ease: 'power1.out' })
+        const xTo = gsap.quickTo(card, 'rotationY', { duration: 0.45, ease: 'power1.out' })
+        const yTo = gsap.quickTo(card, 'rotationX', { duration: 0.45, ease: 'power1.out' })
+        const scaleXTo = gsap.quickTo(card, 'scaleX', { duration: 0.45, ease: 'power1.out' })
+        const scaleYTo = gsap.quickTo(card, 'scaleY', { duration: 0.45, ease: 'power1.out' })
+        const zTo = gsap.quickTo(card, 'z', { duration: 0.45, ease: 'power1.out' })
 
         if (card.parentElement) gsap.set(card.parentElement, { perspective: 1500 })
 
@@ -406,13 +406,54 @@ export function useGsapAnimations() {
           const y = e.clientY - rect.top
           const centerX = rect.width / 2
           const centerY = rect.height / 2
-          const rotateX = ((y - centerY) / centerY) * -12
-          const rotateY = ((x - centerX) / centerX) * 12
+          const rotateX = ((y - centerY) / centerY) * -7
+          const rotateY = ((x - centerX) / centerX) * 7
           yTo(rotateX)
           xTo(rotateY)
-          scaleXTo(1.06)
-          scaleYTo(1.06)
-          zTo(30)
+          scaleXTo(1.02)
+          scaleYTo(1.02)
+          zTo(12)
+        }
+
+        const handleLeave = () => {
+          yTo(0)
+          xTo(0)
+          scaleXTo(1)
+          scaleYTo(1)
+          zTo(0)
+        }
+
+        card.addEventListener('mousemove', handleMove)
+        card.addEventListener('mouseleave', handleLeave)
+
+        cleanups.push(() => {
+          card.removeEventListener('mousemove', handleMove)
+          card.removeEventListener('mouseleave', handleLeave)
+        })
+      })
+
+      document.querySelectorAll<HTMLElement>('.project-card').forEach(card => {
+        const xTo = gsap.quickTo(card, 'rotationY', { duration: 0.45, ease: 'power1.out' })
+        const yTo = gsap.quickTo(card, 'rotationX', { duration: 0.45, ease: 'power1.out' })
+        const scaleXTo = gsap.quickTo(card, 'scaleX', { duration: 0.45, ease: 'power1.out' })
+        const scaleYTo = gsap.quickTo(card, 'scaleY', { duration: 0.45, ease: 'power1.out' })
+        const zTo = gsap.quickTo(card, 'z', { duration: 0.45, ease: 'power1.out' })
+
+        if (card.parentElement) gsap.set(card.parentElement, { perspective: 1500 })
+
+        const handleMove = (e: MouseEvent) => {
+          const rect = card.getBoundingClientRect()
+          const x = e.clientX - rect.left
+          const y = e.clientY - rect.top
+          const centerX = rect.width / 2
+          const centerY = rect.height / 2
+          const rotateX = ((y - centerY) / centerY) * -7
+          const rotateY = ((x - centerX) / centerX) * 7
+          yTo(rotateX)
+          xTo(rotateY)
+          scaleXTo(1.02)
+          scaleYTo(1.02)
+          zTo(12)
         }
 
         const handleLeave = () => {
