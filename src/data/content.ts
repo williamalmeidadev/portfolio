@@ -27,7 +27,9 @@ export function getContent(lang: Lang) {
   const aboutGallery = [
     {
       src: obt,
-      alt: 'OBT',
+      alt: isPt ? 'OBT 2025' : 'OBT 2025',
+      badge: isPt ? 'Prata Nacional' : 'National Silver',
+      year: '2025',
       description: isPt
         ? 'Medalha de prata nacional e 3º lugar na modalidade júri especialista na Olimpíada Brasileira de Tecnologia (OBT)'
         : 'National silver medal and 3rd place in the expert jury category at the Brazilian Technology Olympiad (OBT)',
@@ -36,7 +38,9 @@ export function getContent(lang: Lang) {
     },
     {
       src: maratonatech,
-      alt: 'Maratona Tech',
+      alt: isPt ? 'Maratona Tech' : 'Maratona Tech',
+      badge: isPt ? 'Bronze Nacional' : 'National Bronze',
+      year: '2025',
       description: isPt
         ? 'Duas vezes medalhista de bronze na Maratona Tech, competição nacional de tecnologia, trazendo também premiação de destaque nordeste para a escola'
         : 'Two-time bronze medalist at Maratona Tech, a national tech competition, also bringing a Northeast highlight award to the school',

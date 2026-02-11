@@ -8,6 +8,7 @@ const Sobre: React.FC = () => {
   const [imgIndex, setImgIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
   const timeoutRef = useRef<number | null>(null);
+  const currentItem = aboutGallery[imgIndex];
 
   useEffect(() => {
     return () => {
@@ -15,7 +16,7 @@ const Sobre: React.FC = () => {
     };
   }, []);
 
-  function handleThumbClick(index: number) {
+  function handleGalleryChange(index: number) {
     if (index === imgIndex) return;
     setIsFading(true);
     if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
@@ -30,19 +31,26 @@ const Sobre: React.FC = () => {
       <div className="about-content">
         <div className="about-gallery">
           <div className="gallery-main">
-            <img
-              src={aboutGallery[imgIndex].src}
-              alt={aboutGallery[imgIndex].alt}
-              className={isFading ? "fade" : ""}
-              loading="lazy"
-              decoding="async"
-            />
+            <div className="gallery-main-media">
+              <img
+                src={currentItem.src}
+                alt={currentItem.alt}
+                className={`gallery-main-image${isFading ? " fade" : ""}`}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div className="gallery-main-badges">
+              <span className="gallery-badge">{currentItem.badge}</span>
+              <span className="gallery-year">{currentItem.year}</span>
+            </div>
             <p className={`gallery-caption${isFading ? " fade" : ""}`}>
-              {aboutGallery[imgIndex].description}
+              <span className="gallery-caption-title">{currentItem.alt}</span>
+              {currentItem.description}
               <br />
-              {aboutGallery[imgIndex].link && (
+              {currentItem.link && (
                 <a
-                  href={aboutGallery[imgIndex].link}
+                  href={currentItem.link}
                   target="_blank"
                   className="btn-primary btn-small"
                   rel="noopener noreferrer"
@@ -54,15 +62,19 @@ const Sobre: React.FC = () => {
           </div>
           <div className="gallery-thumbs">
             {aboutGallery.map((img, i) => (
-              <img
+              <button
                 key={img.alt}
-                src={img.src}
-                className={i === imgIndex ? "is-active" : ""}
-                alt={img.alt}
-                loading="lazy"
-                decoding="async"
-                onClick={() => handleThumbClick(i)}
-              />
+                type="button"
+                className={`gallery-thumb-button${i === imgIndex ? " is-active" : ""}`}
+                onClick={() => handleGalleryChange(i)}
+                aria-label={img.alt}
+              >
+                <img src={img.src} className="gallery-thumb-image" alt={img.alt} loading="lazy" decoding="async" />
+                <span className="gallery-thumb-meta">
+                  <span>{img.alt}</span>
+                  <span>{img.year}</span>
+                </span>
+              </button>
             ))}
           </div>
         </div>
