@@ -76,9 +76,15 @@ const Projetos: React.FC = () => {
                       <p>{proj.description}</p>
                       <div className="project-stack" aria-label="Project technologies">
                         {proj.stack.map((tech) => (
-                          <span key={`${proj.title}-${tech.title}`} className="project-stack-item" title={tech.title}>
-                            <img src={tech.img} alt={tech.title} loading="lazy" decoding="async" />
-                          </span>
+                          <img
+                            key={`${proj.title}-${tech.title}`}
+                            className="project-stack-icon"
+                            src={tech.img}
+                            alt={tech.title}
+                            title={tech.title}
+                            loading="lazy"
+                            decoding="async"
+                          />
                         ))}
                       </div>
                       <div className="project-actions">

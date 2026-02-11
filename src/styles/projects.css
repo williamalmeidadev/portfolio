@@ -34,26 +34,26 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   margin-top: 14px;
-}
-
-.project-stack-item {
-  width: 38px;
-  height: 38px;
-  padding: 6px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: color-mix(in srgb, var(--surface) 88%, var(--text) 12%);
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
 }
 
-.project-stack-item img {
-  width: 100%;
-  height: 100%;
+.project-stack-icon {
+  width: 20px;
+  height: 20px;
   object-fit: contain;
+  opacity: 0.72;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.project-card:hover .project-stack-icon {
+  opacity: 0.9;
+}
+
+.project-stack-icon:hover {
+  opacity: 1;
+  transform: translateY(-1px) scale(1.06);
 }
 
 .project-actions {
