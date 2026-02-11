@@ -46,7 +46,8 @@ const Projetos: React.FC = () => {
                 disabled={!canScrollPrev}
                 aria-controls="projects-carousel"
               >
-                {strings.carousel.prev}
+                <span className="carousel-button-icon carousel-button-icon-left" aria-hidden="true" />
+                <span>{strings.carousel.prev}</span>
               </button>
               <button
                 type="button"
@@ -55,7 +56,8 @@ const Projetos: React.FC = () => {
                 disabled={!canScrollNext}
                 aria-controls="projects-carousel"
               >
-                {strings.carousel.next}
+                <span>{strings.carousel.next}</span>
+                <span className="carousel-button-icon carousel-button-icon-right" aria-hidden="true" />
               </button>
             </div>
           </div>
