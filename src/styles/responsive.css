@@ -127,7 +127,7 @@
     font-size: 2.8rem;
   }
 
-  .project-card img {
+  .project-cover {
     max-width: 700px;
   }
 
@@ -301,7 +301,7 @@
     font-size: 2.2rem;
   }
 
-  .project-card img {
+  .project-cover {
     max-width: 600px;
   }
 
