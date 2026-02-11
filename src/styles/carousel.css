@@ -22,6 +22,10 @@
 }
 
 .carousel-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text);
@@ -32,9 +36,52 @@
   transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.2s ease;
 }
 
+.carousel-button-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--border) 75%, var(--text) 25%);
+  background: transparent;
+  position: relative;
+  flex: 0 0 auto;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.carousel-button-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform-origin: center;
+}
+
+.carousel-button-icon-left::before {
+  transform: translate(-35%, -50%) rotate(-135deg);
+}
+
+.carousel-button-icon-right::before {
+  transform: translate(-65%, -50%) rotate(45deg);
+}
+
 .carousel-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
+}
+
+.carousel-button:hover .carousel-button-icon {
+  background: transparent;
+}
+
+.carousel-button:hover .carousel-button-icon-left {
+  transform: translateX(-1px);
+}
+
+.carousel-button:hover .carousel-button-icon-right {
+  transform: translateX(1px);
 }
 
 .carousel-button:disabled {
