@@ -1,6 +1,7 @@
 import bd from '../assets/galeria/bd.webp'
 import css from '../assets/css.svg'
 import ecoacao from '../assets/galeria/ecoacao.webp'
+import filealchemist from '../assets/galeria/filealchemist.webp'
 import express from '../assets/express.svg'
 import google from '../assets/galeria/google.webp'
 import html from '../assets/html.svg'
@@ -10,6 +11,7 @@ import placas from '../assets/galeria/placas.webp'
 import portfolioreact from '../assets/galeria/portfolioreact.webp'
 import solyd from '../assets/galeria/solyd.webp'
 import tecnico from '../assets/galeria/tecnico.webp'
+import wordmint from '../assets/galeria/wordmint.webp'
 import java from '../assets/java.svg'
 import javascript from '../assets/javascript.svg'
 import nodejs from '../assets/nodejs.svg'
@@ -137,6 +139,41 @@ export function getContent(lang: Lang) {
   ] as const
 
   const projects = [
+    {
+      img: wordmint,
+      title: 'WordMint',
+      description: isPt
+        ? 'Jogo de adivinhação de palavras no navegador, inspirado nos clássicos de cinco letras, com modo offline, estatísticas persistentes e compartilhamento do resultado em grade de emojis.'
+        : 'Browser-based word guessing game inspired by classic five-letter puzzles, with offline play, persistent stats, and shareable emoji-grid results.',
+      stack: [
+        { title: 'Vite', img: vite },
+        { title: 'React', img: reactLogo },
+        { title: 'TypeScript', img: typescript },
+        { title: 'CSS', img: css }
+      ],
+      links: [
+        { href: 'https://github.com/williamalmeidadev/WordMint', label: 'GitHub', primary: false },
+        { href: 'https://williamalmeidadev.github.io/WordMint/', label: isPt ? 'Testar' : 'Live', primary: true }
+      ]
+    },
+    {
+      img: filealchemist,
+      title: 'FileAlchemist',
+      description: isPt
+        ? 'Conversor de imagens 100% client-side no navegador, com processamento em lote via Web Worker, ajuste de qualidade, redimensionamento opcional e download em ZIP.'
+        : 'A 100% client-side browser image converter with batch processing via Web Worker, quality control, optional resize, and ZIP download.',
+      stack: [
+        { title: 'Vite', img: vite },
+        { title: 'React', img: reactLogo },
+        { title: 'TypeScript', img: typescript },
+        { title: 'JavaScript', img: javascript },
+        { title: 'CSS', img: css }
+      ],
+      links: [
+        { href: 'https://github.com/williamalmeidadev/FileAlchemist', label: 'GitHub', primary: false },
+        { href: 'https://williamalmeidadev.github.io/FileAlchemist/', label: isPt ? 'Testar' : 'Live', primary: true }
+      ]
+    },
     {
       img: portfolioreact,
       title: 'Portfolio React',
