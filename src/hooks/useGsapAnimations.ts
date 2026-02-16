@@ -1,8 +1,4 @@
 import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export function useGsapAnimations() {
   const rootRef = useRef<HTMLDivElement>(null)
@@ -11,9 +7,21 @@ export function useGsapAnimations() {
     if (!rootRef.current) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
-    const cleanups: Array<() => void> = []
+    let cancelled = false
+    let cleanupAnimations: (() => void) | undefined
 
-    const ctx = gsap.context(() => {
+    const loadAnimations = async () => {
+      const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
+        import('gsap'),
+        import('gsap/ScrollTrigger')
+      ])
+
+      if (cancelled || !rootRef.current) return
+
+      gsap.registerPlugin(ScrollTrigger)
+      const cleanups: Array<() => void> = []
+
+      const ctx = gsap.context(() => {
       const heroTimeline = gsap.timeline({
         defaults: { ease: 'power3.out', duration: 1 }
       })
@@ -476,11 +484,19 @@ export function useGsapAnimations() {
           })
         })
       }
-    }, rootRef)
+      }, rootRef)
+
+      cleanupAnimations = () => {
+        cleanups.forEach(cleanup => cleanup())
+        ctx.revert()
+      }
+    }
+
+    loadAnimations()
 
     return () => {
-      cleanups.forEach(cleanup => cleanup())
-      ctx.revert()
+      cancelled = true
+      cleanupAnimations?.()
     }
   }, [])
 

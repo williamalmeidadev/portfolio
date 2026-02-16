@@ -66,7 +66,14 @@ const Certificados: React.FC = () => {
                 {certificates.map((c) => (
                   <div className="embla__slide" key={c.description}>
                     <div className="certificate-card">
-                      <img src={c.img} alt={c.description} loading="lazy" decoding="async" />
+                      <img
+                        src={c.img}
+                        alt={c.description}
+                        loading="lazy"
+                        decoding="async"
+                        width={1280}
+                        height={720}
+                      />
                       <p>{c.description}</p>
                     </div>
                   </div>
