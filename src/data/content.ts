@@ -143,8 +143,8 @@ export function getContent(lang: Lang) {
       img: wordmint,
       title: 'WordMint',
       description: isPt
-        ? 'Jogo de adivinhação de palavras no navegador, inspirado nos clássicos de cinco letras, com modo offline, estatísticas persistentes e compartilhamento do resultado em grade de emojis.'
-        : 'Browser-based word guessing game inspired by classic five-letter puzzles, with offline play, persistent stats, and shareable emoji-grid results.',
+        ? 'Jogo de adivinhação de palavras no navegador, inspirado nos clássicos de cinco letras, com modo offline e compartilhamento do resultado em emojis.'
+        : 'Browser word-guessing game inspired by classic five-letter puzzles, with offline play and shareable emoji results.',
       stack: [
         { title: 'Vite', img: vite },
         { title: 'React', img: reactLogo },

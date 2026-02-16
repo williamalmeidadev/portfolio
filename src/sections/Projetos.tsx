@@ -72,8 +72,6 @@ const Projetos: React.FC = () => {
                         className="project-cover"
                         loading="lazy"
                         decoding="async"
-                        width={1280}
-                        height={720}
                       />
                       <h3>{proj.title}</h3>
                       <p>{proj.description}</p>
