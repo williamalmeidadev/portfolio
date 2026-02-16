@@ -7,11 +7,9 @@ import Projetos from './sections/Projetos'
 import Certificados from './sections/Certificados'
 import Contato from './sections/Contato'
 import Hero from './sections/Hero'
-import { useSmoothScroll } from './hooks/useSmoothScroll'
 import { useGsapAnimations } from './hooks/useGsapAnimations'
 
 function App() {
-  useSmoothScroll()
   const rootRef = useGsapAnimations()
 
   return (

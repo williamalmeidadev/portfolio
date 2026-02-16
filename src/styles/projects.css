@@ -22,6 +22,7 @@
 
 .project-cover {
   width: min(100%, 360px);
+  height: auto;
   max-width: 360px;
   margin: 0 auto 18px;
   border: 1px solid var(--border);

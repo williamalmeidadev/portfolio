@@ -10,10 +10,14 @@ export const CanvasBG: React.FC = () => {
     if (!ctx) return;
     const context = ctx;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
     const connection = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+    const memoryInfo = navigator as Navigator & { deviceMemory?: number; hardwareConcurrency?: number };
+    const lowDeviceMemory = typeof memoryInfo.deviceMemory === 'number' && memoryInfo.deviceMemory <= 4;
+    const lowCpu = typeof memoryInfo.hardwareConcurrency === 'number' && memoryInfo.hardwareConcurrency <= 4;
     const saveData = connection?.saveData === true;
     const slowConnection = (connection?.effectiveType || '').includes('2g');
-    const lowPower = reduceMotion || saveData || slowConnection;
+    const lowPower = reduceMotion || saveData || slowConnection || coarsePointer || lowDeviceMemory || lowCpu;
 
     const METEOR_COLOR = '180, 80, 255';
     const BASE_WIDTH = 1200;
@@ -85,7 +89,7 @@ export const CanvasBG: React.FC = () => {
     function createParticles() {
       if (!canvas) return;
       particles.length = 0;
-      const density = lowPower ? 0.45 : 1;
+      const density = lowPower ? 0.3 : 1;
       const particleCount = Math.floor(60 * getScaleFactor() * density);
       for (let i = 0; i < particleCount; i++) {
         particles.push({

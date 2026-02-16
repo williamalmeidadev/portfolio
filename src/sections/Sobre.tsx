@@ -38,6 +38,8 @@ const Sobre: React.FC = () => {
                 className={`gallery-main-image${isFading ? " fade" : ""}`}
                 loading="lazy"
                 decoding="async"
+                width={1200}
+                height={800}
               />
             </div>
             <div className="gallery-main-badges">
@@ -69,7 +71,15 @@ const Sobre: React.FC = () => {
                 onClick={() => handleGalleryChange(i)}
                 aria-label={img.alt}
               >
-                <img src={img.src} className="gallery-thumb-image" alt={img.alt} loading="lazy" decoding="async" />
+                <img
+                  src={img.src}
+                  className="gallery-thumb-image"
+                  alt={img.alt}
+                  loading="lazy"
+                  decoding="async"
+                  width={320}
+                  height={180}
+                />
                 <span className="gallery-thumb-meta">
                   <span>{img.alt}</span>
                   <span>{img.year}</span>

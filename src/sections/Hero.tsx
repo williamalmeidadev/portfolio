@@ -12,6 +12,8 @@ export default function Hero() {
             alt={strings.hero.photoAlt}
             decoding="async"
             fetchPriority="high"
+            width={250}
+            height={250}
           />
         </div>
         <div className="hero-text">
