@@ -351,127 +351,131 @@ export function useGsapAnimations() {
       window.addEventListener('load', handleRefresh)
       cleanups.push(() => window.removeEventListener('load', handleRefresh))
 
-      const heroFoto = document.querySelector<HTMLElement>('.hero-photo img')
+      const supportsFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches
 
-      if (heroFoto) {
-        const xTo = gsap.quickTo(heroFoto, 'rotationY', { duration: 0.5, ease: 'power1.out' })
-        const yTo = gsap.quickTo(heroFoto, 'rotationX', { duration: 0.5, ease: 'power1.out' })
-        const scaleXTo = gsap.quickTo(heroFoto, 'scaleX', { duration: 0.5, ease: 'power1.out' })
-        const scaleYTo = gsap.quickTo(heroFoto, 'scaleY', { duration: 0.5, ease: 'power1.out' })
+      if (supportsFinePointer) {
+        const heroFoto = document.querySelector<HTMLElement>('.hero-photo img')
 
-        gsap.set('.hero-photo', { perspective: 1200 })
+        if (heroFoto) {
+          const xTo = gsap.quickTo(heroFoto, 'rotationY', { duration: 0.5, ease: 'power1.out' })
+          const yTo = gsap.quickTo(heroFoto, 'rotationX', { duration: 0.5, ease: 'power1.out' })
+          const scaleXTo = gsap.quickTo(heroFoto, 'scaleX', { duration: 0.5, ease: 'power1.out' })
+          const scaleYTo = gsap.quickTo(heroFoto, 'scaleY', { duration: 0.5, ease: 'power1.out' })
 
-        const handleMove = (e: MouseEvent) => {
-          const rect = heroFoto.getBoundingClientRect()
-          const x = e.clientX - rect.left
-          const y = e.clientY - rect.top
-          const centerX = rect.width / 2
-          const centerY = rect.height / 2
-          const rotateX = ((y - centerY) / centerY) * -15
-          const rotateY = ((x - centerX) / centerX) * 15
-          yTo(rotateX)
-          xTo(rotateY)
-          scaleXTo(1.08)
-          scaleYTo(1.08)
+          gsap.set('.hero-photo', { perspective: 1200 })
+
+          const handleMove = (e: MouseEvent) => {
+            const rect = heroFoto.getBoundingClientRect()
+            const x = e.clientX - rect.left
+            const y = e.clientY - rect.top
+            const centerX = rect.width / 2
+            const centerY = rect.height / 2
+            const rotateX = ((y - centerY) / centerY) * -15
+            const rotateY = ((x - centerX) / centerX) * 15
+            yTo(rotateX)
+            xTo(rotateY)
+            scaleXTo(1.08)
+            scaleYTo(1.08)
+          }
+
+          const handleLeave = () => {
+            yTo(0)
+            xTo(0)
+            scaleXTo(1)
+            scaleYTo(1)
+          }
+
+          heroFoto.addEventListener('mousemove', handleMove)
+          heroFoto.addEventListener('mouseleave', handleLeave)
+
+          cleanups.push(() => {
+            heroFoto.removeEventListener('mousemove', handleMove)
+            heroFoto.removeEventListener('mouseleave', handleLeave)
+          })
         }
 
-        const handleLeave = () => {
-          yTo(0)
-          xTo(0)
-          scaleXTo(1)
-          scaleYTo(1)
-        }
+        document.querySelectorAll<HTMLElement>('.certificate-card').forEach(card => {
+          const xTo = gsap.quickTo(card, 'rotationY', { duration: 0.45, ease: 'power1.out' })
+          const yTo = gsap.quickTo(card, 'rotationX', { duration: 0.45, ease: 'power1.out' })
+          const scaleXTo = gsap.quickTo(card, 'scaleX', { duration: 0.45, ease: 'power1.out' })
+          const scaleYTo = gsap.quickTo(card, 'scaleY', { duration: 0.45, ease: 'power1.out' })
+          const zTo = gsap.quickTo(card, 'z', { duration: 0.45, ease: 'power1.out' })
 
-        heroFoto.addEventListener('mousemove', handleMove)
-        heroFoto.addEventListener('mouseleave', handleLeave)
+          if (card.parentElement) gsap.set(card.parentElement, { perspective: 1500 })
 
-        cleanups.push(() => {
-          heroFoto.removeEventListener('mousemove', handleMove)
-          heroFoto.removeEventListener('mouseleave', handleLeave)
+          const handleMove = (e: MouseEvent) => {
+            const rect = card.getBoundingClientRect()
+            const x = e.clientX - rect.left
+            const y = e.clientY - rect.top
+            const centerX = rect.width / 2
+            const centerY = rect.height / 2
+            const rotateX = ((y - centerY) / centerY) * -7
+            const rotateY = ((x - centerX) / centerX) * 7
+            yTo(rotateX)
+            xTo(rotateY)
+            scaleXTo(1.02)
+            scaleYTo(1.02)
+            zTo(12)
+          }
+
+          const handleLeave = () => {
+            yTo(0)
+            xTo(0)
+            scaleXTo(1)
+            scaleYTo(1)
+            zTo(0)
+          }
+
+          card.addEventListener('mousemove', handleMove)
+          card.addEventListener('mouseleave', handleLeave)
+
+          cleanups.push(() => {
+            card.removeEventListener('mousemove', handleMove)
+            card.removeEventListener('mouseleave', handleLeave)
+          })
+        })
+
+        document.querySelectorAll<HTMLElement>('.project-card').forEach(card => {
+          const xTo = gsap.quickTo(card, 'rotationY', { duration: 0.45, ease: 'power1.out' })
+          const yTo = gsap.quickTo(card, 'rotationX', { duration: 0.45, ease: 'power1.out' })
+          const scaleXTo = gsap.quickTo(card, 'scaleX', { duration: 0.45, ease: 'power1.out' })
+          const scaleYTo = gsap.quickTo(card, 'scaleY', { duration: 0.45, ease: 'power1.out' })
+          const zTo = gsap.quickTo(card, 'z', { duration: 0.45, ease: 'power1.out' })
+
+          if (card.parentElement) gsap.set(card.parentElement, { perspective: 1500 })
+
+          const handleMove = (e: MouseEvent) => {
+            const rect = card.getBoundingClientRect()
+            const x = e.clientX - rect.left
+            const y = e.clientY - rect.top
+            const centerX = rect.width / 2
+            const centerY = rect.height / 2
+            const rotateX = ((y - centerY) / centerY) * -7
+            const rotateY = ((x - centerX) / centerX) * 7
+            yTo(rotateX)
+            xTo(rotateY)
+            scaleXTo(1.02)
+            scaleYTo(1.02)
+            zTo(12)
+          }
+
+          const handleLeave = () => {
+            yTo(0)
+            xTo(0)
+            scaleXTo(1)
+            scaleYTo(1)
+            zTo(0)
+          }
+
+          card.addEventListener('mousemove', handleMove)
+          card.addEventListener('mouseleave', handleLeave)
+
+          cleanups.push(() => {
+            card.removeEventListener('mousemove', handleMove)
+            card.removeEventListener('mouseleave', handleLeave)
+          })
         })
       }
-
-      document.querySelectorAll<HTMLElement>('.certificate-card').forEach(card => {
-        const xTo = gsap.quickTo(card, 'rotationY', { duration: 0.45, ease: 'power1.out' })
-        const yTo = gsap.quickTo(card, 'rotationX', { duration: 0.45, ease: 'power1.out' })
-        const scaleXTo = gsap.quickTo(card, 'scaleX', { duration: 0.45, ease: 'power1.out' })
-        const scaleYTo = gsap.quickTo(card, 'scaleY', { duration: 0.45, ease: 'power1.out' })
-        const zTo = gsap.quickTo(card, 'z', { duration: 0.45, ease: 'power1.out' })
-
-        if (card.parentElement) gsap.set(card.parentElement, { perspective: 1500 })
-
-        const handleMove = (e: MouseEvent) => {
-          const rect = card.getBoundingClientRect()
-          const x = e.clientX - rect.left
-          const y = e.clientY - rect.top
-          const centerX = rect.width / 2
-          const centerY = rect.height / 2
-          const rotateX = ((y - centerY) / centerY) * -7
-          const rotateY = ((x - centerX) / centerX) * 7
-          yTo(rotateX)
-          xTo(rotateY)
-          scaleXTo(1.02)
-          scaleYTo(1.02)
-          zTo(12)
-        }
-
-        const handleLeave = () => {
-          yTo(0)
-          xTo(0)
-          scaleXTo(1)
-          scaleYTo(1)
-          zTo(0)
-        }
-
-        card.addEventListener('mousemove', handleMove)
-        card.addEventListener('mouseleave', handleLeave)
-
-        cleanups.push(() => {
-          card.removeEventListener('mousemove', handleMove)
-          card.removeEventListener('mouseleave', handleLeave)
-        })
-      })
-
-      document.querySelectorAll<HTMLElement>('.project-card').forEach(card => {
-        const xTo = gsap.quickTo(card, 'rotationY', { duration: 0.45, ease: 'power1.out' })
-        const yTo = gsap.quickTo(card, 'rotationX', { duration: 0.45, ease: 'power1.out' })
-        const scaleXTo = gsap.quickTo(card, 'scaleX', { duration: 0.45, ease: 'power1.out' })
-        const scaleYTo = gsap.quickTo(card, 'scaleY', { duration: 0.45, ease: 'power1.out' })
-        const zTo = gsap.quickTo(card, 'z', { duration: 0.45, ease: 'power1.out' })
-
-        if (card.parentElement) gsap.set(card.parentElement, { perspective: 1500 })
-
-        const handleMove = (e: MouseEvent) => {
-          const rect = card.getBoundingClientRect()
-          const x = e.clientX - rect.left
-          const y = e.clientY - rect.top
-          const centerX = rect.width / 2
-          const centerY = rect.height / 2
-          const rotateX = ((y - centerY) / centerY) * -7
-          const rotateY = ((x - centerX) / centerX) * 7
-          yTo(rotateX)
-          xTo(rotateY)
-          scaleXTo(1.02)
-          scaleYTo(1.02)
-          zTo(12)
-        }
-
-        const handleLeave = () => {
-          yTo(0)
-          xTo(0)
-          scaleXTo(1)
-          scaleYTo(1)
-          zTo(0)
-        }
-
-        card.addEventListener('mousemove', handleMove)
-        card.addEventListener('mouseleave', handleLeave)
-
-        cleanups.push(() => {
-          card.removeEventListener('mousemove', handleMove)
-          card.removeEventListener('mouseleave', handleLeave)
-        })
-      })
     }, rootRef)
 
     return () => {

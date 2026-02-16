@@ -6,7 +6,6 @@ import { useLanguage } from "../hooks/useLanguage";
 const Projetos: React.FC = () => {
   const { lang, strings } = useLanguage();
   const { projects } = getContent(lang);
-  const loopProjects = projects.length > 1 ? [...projects, ...projects] : projects;
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "center",
     loop: true,
@@ -64,8 +63,8 @@ const Projetos: React.FC = () => {
           <div className="embla" id="projects-carousel">
             <div className="embla__viewport" ref={emblaRef}>
               <div className="embla__container">
-                {loopProjects.map((proj, index) => (
-                  <div className="embla__slide" key={`${proj.title}-${index}`}>
+                {projects.map((proj) => (
+                  <div className="embla__slide" key={proj.title}>
                     <div className="project-card">
                       <img
                         src={proj.img}

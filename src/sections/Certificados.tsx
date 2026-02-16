@@ -6,8 +6,6 @@ import { useLanguage } from "../hooks/useLanguage";
 const Certificados: React.FC = () => {
   const { lang, strings } = useLanguage();
   const { certificates } = getContent(lang);
-  const loopCertificates =
-    certificates.length > 1 ? [...certificates, ...certificates] : certificates;
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "center",
     loop: true,
@@ -65,8 +63,8 @@ const Certificados: React.FC = () => {
           <div className="embla" id="certificates-carousel">
             <div className="embla__viewport" ref={emblaRef}>
               <div className="embla__container">
-                {loopCertificates.map((c, index) => (
-                  <div className="embla__slide" key={`${c.description}-${index}`}>
+                {certificates.map((c) => (
+                  <div className="embla__slide" key={c.description}>
                     <div className="certificate-card">
                       <img src={c.img} alt={c.description} loading="lazy" decoding="async" />
                       <p>{c.description}</p>
