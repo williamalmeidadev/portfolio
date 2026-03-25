@@ -17,7 +17,9 @@ export const CanvasBG: React.FC = () => {
     const lowCpu = typeof memoryInfo.hardwareConcurrency === 'number' && memoryInfo.hardwareConcurrency <= 4;
     const saveData = connection?.saveData === true;
     const slowConnection = (connection?.effectiveType || '').includes('2g');
-    const lowPower = reduceMotion || saveData || slowConnection || coarsePointer || lowDeviceMemory || lowCpu;
+    const lowPowerHints = coarsePointer || slowConnection || lowDeviceMemory || lowCpu;
+    const canAnimate = !reduceMotion && !saveData;
+    const targetFps = lowPowerHints ? 30 : 60;
 
     const METEOR_COLOR = '180, 80, 255';
     const BASE_WIDTH = 1200;
@@ -45,6 +47,7 @@ export const CanvasBG: React.FC = () => {
     let particleOpacity = 1;
     let themeObserver: MutationObserver | null = null;
     let isPaused = false;
+    let lastRenderedAt = 0;
 
     function getScaleFactor() {
       return Math.min(window.innerWidth / BASE_WIDTH, 1.6);
@@ -79,7 +82,7 @@ export const CanvasBG: React.FC = () => {
         context.setTransform(dpr, 0, 0, dpr, 0, 0);
         updateThemeVars();
         createParticles();
-        if (lowPower) renderFrame(performance.now());
+        renderFrame(performance.now());
       });
     }
 
@@ -89,7 +92,7 @@ export const CanvasBG: React.FC = () => {
     function createParticles() {
       if (!canvas) return;
       particles.length = 0;
-      const density = lowPower ? 0.3 : 1;
+      const density = lowPowerHints ? 0.55 : 1;
       const particleCount = Math.floor(60 * getScaleFactor() * density);
       for (let i = 0; i < particleCount; i++) {
         particles.push({
@@ -130,8 +133,9 @@ export const CanvasBG: React.FC = () => {
     function createMeteor() {
       if (!canvas) return;
       const scale = getScaleFactor();
-      const max = Math.floor((3 + scale * 5) * (lowPower ? 0.4 : 1));
-      const chance = 0.006 * scale * (lowPower ? 0.35 : 1);
+      const intensity = lowPowerHints ? 0.65 : 1;
+      const max = Math.max(1, Math.floor((2 + scale * 4) * intensity));
+      const chance = 0.008 * scale * intensity;
       if (meteors.length < max && Math.random() < chance) {
         const dir = Math.random() < 0.5 ? 1 : -1;
         const startX =
@@ -140,7 +144,7 @@ export const CanvasBG: React.FC = () => {
         meteors.push({
           x: startX,
           y: startY,
-          len: 80 + Math.random() * 120,
+          len: 90 + Math.random() * 160,
           v: 4.5 + Math.random() * 3.5,
           o: Math.random() * 0.5 + 0.3,
           dir,
@@ -153,10 +157,16 @@ export const CanvasBG: React.FC = () => {
       const ctx = context;
       for (let i = meteors.length - 1; i >= 0; i--) {
         const m = meteors[i];
-        const dx = m.v * 0.6 * dt * 0.06 * m.dir;
-        const dy = m.v * dt * 0.06;
-        const tailX = m.x - dx * 10;
-        const tailY = m.y - dy * 10;
+        const dirX = m.dir * 0.65;
+        const dirY = 1;
+        const norm = Math.hypot(dirX, dirY) || 1;
+        const ux = dirX / norm;
+        const uy = dirY / norm;
+        const speed = m.v * dt * 0.06;
+        m.x += ux * speed;
+        m.y += uy * speed;
+        const tailX = m.x - ux * m.len;
+        const tailY = m.y - uy * m.len;
         const grad = ctx.createLinearGradient(tailX, tailY, m.x, m.y);
         grad.addColorStop(0, `rgba(${METEOR_COLOR}, 0)`);
         grad.addColorStop(1, `rgba(${METEOR_COLOR}, ${m.o})`);
@@ -164,10 +174,8 @@ export const CanvasBG: React.FC = () => {
         ctx.moveTo(tailX, tailY);
         ctx.lineTo(m.x, m.y);
         ctx.strokeStyle = grad;
-        ctx.lineWidth = 1.4;
+        ctx.lineWidth = 1.6;
         ctx.stroke();
-        m.x += dx;
-        m.y += dy;
         if (m.y > height + 200 || m.x > width + 200 || m.x < -200) meteors.splice(i, 1);
       }
     }
@@ -187,6 +195,14 @@ export const CanvasBG: React.FC = () => {
 
     function loop(time: number) {
       if (isPaused) return;
+      if (targetFps < 60) {
+        const minInterval = 1000 / targetFps;
+        if (time - lastRenderedAt < minInterval) {
+          rafId = requestAnimationFrame(loop);
+          return;
+        }
+        lastRenderedAt = time;
+      }
       renderFrame(time);
       rafId = requestAnimationFrame(loop);
     }
@@ -195,6 +211,7 @@ export const CanvasBG: React.FC = () => {
     updateThemeVars();
     themeObserver = new MutationObserver(() => {
       updateThemeVars();
+      renderFrame(performance.now());
     });
     themeObserver.observe(document.documentElement, {
       attributes: true,
@@ -207,17 +224,18 @@ export const CanvasBG: React.FC = () => {
       } else {
         isPaused = false;
         lastTime = 0;
-        if (!lowPower) rafId = requestAnimationFrame(loop);
+        lastRenderedAt = 0;
+        if (canAnimate) rafId = requestAnimationFrame(loop);
         else renderFrame(performance.now());
       }
     };
 
     document.addEventListener('visibilitychange', handleVisibility);
 
-    if (lowPower) {
-      renderFrame(performance.now());
-    } else {
+    if (canAnimate) {
       rafId = requestAnimationFrame(loop);
+    } else {
+      renderFrame(performance.now());
     }
     return () => {
       window.removeEventListener('resize', resize);
