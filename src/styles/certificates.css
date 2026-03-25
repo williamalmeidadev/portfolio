@@ -17,11 +17,14 @@
 
 .certificate-card img {
   width: 100%;
+  aspect-ratio: 16 / 10;
   height: auto;
   border-radius: 8px;
   margin-bottom: 10px;
   display: block;
   max-width: 100%;
+  object-fit: contain;
+  background: color-mix(in srgb, var(--surface-strong) 35%, transparent);
 }
 
 .certificate-card p {
