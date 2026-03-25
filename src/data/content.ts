@@ -9,6 +9,7 @@ import maratonatech from '../assets/galeria/maratonatech.webp'
 import obt from '../assets/galeria/obt.webp'
 import placas from '../assets/galeria/placas.webp'
 import portfolioreact from '../assets/galeria/portfolioreact.webp'
+import quixadaufc from '../assets/galeria/quixadaufc.webp'
 import solyd from '../assets/galeria/solyd.webp'
 import tecnico from '../assets/galeria/tecnico.webp'
 import wordmint from '../assets/galeria/wordmint.webp'
@@ -225,6 +226,12 @@ export function getContent(lang: Lang) {
   ] as const
 
   const certificates = [
+    {
+      img: quixadaufc,
+      description: isPt
+        ? 'Bacharelado em IA (UFC) • 2026–2029 • Cursando'
+        : 'B.Sc. in AI (UFC) • 2026–2029 • In progress'
+    },
     {
       img: google,
       description: isPt ? 'Certificação Suporte de TI Google - 2025' : 'Google IT Support Certificate - 2025'
