@@ -22,7 +22,7 @@ import reactLogo from '../../assets/react.svg'
 import spring from '../../assets/spring.svg'
 import typescript from '../../assets/typescript.svg'
 import vite from '../../assets/vite.svg'
-
+import alphaedtech from '../../assets/alphaedtech.webp'
 export const contentAssets = {
   bd,
   css,
@@ -47,5 +47,6 @@ export const contentAssets = {
   reactLogo,
   spring,
   typescript,
-  vite
+  vite,
+  alphaedtech
 } as const

@@ -26,6 +26,12 @@ export function getCertificates(isPt: boolean): readonly CertificateItem[] {
       description: isPt
         ? 'Técnico em Desenvolvimento de Sistemas - 2023/2025'
         : 'Systems Development Technician - 2023/2025'
+    },
+    {
+      img: contentAssets.alphaedtech,
+      description: isPt
+        ? 'Formação FullStack Alpha EdTech - 2025/2026'
+        : 'Alpha EdTech Full-Stack Development Program - 2025/2026'
     }
   ] as const
 }
