@@ -1,6 +1,27 @@
-import { useEffect, useMemo, useState, type ReactNode } from 'react'
-import { getInitialLang, getStrings, LanguageContext } from './useLanguage'
-import type { Lang } from '../i18n'
+import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { getStrings, type Lang, type Strings } from '../i18n'
+
+type LanguageContextValue = {
+  lang: Lang
+  setLang: (lang: Lang) => void
+  strings: Strings
+}
+
+const LanguageContext = createContext<LanguageContextValue | null>(null)
+
+export function getInitialLang(): Lang {
+  if (typeof window === 'undefined') return 'pt-BR'
+  const saved = window.localStorage.getItem('lang')
+  if (saved === 'pt-BR' || saved === 'en') return saved
+  const browser = window.navigator.language.toLowerCase()
+  return browser.startsWith('pt') ? 'pt-BR' : 'en'
+}
+
+export function useLanguage() {
+  const ctx = useContext(LanguageContext)
+  if (!ctx) throw new Error('useLanguage must be used within LanguageProvider')
+  return ctx
+}
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>(getInitialLang)
@@ -16,3 +37,5 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>
 }
+
+export { getStrings }

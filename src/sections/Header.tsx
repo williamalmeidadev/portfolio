@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useActiveSection } from "../hooks/useActiveSection";
 import { useBodyScrollLock } from "../hooks/useBodyScrollLock";
-import { useLanguage } from "../hooks/useLanguage.ts";
+import { useLanguage } from "../hooks/useLanguage";
 import { useNavUnderline } from "../hooks/useNavUnderline";
 import { useTheme } from "../hooks/useTheme";
 import { navLinks } from "../data/navigation";

@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import { LanguageProvider } from './hooks/useLanguage.tsx'
-import { ThemeProvider } from './hooks/useThemeProvider'
+import { ThemeProvider } from './hooks/useTheme'
 import './styles/index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
