@@ -356,8 +356,12 @@ export function useGsapAnimations() {
       })
 
       const handleRefresh = () => ScrollTrigger.refresh()
-      window.addEventListener('load', handleRefresh)
-      cleanups.push(() => window.removeEventListener('load', handleRefresh))
+      if (document.readyState === 'complete') {
+        handleRefresh()
+      } else {
+        window.addEventListener('load', handleRefresh)
+        cleanups.push(() => window.removeEventListener('load', handleRefresh))
+      }
 
       const supportsFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches
 
