@@ -497,16 +497,13 @@
   }
 
   .tech-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    align-items: start;
-    justify-items: center;
-    text-align: center;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: center;
   }
 
   .tech-web {
-    width: min(420px, 90vw);
+    width: min(420px, 100%);
   }
 
   .tech-orbit {
