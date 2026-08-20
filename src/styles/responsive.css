@@ -662,10 +662,14 @@
     justify-content: center;
   }
 
-  .nav-overlay-links {
+  .nav-overlay-links,
+  .nav-overlay-controls {
     max-width: 90%;
-    gap: 20px;
     width: 100%;
+  }
+
+  .nav-overlay-links {
+    gap: 20px;
   }
 
   .nav-overlay-links a {
