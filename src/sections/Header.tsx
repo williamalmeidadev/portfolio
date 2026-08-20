@@ -86,10 +86,10 @@ const Header: React.FC = () => {
           )}
         </button>
         <button
-          className="nav-toggle"
+          className={`nav-toggle${overlay ? " is-open" : ""}`}
           type="button"
-          aria-label={strings.aria.menuToggle}
-          onClick={() => setOverlay(true)}
+          aria-label={overlay ? "Fechar menu" : strings.aria.menuToggle}
+          onClick={() => setOverlay(!overlay)}
         >
           <span className="hamburger-icon">
             <span></span>
@@ -99,7 +99,6 @@ const Header: React.FC = () => {
         </button>
       </nav>
       <div className={`nav-overlay${overlay ? " is-open" : ""}`}>
-        <button className="nav-close" onClick={() => setOverlay(false)}>&times;</button>
         <div className="nav-overlay-controls">
           <button
             className="theme-toggle theme-toggle-overlay"
