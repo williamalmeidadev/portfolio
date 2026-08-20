@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useActiveSection } from "../hooks/useActiveSection";
 import { useBodyScrollLock } from "../hooks/useBodyScrollLock";
 import { useLanguage } from "../hooks/useLanguage";
@@ -11,15 +11,16 @@ const Header: React.FC = () => {
   const activeId = useActiveSection();
   const { lang, setLang, strings } = useLanguage();
   const { theme, setTheme } = useTheme();
+  const navRef = useRef<HTMLElement>(null);
 
   useBodyScrollLock(overlay);
-  useNavUnderline(activeId, lang);
+  useNavUnderline(activeId, lang, navRef);
 
   const toggleLang = () => setLang(lang === "pt-BR" ? "en" : "pt-BR");
 
   return (
     <header>
-      <nav className="nav-pill">
+      <nav className="nav-pill" ref={navRef}>
         <div className="nav-links">
           {navLinks.map((link) => (
             <a

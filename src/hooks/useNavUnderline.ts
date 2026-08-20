@@ -1,8 +1,12 @@
 import { useEffect } from 'react'
 
-export function useNavUnderline(activeId: string, dependencyKey: string) {
+export function useNavUnderline(
+  activeId: string,
+  dependencyKey: string,
+  navRef: React.RefObject<HTMLElement | null>
+) {
   useEffect(() => {
-    const nav = document.querySelector<HTMLElement>('.nav-pill')
+    const nav = navRef.current
     if (!nav) return
 
     const updateUnderline = () => {
@@ -37,5 +41,5 @@ export function useNavUnderline(activeId: string, dependencyKey: string) {
       window.removeEventListener('resize', handleResize)
       observer.disconnect()
     }
-  }, [activeId, dependencyKey])
+  }, [activeId, dependencyKey, navRef])
 }
