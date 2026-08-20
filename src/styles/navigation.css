@@ -85,14 +85,7 @@
   font-family: inherit;
 }
 
-.theme-toggle-overlay:hover {
-  color: var(--primary);
-  background: rgba(180, 80, 240, 0.12);
-  border-color: rgba(180, 80, 240, 0.4);
-  box-shadow: 0 8px 24px rgba(180, 80, 240, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px) scale(1.02);
-}
+
 
 .nav-pill a {
   color: var(--muted);
@@ -260,8 +253,6 @@
   gap: 12px;
   min-height: 56px;
   line-height: normal;
-  transform-style: preserve-3d;
-  perspective: 1000px;
 }
 
 .nav-overlay-controls .theme-toggle-overlay,
@@ -275,13 +266,11 @@
 }
 
 .theme-toggle-overlay:hover,
-.lang-toggle-overlay:hover {
+.lang-toggle-overlay:hover,
+.nav-overlay-links a:hover {
   color: var(--primary);
-  background: rgba(180, 80, 240, 0.12);
-  border-color: rgba(180, 80, 240, 0.4);
-  box-shadow: 0 8px 24px rgba(180, 80, 240, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px) scale(1.02);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--primary);
 }
 
 .nav-overlay-links a svg {
@@ -293,20 +282,10 @@
   transform: scale(1.1);
 }
 
-.nav-overlay-links a:hover {
-  color: var(--primary);
-  background: rgba(180, 80, 240, 0.12);
-  border-color: rgba(180, 80, 240, 0.4);
-  box-shadow: 0 8px 24px rgba(180, 80, 240, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px) scale(1.02);
-}
-
 .nav-overlay-links a.is-active {
   color: var(--primary);
-  background: rgba(180, 80, 240, 0.15);
-  border-color: rgba(180, 80, 240, 0.5);
-  box-shadow: 0 4px 16px rgba(180, 80, 240, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary);
 }
 
 
@@ -363,5 +342,19 @@
 :root[data-theme='light'] .lang-toggle-overlay {
   background: rgba(255, 255, 255, 0.72);
   border-color: rgba(24, 32, 48, 0.16);
+}
+
+:root[data-theme='light'] .theme-toggle-overlay:hover,
+:root[data-theme='light'] .lang-toggle-overlay:hover,
+:root[data-theme='light'] .nav-overlay-links a:hover {
+  color: var(--primary);
+  background: rgba(24, 32, 48, 0.04);
+  border-color: var(--primary);
+}
+
+:root[data-theme='light'] .nav-overlay-links a.is-active {
+  color: var(--primary);
+  background: rgba(24, 32, 48, 0.06);
+  border-color: var(--primary);
 }
 
