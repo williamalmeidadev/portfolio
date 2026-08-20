@@ -1,5 +1,5 @@
 import foto from '../assets/foto.webp'
-import { useLanguage } from '../hooks/useLanguage'
+import { useLanguage } from '../hooks/useLanguage.ts'
 
 export default function Hero() {
   const { strings } = useLanguage()

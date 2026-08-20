@@ -1,13 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import { LanguageProvider } from './hooks/useLanguage'
+import { LanguageProvider } from './hooks/useLanguage.tsx'
+import { ThemeProvider } from './hooks/useThemeProvider'
 import './styles/index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <LanguageProvider>
-      <App />
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
+    </ThemeProvider>
   </React.StrictMode>
 )

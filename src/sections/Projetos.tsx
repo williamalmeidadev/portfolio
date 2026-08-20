@@ -1,7 +1,7 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { getContent } from "../data/content";
-import { useLanguage } from "../hooks/useLanguage";
+import { useLanguage } from "../hooks/useLanguage.ts";
 
 const Projetos: React.FC = () => {
   const { lang, strings } = useLanguage();
