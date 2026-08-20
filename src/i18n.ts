@@ -59,7 +59,8 @@ const strings = {
     },
     aria: {
       themeToggle: 'Alternar tema',
-      langToggle: 'Trocar idioma'
+      langToggle: 'Trocar idioma',
+      menuToggle: 'Abrir menu'
     },
     theme: {
       light: 'Claro',
@@ -119,7 +120,8 @@ const strings = {
     },
     aria: {
       themeToggle: 'Toggle theme',
-      langToggle: 'Switch language'
+      langToggle: 'Switch language',
+      menuToggle: 'Open menu'
     },
     theme: {
       light: 'Light',

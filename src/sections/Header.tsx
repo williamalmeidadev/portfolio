@@ -84,7 +84,12 @@ const Header: React.FC = () => {
             </svg>
           )}
         </button>
-        <button className="nav-toggle" onClick={() => setOverlay(true)}>
+        <button
+          className="nav-toggle"
+          type="button"
+          aria-label={strings.aria.menuToggle}
+          onClick={() => setOverlay(true)}
+        >
           <span className="hamburger-icon">
             <span></span>
             <span></span>
