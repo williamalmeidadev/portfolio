@@ -72,7 +72,7 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
     },
     {
       img: contentAssets.alphaedtech,
-      title: isPt ? 'AlphaCuts - Sistema de Gestão de Barbearia' : 'AlphaCuts - Barbershop Management System',
+      title: 'AlphaCuts',
       description: isPt
         ? 'Sistema completo de gestão para salões e barbearias, integrando uma API REST robusta a um front-end intuitivo para otimizar o fluxo de agendamento e a fidelização de clientes.'
         : 'Complete management system for salons and barbershops, integrating a robust REST API with an intuitive front-end to optimize scheduling flow and boost customer loyalty.',
