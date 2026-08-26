@@ -5,22 +5,6 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
   return [
     {
       img: contentAssets.alphaedtech,
-      title: isPt ? 'Pesquisa de Detecção de Deepfake' : 'Deepfake Detection Research',
-      description: isPt
-        ? 'Pesquisa aplicada para detecção de deepfakes utilizando técnicas de Machine Learning supervisionado, redução de dimensionalidade e modelagem preditiva de séries temporais.'
-        : 'Applied research for deepfake detection using supervised Machine Learning, dimensionality reduction techniques, and predictive modeling for time-series analysis.',
-      stack: [
-        { title: 'Python', img: contentAssets.python },
-        { title: 'Pandas', img: contentAssets.pandas },
-        { title: 'NumPy', img: contentAssets.numpy },
-        { title: 'Streamlit', img: contentAssets.streamlit },
-        { title: 'Plotly', img: contentAssets.plotly },
-        { title: 'GitHub Actions', img: contentAssets.githubactions }
-      ],
-      links: [{ href: 'https://github.com/williamalmeidadev/deepfake-detection-research', label: 'GitHub', primary: true }]
-    },
-    {
-      img: contentAssets.alphaedtech,
       title: isPt ? 'DriveConnect' : 'DriveConnect',
       description: isPt
         ? 'Plataforma de aluguel de carros que integra um agente de IA conversacional no WhatsApp com backend estruturado e app móvel para cotações rápidas e confirmações de pagamentos.'
@@ -56,6 +40,20 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
       links: [{ href: 'https://github.com/williamalmeidadev/barbershop-management-api', label: 'GitHub', primary: true }]
     },
     {
+      img: contentAssets.ecoacao,
+      title: isPt ? 'Projeto EcoAção' : 'EcoAção Project',
+      description: isPt
+        ? 'Projeto premiado na OBT 2025 focado em sustentabilidade e conscientização ambiental, oferecendo uma plataforma interativa para engajar a comunidade escolar em práticas ecológicas.'
+        : 'Award-winning project at OBT 2025 focused on sustainability and environmental awareness, offering an interactive platform to engage the school community in ecological practices.',
+      stack: [
+        { title: 'React', img: contentAssets.reactLogo },
+        { title: 'JavaScript', img: contentAssets.javascript },
+        { title: 'HTML', img: contentAssets.html },
+        { title: 'CSS', img: contentAssets.css }
+      ],
+      links: [{ href: 'https://projetoecoacao.vercel.app/', label: isPt ? 'Testar' : 'Live', primary: true }]
+    },
+    {
       img: contentAssets.filealchemist,
       title: 'FileAlchemist',
       description: isPt
@@ -74,18 +72,20 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
       ]
     },
     {
-      img: contentAssets.ecoacao,
-      title: isPt ? 'Projeto EcoAção' : 'EcoAção Project',
+      img: contentAssets.alphaedtech,
+      title: isPt ? 'Pesquisa de Detecção de Deepfake' : 'Deepfake Detection Research',
       description: isPt
-        ? 'Projeto premiado na OBT 2025 focado em sustentabilidade e conscientização ambiental, oferecendo uma plataforma interativa para engajar a comunidade escolar em práticas ecológicas.'
-        : 'Award-winning project at OBT 2025 focused on sustainability and environmental awareness, offering an interactive platform to engage the school community in ecological practices.',
+        ? 'Pesquisa aplicada para detecção de deepfakes utilizando técnicas de Machine Learning supervisionado, redução de dimensionalidade e modelagem preditiva de séries temporais.'
+        : 'Applied research for deepfake detection using supervised Machine Learning, dimensionality reduction techniques, and predictive modeling for time-series analysis.',
       stack: [
-        { title: 'React', img: contentAssets.reactLogo },
-        { title: 'JavaScript', img: contentAssets.javascript },
-        { title: 'HTML', img: contentAssets.html },
-        { title: 'CSS', img: contentAssets.css }
+        { title: 'Python', img: contentAssets.python },
+        { title: 'Pandas', img: contentAssets.pandas },
+        { title: 'NumPy', img: contentAssets.numpy },
+        { title: 'Streamlit', img: contentAssets.streamlit },
+        { title: 'Plotly', img: contentAssets.plotly },
+        { title: 'GitHub Actions', img: contentAssets.githubactions }
       ],
-      links: [{ href: 'https://projetoecoacao.vercel.app/', label: isPt ? 'Testar' : 'Live', primary: true }]
+      links: [{ href: 'https://github.com/williamalmeidadev/deepfake-detection-research', label: 'GitHub', primary: true }]
     }
   ] as const
 }
