@@ -5,8 +5,8 @@ describe('getContent', () => {
   it('returns localized portfolio content in Portuguese', () => {
     const content = getContent('pt-BR')
 
-    expect(content.projects[0].title).toBe('FileAlchemist')
-    expect(content.projects[0].links[1].label).toBe('Testar')
+    expect(content.projects[3].title).toBe('FileAlchemist')
+    expect(content.projects[3].links[1].label).toBe('Testar')
     expect(content.experience[1].period).toBe(
       'Controladoria e Ouvidoria Geral do Estado do Ceará | 08/2025 - 12/2025'
     )
@@ -16,7 +16,7 @@ describe('getContent', () => {
   it('returns localized portfolio content in English', () => {
     const content = getContent('en')
 
-    expect(content.projects[0].links[1].label).toBe('Live')
+    expect(content.projects[3].links[1].label).toBe('Live')
     expect(content.experience[1].period).toBe(
       'Controller and Ombudsman General Office of the State of Ceará | 08/2025 - 12/2025'
     )
