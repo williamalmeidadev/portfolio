@@ -13,6 +13,10 @@
   transform-style: preserve-3d;
   will-change: transform, opacity;
   transition: background 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .project-card:hover {
@@ -52,16 +56,65 @@
   opacity: 0.9;
 }
 
-.project-stack-icon:hover {
+.tech-tooltip-wrapper:hover .project-stack-icon {
   opacity: 1;
   transform: translateY(-1px) scale(1.06);
+}
+
+/* Tooltip Wrapper and Pseudo-elements */
+.tech-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.tech-tooltip-wrapper::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 135%;
+  left: 50%;
+  transform: translate(-50%, 6px);
+  background-color: var(--surface-strong, rgba(0, 0, 0, 0.85));
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  z-index: 10;
+}
+
+.tech-tooltip-wrapper::before {
+  content: '';
+  position: absolute;
+  bottom: 115%;
+  left: 50%;
+  transform: translate(-50%, 6px);
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--surface-strong, rgba(0, 0, 0, 0.85)) transparent transparent transparent;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 10;
+}
+
+.tech-tooltip-wrapper:hover::after,
+.tech-tooltip-wrapper:hover::before {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 .project-actions {
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-top: 15px;
+  margin-top: auto;
+  padding-top: 15px;
   flex-wrap: wrap;
 }
 
