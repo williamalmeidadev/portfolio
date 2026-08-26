@@ -19,7 +19,8 @@ import reactLogo from '../../assets/react.svg'
 import spring from '../../assets/spring.svg'
 import typescript from '../../assets/typescript.svg'
 import vite from '../../assets/vite.svg'
-import alphaedtech from '../../assets/alphaedtech.webp'
+import alphaedtech from '../../assets/galeria/alphaedtech.webp'
+import alphacuts from '../../assets/galeria/alphacuts.webp'
 import dart from '../../assets/dart.svg'
 import firebase from '../../assets/firebase.svg'
 import flutter from '../../assets/flutter.svg'
@@ -56,6 +57,7 @@ export const contentAssets = {
   typescript,
   vite,
   alphaedtech,
+  alphacuts,
   dart,
   firebase,
   flutter,
