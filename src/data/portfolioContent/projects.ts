@@ -7,8 +7,8 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
       img: contentAssets.filealchemist,
       title: 'FileAlchemist',
       description: isPt
-        ? 'Conversor de imagens 100% client-side no navegador, com processamento em lote via Web Worker, ajuste de qualidade, redimensionamento opcional e download em ZIP.'
-        : 'A 100% client-side browser image converter with batch processing via Web Worker, quality control, optional resize, and ZIP download.',
+        ? 'Conversor de imagens no navegador executado 100% client-side, com processamento em lote via Web Worker, controle de qualidade, redimensionamento opcional e download em arquivo ZIP.'
+        : 'Browser image converter running 100% client-side, featuring batch processing via Web Worker, quality controls, optional resizing, and compressed download in a ZIP file.',
       stack: [
         { title: 'Vite', img: contentAssets.vite },
         { title: 'React', img: contentAssets.reactLogo },
@@ -25,8 +25,8 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
       img: contentAssets.ecoacao,
       title: isPt ? 'Projeto EcoAção' : 'EcoAção Project',
       description: isPt
-        ? 'Projeto premiado na OBT 2025, focado em sustentabilidade e conscientização ambiental.'
-        : 'Award-winning project at OBT 2025, focused on sustainability and environmental awareness.',
+        ? 'Projeto premiado na OBT 2025 focado em sustentabilidade e conscientização ambiental, oferecendo uma plataforma interativa para engajar a comunidade escolar em práticas ecológicas.'
+        : 'Award-winning project at OBT 2025 focused on sustainability and environmental awareness, offering an interactive platform to engage the school community in ecological practices.',
       stack: [
         { title: 'React', img: contentAssets.reactLogo },
         { title: 'JavaScript', img: contentAssets.javascript },
@@ -39,8 +39,8 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
       img: contentAssets.alphaedtech,
       title: isPt ? 'DriveConnect' : 'DriveConnect',
       description: isPt
-        ? 'O DriveConnect é uma plataforma moderna e inteligente de gestão de aluguel de veículos projetada para otimizar operações e melhorar a experiência do cliente. Ao integrar um Agente de IA conversacional baseado no WhatsApp com um sistema de back-end robusto e estruturado e aplicativos móveis dedicados, ele garante despacho de veículos em tempo real, cotações rápidas e confirmação instantânea de pagamento seguro.'
-        : 'DriveConnect is a modern, intelligent vehicle rental management platform designed to streamline operations and elevate customer experience. By integrating a WhatsApp-based conversational AI Agent with a robust, structured backend system and dedicated mobile applications, it ensures real-time vehicle dispatching, fast quotations, and instant secure payment confirmation.',
+        ? 'Plataforma de aluguel de carros que integra um agente de IA conversacional no WhatsApp com backend estruturado e app móvel para cotações rápidas e confirmações de pagamentos.'
+        : 'Car rental platform integrating a conversational WhatsApp AI agent with a structured backend and mobile app for fast quotations and instant secure payment confirmations.',
       stack: [
         { title: 'TypeScript', img: contentAssets.typescript },
         { title: 'Node.js', img: contentAssets.nodejs },
@@ -58,8 +58,8 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
       img: contentAssets.alphaedtech,
       title: isPt ? 'Pesquisa de Detecção de Deepfake' : 'Deepfake Detection Research',
       description: isPt
-        ? 'Projeto de pesquisa aplicada para detecção de mídias sintéticas (deepfakes) utilizando técnicas avançadas de Machine Learning supervisionado, redução de dimensionalidade e modelagem preditiva de séries temporais.'
-        : 'Applied research project for synthetic media (deepfakes) detection using advanced supervised Machine Learning techniques, dimensionality reduction, and predictive time-series modeling.',
+        ? 'Pesquisa aplicada para detecção de deepfakes utilizando técnicas de Machine Learning supervisionado, redução de dimensionalidade e modelagem preditiva de séries temporais.'
+        : 'Applied research for deepfake detection using supervised Machine Learning, dimensionality reduction techniques, and predictive modeling for time-series analysis.',
       stack: [
         { title: 'Python', img: contentAssets.python },
         { title: 'Pandas', img: contentAssets.pandas },
@@ -72,10 +72,10 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
     },
     {
       img: contentAssets.alphaedtech,
-      title: isPt ? 'AlphaCuts — Sistema de Gestão de Barbearia' : 'AlphaCuts — Barbershop Management System',
+      title: isPt ? 'AlphaCuts - Sistema de Gestão de Barbearia' : 'AlphaCuts - Barbershop Management System',
       description: isPt
-        ? 'O AlphaCuts é uma solução completa de gestão para barbearias e salões de beleza, integrando uma API REST robusta a um front-end intuitivo para otimizar o fluxo de agendamentos e fidelização de clientes.'
-        : 'AlphaCuts is a complete management solution for barbershops and beauty salons, integrating a robust REST API with an intuitive front-end to optimize the flow of scheduling and customer loyalty.',
+        ? 'Sistema completo de gestão para salões e barbearias, integrando uma API REST robusta a um front-end intuitivo para otimizar o fluxo de agendamento e a fidelização de clientes.'
+        : 'Complete management system for salons and barbershops, integrating a robust REST API with an intuitive front-end to optimize scheduling flow and boost customer loyalty.',
       stack: [
         { title: 'HTML5', img: contentAssets.html },
         { title: 'CSS3', img: contentAssets.css },
