@@ -23,7 +23,7 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
       links: [{ href: 'https://github.com/DriveConnect-alpha/DriveConnect', label: 'GitHub', primary: true }]
     },
     {
-      img: contentAssets.alphaedtech,
+      img: contentAssets.alphacuts,
       title: 'AlphaCuts',
       description: isPt
         ? 'Sistema completo de gestão para salões e barbearias, integrando uma API REST robusta a um front-end intuitivo para otimizar o fluxo de agendamento e a fidelização de clientes.'
