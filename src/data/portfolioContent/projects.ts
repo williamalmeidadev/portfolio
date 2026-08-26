@@ -4,23 +4,6 @@ import type { ProjectItem } from './types'
 export function getProjects(isPt: boolean): readonly ProjectItem[] {
   return [
     {
-      img: contentAssets.wordmint,
-      title: 'WordMint',
-      description: isPt
-        ? 'Jogo de adivinhação de palavras no navegador, inspirado nos clássicos de cinco letras, com modo offline e compartilhamento do resultado em emojis.'
-        : 'Browser word-guessing game inspired by classic five-letter puzzles, with offline play and shareable emoji results.',
-      stack: [
-        { title: 'Vite', img: contentAssets.vite },
-        { title: 'React', img: contentAssets.reactLogo },
-        { title: 'TypeScript', img: contentAssets.typescript },
-        { title: 'CSS', img: contentAssets.css }
-      ],
-      links: [
-        { href: 'https://github.com/williamalmeidadev/WordMint', label: 'GitHub', primary: false },
-        { href: 'https://williamalmeidadev.github.io/WordMint/', label: isPt ? 'Testar' : 'Live', primary: true }
-      ]
-    },
-    {
       img: contentAssets.filealchemist,
       title: 'FileAlchemist',
       description: isPt
@@ -39,27 +22,6 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
       ]
     },
     {
-      img: contentAssets.portfolioreact,
-      title: 'Portfolio React',
-      description: isPt
-        ? 'Portfolio pessoal desenvolvido com React para apresentar meus projetos e habilidades.'
-        : 'Personal portfolio built with React to showcase my projects and skills.',
-      stack: [
-        { title: 'React', img: contentAssets.reactLogo },
-        { title: 'TypeScript', img: contentAssets.typescript },
-        { title: 'Vite', img: contentAssets.vite },
-        { title: 'CSS', img: contentAssets.css }
-      ],
-      links: [
-        {
-          href: 'https://github.com/williamalmeidadev/williamalmeidadev.github.io',
-          label: 'GitHub',
-          primary: false
-        },
-        { href: 'https://williamalmeidadev.github.io/', label: isPt ? 'Testar' : 'Live', primary: true }
-      ]
-    },
-    {
       img: contentAssets.ecoacao,
       title: isPt ? 'Projeto EcoAção' : 'EcoAção Project',
       description: isPt
@@ -74,17 +36,56 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
       links: [{ href: 'https://projetoecoacao.vercel.app/', label: isPt ? 'Testar' : 'Live', primary: true }]
     },
     {
-      img: contentAssets.placas,
-      title: isPt ? 'Projeto Placas' : 'Plates Project',
+      img: contentAssets.alphaedtech,
+      title: isPt ? 'DriveConnect' : 'DriveConnect',
       description: isPt
-        ? 'Site para divulgar venda de placas personalizadas em acrílico, funcionando como catálogo.'
-        : 'Website to showcase custom acrylic plates, working as a product catalog.',
+        ? 'O DriveConnect é uma plataforma moderna e inteligente de gestão de aluguel de veículos projetada para otimizar operações e melhorar a experiência do cliente. Ao integrar um Agente de IA conversacional baseado no WhatsApp com um sistema de back-end robusto e estruturado e aplicativos móveis dedicados, ele garante despacho de veículos em tempo real, cotações rápidas e confirmação instantânea de pagamento seguro.'
+        : 'DriveConnect is a modern, intelligent vehicle rental management platform designed to streamline operations and elevate customer experience. By integrating a WhatsApp-based conversational AI Agent with a robust, structured backend system and dedicated mobile applications, it ensures real-time vehicle dispatching, fast quotations, and instant secure payment confirmation.',
       stack: [
-        { title: 'HTML', img: contentAssets.html },
-        { title: 'CSS', img: contentAssets.css },
-        { title: 'JavaScript', img: contentAssets.javascript }
+        { title: 'TypeScript', img: contentAssets.typescript },
+        { title: 'Node.js', img: contentAssets.nodejs },
+        { title: 'PostgreSQL', img: contentAssets.postgresql },
+        { title: 'Flutter', img: contentAssets.flutter },
+        { title: 'Dart', img: contentAssets.dart },
+        { title: 'OpenAI', img: contentAssets.openai },
+        { title: 'Jest', img: contentAssets.jest },
+        { title: 'Firebase', img: contentAssets.firebase },
+        { title: 'Zod', img: contentAssets.zod }
       ],
-      links: [{ href: 'https://siteplacas.vercel.app/', label: isPt ? 'Testar' : 'Live', primary: true }]
+      links: [{ href: 'https://github.com/DriveConnect-alpha/DriveConnect', label: 'GitHub', primary: true }]
+    },
+    {
+      img: contentAssets.alphaedtech,
+      title: isPt ? 'Pesquisa de Detecção de Deepfake' : 'Deepfake Detection Research',
+      description: isPt
+        ? 'Projeto de pesquisa aplicada para detecção de mídias sintéticas (deepfakes) utilizando técnicas avançadas de Machine Learning supervisionado, redução de dimensionalidade e modelagem preditiva de séries temporais.'
+        : 'Applied research project for synthetic media (deepfakes) detection using advanced supervised Machine Learning techniques, dimensionality reduction, and predictive time-series modeling.',
+      stack: [
+        { title: 'Python', img: contentAssets.python },
+        { title: 'Pandas', img: contentAssets.pandas },
+        { title: 'NumPy', img: contentAssets.numpy },
+        { title: 'Streamlit', img: contentAssets.streamlit },
+        { title: 'Plotly', img: contentAssets.plotly },
+        { title: 'GitHub Actions', img: contentAssets.githubactions }
+      ],
+      links: [{ href: 'https://github.com/williamalmeidadev/deepfake-detection-research', label: 'GitHub', primary: true }]
+    },
+    {
+      img: contentAssets.alphaedtech,
+      title: isPt ? 'AlphaCuts — Sistema de Gestão de Barbearia' : 'AlphaCuts — Barbershop Management System',
+      description: isPt
+        ? 'O AlphaCuts é uma solução completa de gestão para barbearias e salões de beleza, integrando uma API REST robusta a um front-end intuitivo para otimizar o fluxo de agendamentos e fidelização de clientes.'
+        : 'AlphaCuts is a complete management solution for barbershops and beauty salons, integrating a robust REST API with an intuitive front-end to optimize the flow of scheduling and customer loyalty.',
+      stack: [
+        { title: 'HTML5', img: contentAssets.html },
+        { title: 'CSS3', img: contentAssets.css },
+        { title: 'JavaScript', img: contentAssets.javascript },
+        { title: 'NodeJS', img: contentAssets.nodejs },
+        { title: 'TypeScript', img: contentAssets.typescript },
+        { title: 'Express.js', img: contentAssets.express },
+        { title: 'Mocha', img: contentAssets.mocha }
+      ],
+      links: [{ href: 'https://github.com/williamalmeidadev/barbershop-management-api', label: 'GitHub', primary: true }]
     }
   ] as const
 }
