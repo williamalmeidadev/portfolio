@@ -4,7 +4,7 @@ import type { ProjectItem } from './types'
 export function getProjects(isPt: boolean): readonly ProjectItem[] {
   return [
     {
-      img: contentAssets.alphaedtech,
+      img: contentAssets.driveconnect,
       title: isPt ? 'DriveConnect' : 'DriveConnect',
       description: isPt
         ? 'Plataforma de aluguel de carros que integra um agente de IA conversacional no WhatsApp com backend estruturado e app móvel para cotações rápidas e confirmações de pagamentos.'
@@ -72,7 +72,7 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
       ]
     },
     {
-      img: contentAssets.alphaedtech,
+      img: contentAssets.deepfake,
       title: isPt ? 'Pesquisa de Detecção de Deepfake' : 'Deepfake Detection Research',
       description: isPt
         ? 'Pesquisa aplicada para detecção de deepfakes utilizando técnicas de Machine Learning supervisionado, redução de dimensionalidade e modelagem preditiva de séries temporais.'
