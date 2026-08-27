@@ -123,6 +123,7 @@
 .embla__slide {
   flex: 0 0 auto;
   padding: 6px calc(var(--carousel-gap, 24px) / 2);
+  display: flex;
 }
 
 
