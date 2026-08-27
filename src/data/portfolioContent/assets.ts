@@ -21,6 +21,8 @@ import typescript from '../../assets/typescript.svg'
 import vite from '../../assets/vite.svg'
 import alphaedtech from '../../assets/galeria/alphaedtech.webp'
 import alphacuts from '../../assets/galeria/alphacuts.webp'
+import deepfake from '../../assets/galeria/deepfake.webp'
+import driveconnect from '../../assets/galeria/driveconnect.webp'
 import dart from '../../assets/dart.svg'
 import firebase from '../../assets/firebase.svg'
 import flutter from '../../assets/flutter.svg'
@@ -58,6 +60,8 @@ export const contentAssets = {
   vite,
   alphaedtech,
   alphacuts,
+  deepfake,
+  driveconnect,
   dart,
   firebase,
   flutter,
