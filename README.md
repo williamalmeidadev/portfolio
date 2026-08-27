@@ -1,4 +1,4 @@
-# William Almeida | Online Portfolio
+# My Personal Portfolio
 
 <p align="center">
   <a href="https://williamalmeida.dev" target="_blank">
@@ -28,7 +28,7 @@
 
 ## Overview
 
-Personal portfolio of **William Almeida**, a full stack developer. The site presents my background, skills, projects, certifications, and contact channels. It features a modern, responsive, and interactive design, with a canvas background (particles and meteors), smooth animations, and polished UI details.
+This is my personal portfolio website, where I showcase my projects, skills, certifications, and professional background. It features a modern, responsive, and interactive design with a custom canvas background (particles and meteors), smooth animations, and polished UI details.
 
 The current version is built with **React + Vite + TypeScript**, focusing on accessibility, performance, and user experience.
 
