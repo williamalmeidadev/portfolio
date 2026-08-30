@@ -18,7 +18,8 @@ const Tecnologias: React.FC = () => {
     Vite: "vite",
     Java: "java",
     PostgreSQL: "postgres",
-    Spring: "spring"
+    Spring: "spring",
+    Docker: "docker"
   };
 
   return (
@@ -30,7 +31,7 @@ const Tecnologias: React.FC = () => {
           <h3>{technologies[index].title}</h3>
           <p>{technologies[index].description}</p>
         </div>
-        <div className="tech-web tech-orbit" aria-label={strings.technologies.title} role="list">
+        <div className="tech-web tech-orbit" aria-label={strings.technologies.title}>
           <div className="orbit-ring orbit-ring-one" aria-hidden="true" />
           <div className="orbit-ring orbit-ring-two" aria-hidden="true" />
           <div className="orbit-ring orbit-ring-three" aria-hidden="true" />
@@ -46,7 +47,6 @@ const Tecnologias: React.FC = () => {
                 onClick={() => setIndex(i)}
                 aria-pressed={i === index}
                 aria-label={tech.title}
-                role="listitem"
                 data-tech={techIdMap[tech.title] ?? tech.title.toLowerCase()}
               >
                 <img src={tech.img} alt={tech.title} loading="lazy" decoding="async" />

@@ -86,6 +86,13 @@ export function getTechnologies(isPt: boolean): readonly TechnologyItem[] {
         ? 'Spring Framework é utilizado para construção de APIs REST seguras e organizadas no ecossistema Java.'
         : 'Spring Framework is used to build secure, organized REST APIs in the Java ecosystem.',
       img: contentAssets.spring
+    },
+    {
+      title: 'Docker',
+      description: isPt
+        ? 'Utilizo Docker para containerizar aplicações, garantindo consistência entre ambientes de desenvolvimento e produção.'
+        : 'I use Docker to containerize applications, ensuring consistency between development and production environments.',
+      img: contentAssets.docker
     }
   ] as const
 }
