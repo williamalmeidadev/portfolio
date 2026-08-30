@@ -5,23 +5,33 @@
 .project-card {
   padding: 25px;
   border-radius: 14px;
-  border: 1px solid var(--border);
-  background: var(--surface);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%), rgba(22, 22, 23, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(30px) saturate(210%);
+  -webkit-backdrop-filter: blur(30px) saturate(210%);
   text-align: center;
   flex: 0 0 auto;
   width: clamp(260px, 80vw, 520px);
   transform-style: preserve-3d;
   will-change: transform, opacity;
-  transition: background 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.25), 
+    inset 0 1.5px 0 0 rgba(255, 255, 255, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
   height: 100%;
   box-sizing: border-box;
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .project-card:hover {
-  box-shadow: 0 4px 14px 0 rgba(180, 80, 255, 0.1),
-    0 2px 8px 0 rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%), rgba(22, 22, 23, 0.16);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.35), 
+    inset 0 1.5px 0 0 rgba(255, 255, 255, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .project-cover {
@@ -142,7 +152,24 @@
   filter: brightness(1.05);
 }
 
+:root[data-theme='light'] .project-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.1) 100%), rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(30px) saturate(210%);
+  -webkit-backdrop-filter: blur(30px) saturate(210%);
+  box-shadow: 
+    0 8px 32px rgba(18, 22, 33, 0.05), 
+    0 0 0 1px rgba(0, 0, 0, 0.04), 
+    inset 0 1.5px 0 0 rgba(255, 255, 255, 0.75),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
 :root[data-theme='light'] .project-card:hover {
-  box-shadow: 0 6px 14px rgba(36, 20, 60, 0.08),
-    0 2px 8px rgba(120, 70, 200, 0.09);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 100%), rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 
+    0 12px 40px rgba(18, 22, 33, 0.08), 
+    0 0 0 1px rgba(0, 0, 0, 0.04), 
+    inset 0 1.5px 0 0 rgba(255, 255, 255, 0.85),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
 }
