@@ -19,6 +19,7 @@ import reactLogo from '../../assets/react.svg'
 import spring from '../../assets/spring.svg'
 import typescript from '../../assets/typescript.svg'
 import vite from '../../assets/vite.svg'
+import docker from '../../assets/docker.svg'
 import alphaedtech from '../../assets/galeria/alphaedtech.webp'
 import alphacuts from '../../assets/galeria/alphacuts.webp'
 import deepfake from '../../assets/galeria/deepfake.webp'
@@ -73,5 +74,6 @@ export const contentAssets = {
   pandas,
   plotly,
   streamlit,
+  docker,
   zod
 } as const

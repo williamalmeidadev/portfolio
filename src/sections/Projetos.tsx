@@ -100,6 +100,7 @@ const Projetos: React.FC = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className={link.primary ? "btn-primary" : "btn-outline"}
+                            aria-label={`${link.label} - ${proj.title}`}
                           >
                             {link.label}
                           </a>

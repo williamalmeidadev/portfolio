@@ -23,9 +23,9 @@ export function useNavUnderline(
       const linksRect = links.getBoundingClientRect()
       const linkRect = active.getBoundingClientRect()
       const left = linkRect.left - linksRect.left
-      const lineWidth = Math.round(linkRect.width * 0.7)
+      const lineWidth = Math.round(linkRect.width)
       underline.style.width = `${lineWidth}px`
-      underline.style.transform = `translateX(${left + (linkRect.width - lineWidth) / 2}px)`
+      underline.style.transform = `translateX(${left}px)`
       underline.style.opacity = '1'
     }
 
