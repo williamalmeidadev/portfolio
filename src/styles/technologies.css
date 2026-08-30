@@ -216,6 +216,7 @@
 .tech-nodes .tech-node[data-tech="java"] { --radius: var(--orbit-3); --angle: 120deg; }
 .tech-nodes .tech-node[data-tech="postgres"] { --radius: var(--orbit-3); --angle: 220deg; }
 .tech-nodes .tech-node[data-tech="spring"] { --radius: var(--orbit-3); --angle: 245deg; }
+.tech-nodes .tech-node[data-tech="docker"] { --radius: var(--orbit-3); --angle: 70deg; }
 
 .tech-layout {
   display: grid;
