@@ -8,8 +8,8 @@ export function getExperience(isPt: boolean): readonly ExperienceItem[] {
         : 'Alpha EdTech - Developer Training',
       period: 'Code Academy | 2025 - 2026',
       description: isPt
-        ? 'Formação intensiva em desenvolvimento de software, infraestrutura e Inteligência Artificial, abrangendo redes, Linux, servidores, Git, APIs, bancos de dados, Python, análise de dados, Machine Learning e IA. Principais temas: Linux, SSH, Shell, Redes, DNS, Git, GitHub, Node.js, APIs REST, PostgreSQL, Python e Machine Learning.'
-        : 'Intensive training in software development, infrastructure, and Artificial Intelligence, covering networking, Linux, servers, Git, APIs, databases, Python, data analysis, Machine Learning, and AI. Main topics: Linux, SSH, Shell, networking, DNS, Git, GitHub, Node.js, REST APIs, PostgreSQL, Python, and Machine Learning.'
+        ? 'Formação intensiva focada em desenvolvimento de software de alta performance, infraestrutura moderna e Inteligência Artificial.\n\n• Desenvolvimento Full Stack: Criação de serviços escaláveis e APIs REST com Node.js, TypeScript e PostgreSQL.\n• Infraestrutura & DevOps: Administração Linux, servidores via SSH, shell script, redes, DNS e versionamento com Git/GitHub.\n• IA & Análise de Dados: Pré-processamento de datasets, modelagem com Machine Learning supervisionado e pipelines em Python.'
+        : 'Intensive training program focused on high-performance software engineering, modern infrastructure, and Artificial Intelligence.\n\n• Full Stack Development: Engineering scalable services and REST APIs using Node.js, TypeScript, and PostgreSQL.\n• Infrastructure & DevOps: Linux administration, server management via SSH, shell scripting, DNS/networking, and Git/GitHub.\n• AI & Data Science: Data preprocessing, supervised Machine Learning modeling, and automated pipelines with Python.'
     },
     {
       title: isPt
@@ -19,8 +19,8 @@ export function getExperience(isPt: boolean): readonly ExperienceItem[] {
         ? 'Controladoria e Ouvidoria Geral do Estado do Ceará | 08/2025 - 12/2025'
         : 'Controller and Ombudsman General Office of the State of Ceará | 08/2025 - 12/2025',
       description: isPt
-        ? 'Desenvolvimento e manutenção de sistemas web internos, com implementação de funcionalidades, correções de bugs e melhorias em aplicações existentes. Desenvolvimento e integração de APIs REST, autenticação JWT e documentação de serviços com Swagger/OpenAPI. Atuação em frontend e backend, utilizando Git/GitHub, revisão de código e práticas de desenvolvimento colaborativo. Tecnologias: Java 17, Spring Boot, Maven, Angular, TypeScript, PostgreSQL, Docker, Git, GitHub, Swagger/OpenAPI e JWT.'
-        : 'Development and maintenance of internal web systems, including feature implementation, bug fixes, and improvements to existing applications. Development and integration of REST APIs, JWT authentication, and service documentation with Swagger/OpenAPI. Work across frontend and backend, using Git/GitHub, code review, and collaborative development practices. Technologies: Java 17, Spring Boot, Maven, Angular, TypeScript, PostgreSQL, Docker, Git, GitHub, Swagger/OpenAPI, and JWT.'
+        ? 'Desenvolvimento e sustentação de sistemas web governamentais de missão crítica para auditoria e controle social.\n\n• Engenharia Full Stack: Implementação e evolução de aplicações corporativas com Java 17 / Spring Boot no backend e Angular com TypeScript no frontend.\n• APIs & Segurança: Desenvolvimento e integração de APIs RESTful seguras, autenticação JWT e documentação técnica com Swagger/OpenAPI.\n• Qualidade & Entrega: Resolução de bugs críticos, otimização de queries em PostgreSQL, conteinerização com Docker e fluxo colaborativo de code review via Git/GitHub.'
+        : 'Development and maintenance of mission-critical governmental web systems for auditing and public oversight.\n\n• Full Stack Engineering: Developing and evolving enterprise applications using Java 17 / Spring Boot on the backend and Angular with TypeScript on the frontend.\n• APIs & Security: Architecting secure RESTful APIs, JWT authentication, and standardized Swagger/OpenAPI documentation.\n• Quality & Delivery: Resolving high-priority bugs, optimizing PostgreSQL queries, Docker containerization, and collaborative Git/GitHub code reviews.'
     }
   ] as const
 }

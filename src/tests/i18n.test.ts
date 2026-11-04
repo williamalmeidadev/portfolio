@@ -6,6 +6,7 @@ describe('getStrings', () => {
     const strings = getStrings('pt-BR')
 
     expect(strings.nav.home).toBe('Início')
+    expect(strings.hero.eyebrow).toBe('Desenvolvedor Full Stack & AI Engineer')
     expect(strings.hero.ctaProjects).toBe('Ver projetos')
     expect(strings.projects.liveLabel).toBe('Testar')
   })
@@ -14,6 +15,7 @@ describe('getStrings', () => {
     const strings = getStrings('en')
 
     expect(strings.nav.home).toBe('Home')
+    expect(strings.hero.eyebrow).toBe('Full Stack Developer & AI Engineer')
     expect(strings.hero.ctaProjects).toBe('View projects')
     expect(strings.projects.liveLabel).toBe('Live')
   })

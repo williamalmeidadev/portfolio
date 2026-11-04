@@ -7,8 +7,8 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
       img: contentAssets.driveconnect,
       title: isPt ? 'DriveConnect' : 'DriveConnect',
       description: isPt
-        ? 'Plataforma de aluguel de carros que integra um agente de IA conversacional no WhatsApp com backend estruturado e app móvel para cotações rápidas e confirmações de pagamentos.'
-        : 'Car rental platform integrating a conversational WhatsApp AI agent with a structured backend and mobile app for fast quotations and instant secure payment confirmations.',
+        ? 'Plataforma de locação de veículos com agente de IA conversacional no WhatsApp para atendimento 24/7, automação completa de cotações em tempo real e liquidação de pagamentos instantâneos integrada a um backend robusto em TypeScript/Node.js e app Flutter.'
+        : 'Car rental platform powered by a conversational WhatsApp AI agent for 24/7 self-service, end-to-end automated real-time quoting, and instant payment settlement backed by a robust TypeScript/Node.js backend and Flutter mobile app.',
       stack: [
         { title: 'TypeScript', img: contentAssets.typescript },
         { title: 'Node.js', img: contentAssets.nodejs },
@@ -26,8 +26,8 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
       img: contentAssets.alphacuts,
       title: 'AlphaCuts',
       description: isPt
-        ? 'Sistema completo de gestão para salões e barbearias, integrando uma API REST robusta a um front-end intuitivo para otimizar o fluxo de agendamento e a fidelização de clientes.'
-        : 'Complete management system for salons and barbershops, integrating a robust REST API with an intuitive front-end to optimize scheduling flow and boost customer loyalty.',
+        ? 'Sistema completo de gestão para salões e barbearias, desenvolvido com uma API REST escalável em TypeScript/Node.js e interface moderna e responsiva. Centraliza agendamentos em tempo real, controle financeiro e retenção de clientes.'
+        : 'Full-featured barbershop and salon management platform powered by a scalable TypeScript and Node.js REST API and a responsive modern interface, streamlining real-time appointments, financial control, and client retention.',
       stack: [
         { title: 'HTML5', img: contentAssets.html },
         { title: 'CSS3', img: contentAssets.css },
@@ -43,8 +43,8 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
       img: contentAssets.ecoacao,
       title: isPt ? 'Projeto EcoAção' : 'EcoAção Project',
       description: isPt
-        ? 'Projeto premiado na OBT 2025 focado em sustentabilidade e conscientização ambiental, oferecendo uma plataforma interativa para engajar a comunidade escolar em práticas ecológicas.'
-        : 'Award-winning project at OBT 2025 focused on sustainability and environmental awareness, offering an interactive platform to engage the school community in ecological practices.',
+        ? 'Projeto premiado na OBT 2025 focado em sustentabilidade e conscientização ambiental. Plataforma interativa com gamificação e métricas de impacto comunitário para mobilizar escolas e cidadãos na separação e destinação correta de resíduos.'
+        : 'Award-winning project at OBT 2025 promoting sustainability and environmental awareness. An interactive platform featuring gamification and community impact metrics to mobilize schools and citizens in waste sorting and eco-friendly practices.',
       stack: [
         { title: 'React', img: contentAssets.reactLogo },
         { title: 'JavaScript', img: contentAssets.javascript },
@@ -57,8 +57,8 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
       img: contentAssets.filealchemist,
       title: 'FileAlchemist',
       description: isPt
-        ? 'Conversor de imagens no navegador executado 100% client-side, com processamento em lote via Web Worker, controle de qualidade, redimensionamento opcional e download em arquivo ZIP.'
-        : 'Browser image converter running 100% client-side, featuring batch processing via Web Worker, quality controls, optional resizing, and compressed download in a ZIP file.',
+        ? 'Conversor e otimizador de imagens com processamento em lote 100% client-side via Web Workers multithread. Proporciona máxima velocidade e total privacidade com zero envio de arquivos ao servidor, além de controle fino de compressão, redimensionamento e exportação em ZIP.'
+        : 'Image converter and optimizer featuring 100% client-side batch processing via multithreaded Web Workers. Delivers maximum processing speed and complete privacy with zero server uploads, offering fine-grained compression control, resizing, and ZIP packaging.',
       stack: [
         { title: 'Vite', img: contentAssets.vite },
         { title: 'React', img: contentAssets.reactLogo },
@@ -75,8 +75,8 @@ export function getProjects(isPt: boolean): readonly ProjectItem[] {
       img: contentAssets.deepfake,
       title: isPt ? 'Pesquisa de Detecção de Deepfake' : 'Deepfake Detection Research',
       description: isPt
-        ? 'Pesquisa aplicada para detecção de deepfakes utilizando técnicas de Machine Learning supervisionado, redução de dimensionalidade e modelagem preditiva de séries temporais.'
-        : 'Applied research for deepfake detection using supervised Machine Learning, dimensionality reduction techniques, and predictive modeling for time-series analysis.',
+        ? 'Pesquisa científica aplicada para detecção de deepfakes faciais, integrando modelos de Machine Learning supervisionado, análise exploratória com redução de dimensionalidade, visualizações interativas em Streamlit e pipeline automatizado de CI via GitHub Actions.'
+        : 'Applied scientific research for facial deepfake detection, combining supervised Machine Learning models, dimensionality reduction techniques, interactive data visualizations built with Streamlit, and automated CI pipelines with GitHub Actions.',
       stack: [
         { title: 'Python', img: contentAssets.python },
         { title: 'Pandas', img: contentAssets.pandas },
