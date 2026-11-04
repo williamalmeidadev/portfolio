@@ -17,10 +17,10 @@ const strings = {
       contact: 'Contato'
     },
     hero: {
-      eyebrow: 'Desenvolvedor Full Stack',
+      eyebrow: 'Desenvolvedor Full Stack & AI Engineer',
       title: 'William Almeida',
       description:
-        'Construo interfaces modernas, sistemas eficientes e soluções reais usando tecnologia de forma prática e objetiva.',
+        'Construo aplicações web modernas, arquiteturas escaláveis e soluções inteligentes com IA de forma prática, eficiente e orientada a resultados.',
       photoAlt: 'Foto de William Almeida',
       ctaProjects: 'Ver projetos',
       ctaAbout: 'Minha trajetória'
@@ -78,10 +78,10 @@ const strings = {
       contact: 'Contact'
     },
     hero: {
-      eyebrow: 'Full Stack Developer',
+      eyebrow: 'Full Stack Developer & AI Engineer',
       title: 'William Almeida',
       description:
-        'I build modern interfaces, efficient systems, and real solutions using technology in a practical, objective way.',
+        'I build modern web applications, scalable architectures, and intelligent AI solutions in a practical, efficient, and results-oriented way.',
       photoAlt: 'Photo of William Almeida',
       ctaProjects: 'View projects',
       ctaAbout: 'My journey'

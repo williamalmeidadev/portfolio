@@ -19,16 +19,19 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:url" content="https://williamalmeida.dev/" />
-    <meta property="og:image" content="https://williamalmeida.dev/og-image.webp" />
-    <meta property="og:image:alt" content="Foto de William Almeida" />
+    <meta property="og:image" content="https://williamalmeida.dev/og-banner.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="William Almeida - Desenvolvedor Full Stack &amp; AI Engineer" />
     <meta property="og:site_name" content="William Almeida Portfolio" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="William Almeida | Portfólio" />
     <meta
       name="twitter:description"
       content="Projetos, experiência, tecnologias, certificados e contato em um único portfólio."
     />
-    <meta name="twitter:image" content="https://williamalmeida.dev/og-image.webp" />
+    <meta name="twitter:image" content="https://williamalmeida.dev/og-banner.png" />
     <meta name="theme-color" content="#050414" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32" />
@@ -39,25 +42,100 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap&subset=latin"
       rel="stylesheet"
     />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "William Almeida",
-        "url": "https://williamalmeida.dev/",
-        "image": "https://williamalmeida.dev/og-image.webp",
-        "jobTitle": "Desenvolvedor Full Stack",
-        "sameAs": [
-          "https://github.com/williamalmeidadev",
-          "https://linkedin.com/in/williamalmeida0"
+        "@graph": [
+          {
+            "@type": "ProfilePage",
+            "@id": "https://williamalmeida.dev/#profilepage",
+            "url": "https://williamalmeida.dev/",
+            "name": "William Almeida | Portfólio",
+            "description": "Portfólio de William Almeida com projetos, experiência, tecnologias, certificados e formas de contato.",
+            "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://williamalmeida.dev/#website",
+              "name": "William Almeida Portfolio",
+              "url": "https://williamalmeida.dev/"
+            },
+            "mainEntity": {
+              "@id": "https://williamalmeida.dev/#person"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://williamalmeida.dev/#person",
+            "name": "William Almeida",
+            "url": "https://williamalmeida.dev/",
+            "image": "https://williamalmeida.dev/og-banner.png",
+            "jobTitle": "Desenvolvedor Full Stack & AI Engineer",
+            "sameAs": [
+              "https://github.com/williamalmeidadev",
+              "https://linkedin.com/in/williamalmeida0"
+            ],
+            "knowsAbout": [
+              "TypeScript",
+              "Node.js",
+              "React",
+              "Java",
+              "Spring Boot",
+              "Python",
+              "Machine Learning",
+              "PostgreSQL",
+              "Docker"
+            ],
+            "award": [
+              "Medalha de Prata - Olimpíada Brasileira de Tecnologia (OBT 2025)",
+              "Medalha de Bronze - Maratona Tech 2025"
+            ]
+          }
         ]
       }
     </script>
   </head>
   <body>
+    <noscript>
+      <header>
+        <h1>William Almeida</h1>
+        <p>Desenvolvedor Full Stack &amp; AI Engineer | Focado em soluções modernas, escaláveis e inteligentes com TypeScript, Node.js, React, Java, Spring Boot e Python.</p>
+      </header>
+      <main>
+        <section>
+          <h2>Sobre</h2>
+          <p>
+            Desenvolvedor focado em tecnologia, inovação e resolução de problemas complexos através de desenvolvimento web full stack e IA.
+          </p>
+        </section>
+        <section>
+          <h2>Projetos Principais</h2>
+          <ul>
+            <li>
+              <strong>DriveConnect:</strong> Plataforma de aluguel de carros que integra um agente de IA conversacional no WhatsApp com backend estruturado e app móvel.
+              <a href="https://github.com/DriveConnect-alpha/DriveConnect">Repositório no GitHub</a>
+            </li>
+            <li>
+              <strong>AlphaCuts:</strong> Sistema completo de gestão para salões e barbearias, integrando uma API REST robusta a um front-end intuitivo.
+              <a href="https://github.com/williamalmeidadev/barbershop-management-api">Repositório no GitHub</a>
+            </li>
+            <li>
+              <strong>Projeto EcoAção:</strong> Plataforma interativa para engajar a comunidade escolar em sustentabilidade e conscientização ambiental (premiado na OBT 2025).
+              <a href="https://github.com/williamalmeidadev/ecoacao">Repositório no GitHub</a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Contato</h2>
+          <ul>
+            <li>GitHub: <a href="https://github.com/williamalmeidadev">github.com/williamalmeidadev</a></li>
+            <li>LinkedIn: <a href="https://linkedin.com/in/williamalmeida0">linkedin.com/in/williamalmeida0</a></li>
+            <li>Email: <a href="mailto:williamalmeida1337@gmail.com">williamalmeida1337@gmail.com</a></li>
+          </ul>
+        </section>
+      </main>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

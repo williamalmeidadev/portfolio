@@ -46,6 +46,8 @@ export const CanvasBG: React.FC = () => {
     let particleColor = '255, 255, 255';
     let particleOpacity = 1;
     let themeObserver: MutationObserver | null = null;
+    let intersectionObserver: IntersectionObserver | null = null;
+    let isIntersecting = true;
     let isPaused = false;
     let lastRenderedAt = 0;
 
@@ -194,7 +196,10 @@ export const CanvasBG: React.FC = () => {
     }
 
     function loop(time: number) {
-      if (isPaused) return;
+      if (isPaused) {
+        rafId = 0;
+        return;
+      }
       if (targetFps < 60) {
         const minInterval = 1000 / targetFps;
         if (time - lastRenderedAt < minInterval) {
@@ -217,30 +222,60 @@ export const CanvasBG: React.FC = () => {
       attributes: true,
       attributeFilter: ['data-theme']
     });
-    const handleVisibility = () => {
-      if (document.hidden) {
-        isPaused = true;
-        if (rafId) cancelAnimationFrame(rafId);
+
+    const updatePauseState = () => {
+      const shouldPause = document.hidden || !isIntersecting;
+      if (shouldPause) {
+        if (!isPaused) {
+          isPaused = true;
+          if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = 0;
+          }
+        }
       } else {
-        isPaused = false;
-        lastTime = 0;
-        lastRenderedAt = 0;
-        if (canAnimate) rafId = requestAnimationFrame(loop);
-        else renderFrame(performance.now());
+        if (isPaused) {
+          isPaused = false;
+          lastTime = 0;
+          lastRenderedAt = 0;
+          if (canAnimate) {
+            if (!rafId) rafId = requestAnimationFrame(loop);
+          } else {
+            renderFrame(performance.now());
+          }
+        }
       }
+    };
+
+    const handleVisibility = () => {
+      updatePauseState();
     };
 
     document.addEventListener('visibilitychange', handleVisibility);
 
-    if (canAnimate) {
+    if (typeof IntersectionObserver !== 'undefined') {
+      intersectionObserver = new IntersectionObserver((entries) => {
+        const entry = entries[0];
+        if (entry) {
+          isIntersecting = entry.isIntersecting;
+          updatePauseState();
+        }
+      });
+      intersectionObserver.observe(canvas);
+    }
+
+    if (canAnimate && !document.hidden && isIntersecting) {
       rafId = requestAnimationFrame(loop);
     } else {
+      isPaused = true;
       renderFrame(performance.now());
     }
+
     return () => {
       window.removeEventListener('resize', resize);
       document.removeEventListener('visibilitychange', handleVisibility);
       if (themeObserver) themeObserver.disconnect();
+      if (intersectionObserver) intersectionObserver.disconnect();
       if (resizeRaf) cancelAnimationFrame(resizeRaf);
       if (rafId) cancelAnimationFrame(rafId);
     };

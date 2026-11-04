@@ -51,4 +51,5 @@
 .timeline-content p {
   color: var(--muted);
   line-height: 1.6;
+  white-space: pre-line;
 }
